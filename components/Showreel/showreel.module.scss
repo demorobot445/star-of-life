@@ -1,0 +1,102 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 600px;
+  h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 15.625rem;
+    line-height: 20.625rem;
+    font-weight: 400;
+    margin-inline: auto;
+    max-width: 1260px;
+    @include xxl {
+      max-width: 1560px;
+      font-size: 21.875rem;
+      line-height: 26.875rem;
+    }
+  }
+}
+
+.pathThree {
+  position: absolute;
+  top: -47%;
+  left: -19%;
+  svg {
+    height: 41.708vw;
+    width: 46.208vw;
+  }
+}
+
+.pathFour {
+  position: absolute;
+  top: -9%;
+  left: -10%;
+  svg {
+    width: 20.503vw;
+    height: 16.491vw;
+  }
+}
+
+.pathSix {
+  position: absolute;
+  top: -35%;
+  right: -10%;
+  svg {
+    width: 51.754vw;
+    height: 9.09vw;
+  }
+}
+
+.pathSeven {
+  position: absolute;
+  top: -30%;
+  left: 0%;
+  svg {
+    width: 55vw;
+    height: 30vw;
+  }
+}
+
+.pathEight {
+  position: absolute;
+  top: -5%;
+  right: -2%;
+  svg {
+    width: 6.939vw;
+    height: 51.356vw;
+  }
+}
+
+.pathNine {
+  position: absolute;
+  z-index: 3;
+  top: 20%;
+  left: -25%;
+  svg {
+    height: 25vw;
+    width: 37.426vw;
+  }
+}
+
+.pathTen {
+  position: absolute;
+  bottom: 0%;
+  left: -8%;
+  svg {
+    width: 30vw;
+    height: 28vw;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}

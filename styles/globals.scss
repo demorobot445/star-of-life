@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-text: #2e2e2e;
+  --bg-one: #f6f2e9;
+  --bg-two: #ebebeb;
+  --bg-three: #faf2fe;
+  --bg-four: #eafcf8;
+  --power4: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+body {
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  color: var(--primary-text);
+  background-color: var(--bg-one);
+}
+
+button,
+li,
+a {
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  color: var(--primary-text);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
