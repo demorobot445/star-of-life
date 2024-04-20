@@ -26,9 +26,17 @@
   }
 }
 
+.tag {
+  font-size: 3.125rem;
+  line-height: calc(3.125rem * 1.2);
+  z-index: 2;
+  transform: rotate(-90deg);
+  margin-left: -40px;
+}
+
 .pathOne {
   position: absolute;
-  top: -75%;
+  top: -780px;
   left: 72%;
   svg {
     width: 91.406vw;
@@ -38,9 +46,9 @@
 
 .pathTwo {
   position: absolute;
-  top: -25%;
+  top: -250px;
   left: -15%;
-  z-index: -1;
+  z-index: 1;
   svg {
     width: 34.844vw;
     height: 31.094vw;
@@ -49,7 +57,7 @@
 
 .pathThree {
   position: absolute;
-  top: -65%;
+  top: -630px;
   left: 80%;
   svg {
     width: 34vw;
@@ -59,8 +67,9 @@
 
 .pathFour {
   position: absolute;
-  top: -12%;
+  top: -120px;
   left: -6%;
+  z-index: 2;
   svg {
     width: 13.021vw;
     height: 12.813vw;
@@ -78,13 +87,39 @@
 
 .pathSix {
   position: absolute;
-  top: -3%;
+  top: -150px;
   left: 73%;
-  z-index: 2;
+  z-index: 4;
   svg {
     width: 20.052vw;
     height: 20.052vw;
   }
+}
+
+.counter {
+  position: absolute;
+  z-index: 2;
+  font-size: 3.5rem;
+  line-height: calc(3.5rem * 1.2);
+  right: 42vw;
+  bottom: 5%;
+  span {
+    display: inline-block;
+  }
+  @include xxl {
+    bottom: 15%;
+    font-size: 5rem;
+    line-height: calc(5rem * 1.2);
+  }
+}
+
+.img {
+  width: 40vw;
+  height: 50vw;
+  object-fit: cover;
+  z-index: 2;
+  position: absolute;
+  right: 0%;
 }
 
 .slider {
@@ -113,19 +148,13 @@
     gap: 6px;
     position: relative;
     z-index: 2;
-    margin-left: 6.615vw;
+    margin-left: -50px;
     &_dot {
       height: 32px;
       width: 32px;
       position: relative;
-      cursor: pointer;
       border: none;
       background-color: transparent;
-      &:hover {
-        &::before {
-          transform: translateX(-50%) translateY(-50%) scale(1);
-        }
-      }
       &[data-active="true"] {
         &::before {
           transform: translateX(-50%) translateY(-50%) scale(1);

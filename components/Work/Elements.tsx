@@ -22,9 +22,6 @@ const Elements = () => {
       <div className={`work-path-4 ${s.pathFour}`}>
         <WorkPathFour />
       </div>
-      <div className={`work-path-6 ${s.pathSix}`}>
-        <WorkPathSix />
-      </div>
     </>
   );
 };

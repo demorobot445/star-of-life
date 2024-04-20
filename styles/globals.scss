@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: SaolDisplay;
+  src: url("/fonts/saolDisplayLight.ttf");
+}
+
 :root {
   --primary-text: #2e2e2e;
   --bg-one: #f6f2e9;
@@ -26,6 +31,11 @@ li,
 a {
   font-family: "Plus Jakarta Sans Variable", sans-serif;
   color: var(--primary-text);
+}
+
+h1,
+h2 {
+  font-family: SaolDisplay;
 }
 
 html.lenis,

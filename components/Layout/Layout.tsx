@@ -61,7 +61,8 @@ const Layout: React.FC<Props> = ({ children }) => {
           },
           "<0.2"
         )
-        .to(document.body, { backgroundColor: "#83D398" }, "<1.2");
+        .to(".path-3 path", { fill: "#EAFCF8" }, "<0.8")
+        .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
 
       gsap
         .timeline({
@@ -126,7 +127,8 @@ const Layout: React.FC<Props> = ({ children }) => {
         })
         .from(".work-main-heading", { yPercent: 100, opacity: 0, duration: 1 })
         .to(".work-path-1", { xPercent: -25, scale: 3, duration: 2 }, "<0.2")
-        .to(document.body, { backgroundColor: "#FF9293" }, "<1.2")
+        .to(".work-path-1 path", { fill: "#FAF2FF" }, "<0.8")
+        .to(document.body, { backgroundColor: "#FAF2FF" }, "<1.2")
         .from(
           ".work-path-6",
           {
@@ -157,9 +159,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           },
         })
         .from(".work-path-5", { xPercent: -100, scale: 0 })
-        .from(".work-dot", { x: -100, opacity: 0, stagger: 0.1 }, "<0.2")
-        .from(".work-heading", { y: -20, opacity: 0 }, "<0.4")
-        .from(".work-desc", { y: 20, opacity: 0 }, "<0.2");
+        .from(".work-dot", { x: -100, opacity: 0, stagger: 0.1 }, "<0.2");
     },
     { scope: container }
   );

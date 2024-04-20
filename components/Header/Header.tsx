@@ -52,6 +52,10 @@ const Header = () => {
           { top: "50%", y: "-50%", rotate: -45, duration: 0.5 },
           "<"
         )
+        .from(".large", { opacity: 0, duration: 0.5 })
+        .to(".large", { rotate: -90, scale: 2 })
+        .to(".large-text", { xPercent: 80, duration: 3 }, "<1.5")
+        .to(".large", { opacity: 0 }, "<1")
         .from(".menu", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
         .from(".path-menu-2", { x: -500, y: 100 }, "<0.2")
@@ -95,6 +99,16 @@ const Header = () => {
 
   return (
     <div ref={container}>
+      <div className={`large ${s.large}`}>
+        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
+        <h1 className="large-text">Digital Designer Digital Designer</h1>
+        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
+        <h1 className="large-text">Digital Designer Digital Designer</h1>
+        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
+        <h1 className="large-text">Digital Designer Digital Designer</h1>
+        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
+        <h1 className="large-text">Digital Designer Digital Designer</h1>
+      </div>
       <Elements />
       <header className={s.main}>
         <div className={s.logo}>

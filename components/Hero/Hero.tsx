@@ -7,12 +7,12 @@ const Hero = () => {
       <div className={s.pathFive}>
         <PathFive />
       </div>
-      <h1>
+      <h3>
         Philippe Layani is a - and -based digital <br />
         designer who blends , technology, and <br />
         strategy to develop exceptional, -made interactive <br />
         hat connect with their audiences.
-      </h1>
+      </h3>
     </section>
   );
 };
