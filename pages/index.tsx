@@ -1,3 +1,5 @@
+import Archive from "@/components/Archive/Archive";
+import Client from "@/components/Client/Client";
 import Hero from "@/components/Hero/Hero";
 import Showreel from "@/components/Showreel/Showreel";
 import Work from "@/components/Work/Work";
@@ -15,6 +17,8 @@ export default function Home() {
       <Hero />
       <Showreel />
       <Work />
+      <Archive />
+      <Client />
       <div style={{ height: "100vh" }} />
     </>
   );

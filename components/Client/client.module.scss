@@ -1,0 +1,92 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 200px;
+  h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 15.625rem;
+    line-height: 20.625rem;
+    font-weight: 400;
+    margin-inline: auto;
+    max-width: 1260px;
+    @include xxl {
+      max-width: 1560px;
+      font-size: 21.875rem;
+      line-height: 26.875rem;
+    }
+  }
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 130px;
+  padding-inline: 40px;
+  @include xxl {
+    padding-inline: 0px;
+    gap: 180px;
+  }
+  &_logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 72px;
+  }
+  &_logo {
+    width: 220px;
+    height: 55px;
+    object-fit: contain;
+    @include xxl {
+      width: 240px;
+      height: 75px;
+    }
+  }
+  &_para {
+    position: relative;
+    p {
+      font-size: 3.25rem;
+      line-height: calc(3.25rem * 1.2);
+      font-weight: 400;
+      max-width: 700px;
+    }
+    &_hide {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.5;
+    }
+  }
+}
+
+.pathOne {
+  position: absolute;
+  top: -100px;
+  left: 0%;
+  @include xxl {
+    top: -160px;
+  }
+  svg {
+    width: 36vw;
+    height: 36vw;
+  }
+}
+
+.pathTwo {
+  position: absolute;
+  top: 210px;
+  right: -8%;
+  svg {
+    width: 28vw;
+    height: 28vw;
+  }
+}

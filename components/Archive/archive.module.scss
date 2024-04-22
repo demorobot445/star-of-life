@@ -1,0 +1,190 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 200px;
+  h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 15.625rem;
+    line-height: 20.625rem;
+    font-weight: 400;
+    margin-inline: auto;
+    max-width: 1260px;
+    @include xxl {
+      max-width: 1560px;
+      font-size: 21.875rem;
+      line-height: 26.875rem;
+    }
+  }
+}
+
+.grid {
+  margin-top: 200px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, min-content);
+  row-gap: 100px;
+  column-gap: 250px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  h2 {
+    font-size: 1.5625rem;
+    line-height: 1.5625rem;
+  }
+  p {
+    font-size: 1.5625rem;
+    line-height: calc(1.5625rem * 1.4);
+    max-width: 450px;
+  }
+  &[data-varient="absolute"] {
+    top: -295px;
+    left: 154px;
+  }
+  &[data-varient="absolute-right"] {
+    right: 154px;
+  }
+  &[data-varient="absolute-top"] {
+    top: -295px;
+  }
+  &_img {
+    width: 578px;
+    height: 354px;
+    object-fit: cover;
+    background-color: white;
+    &[data-varient="long"] {
+      width: 424px;
+      height: 649px;
+    }
+    &[data-varient="square"] {
+      width: 424px;
+      height: 470px;
+    }
+  }
+  &_box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.pathOne {
+  position: absolute;
+  top: 360px;
+  left: 20%;
+  svg {
+    width: 92vw;
+    height: 20vw;
+  }
+}
+
+.pathTwo {
+  position: absolute;
+  top: -180px;
+  left: 85%;
+  svg {
+    width: 26vw;
+    height: 42vw;
+  }
+}
+.pathThree {
+  position: absolute;
+  top: 820px;
+  left: 74%;
+  z-index: 2;
+  svg {
+    width: 48vw;
+    height: 42vw;
+  }
+}
+.pathFour {
+  position: absolute;
+  top: 1360px;
+  left: -30%;
+  svg {
+    width: 88vw;
+    height: 41vw;
+  }
+}
+.pathFive {
+  position: absolute;
+  top: 1750px;
+  left: 85%;
+
+  svg {
+    width: 22vw;
+    height: 19vw;
+  }
+}
+.pathSix {
+  position: absolute;
+  top: 1630px;
+  left: 73%;
+  z-index: 2;
+  svg {
+    width: 31vw;
+    height: 23vw;
+  }
+}
+.pathSeven {
+  position: absolute;
+  top: 1880px;
+  left: -4%;
+  svg {
+    width: 23vw;
+    height: 21vw;
+  }
+}
+.pathEight {
+  position: absolute;
+  top: 2500px;
+  left: 36%;
+  svg {
+    width: 12vw;
+    height: 10vw;
+  }
+}
+.pathNine {
+  position: absolute;
+  bottom: 575px;
+  right: 0%;
+  z-index: 2;
+  @include xxl {
+    bottom: 690px;
+  }
+  svg {
+    width: 49vw;
+    height: 10vw;
+  }
+}
+.pathTen {
+  position: absolute;
+  bottom: 300px;
+  right: 0%;
+  svg {
+    width: 53vw;
+    height: 30vw;
+  }
+}
+.pathEleven {
+  position: absolute;
+  bottom: 0px;
+  left: 30%;
+  z-index: 2;
+  svg {
+    width: 18vw;
+    height: 16vw;
+  }
+}

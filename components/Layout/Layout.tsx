@@ -160,6 +160,142 @@ const Layout: React.FC<Props> = ({ children }) => {
         })
         .from(".work-path-5", { xPercent: -100, scale: 0 })
         .from(".work-dot", { x: -100, opacity: 0, stagger: 0.1 }, "<0.2");
+
+      //archive
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#archive",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".archive-heading", { yPercent: 100, opacity: 0, duration: 1 })
+        .from(
+          ".archive-path-1",
+          { clipPath: "inset(0% 0% 0% 100%)", duration: 1 },
+          "<0.6"
+        )
+        .from(".archive-path-2", { x: 500 }, "<0.2");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-3",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".archive-path-3", { xPercent: 50 })
+        .to(".archive-path-3", { rotate: -35 }, "<0.2")
+        .to(".archive-path-3", { rotate: 0 }, "<0.5")
+        .from(".archive-path-4", { xPercent: -50, scale: 0 }, "<0.2");
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-6",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".archive-path-6", { xPercent: -50, scale: 0 })
+        .from(".archive-path-7", { xPercent: -80, y: 100, rotate: 360 }, "<0.2")
+        .from(".archive-path-5", { xPercent: 80 }, "<0.2");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-8",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".archive-path-10", { xPercent: -500 })
+        .from(".archive-path-9", { xPercent: -500 }, "<")
+        .from(".archive-path-8", { scale: 0, rotate: 180 }, "<0.2");
+
+      gsap.from(".archive-path-11 path", {
+        ease: Power4.easeInOut,
+        stagger: 0.1,
+        scale: 0,
+        scrollTrigger: {
+          trigger: ".archive-path-11",
+          start: "top center",
+          toggleActions: "play none none reverse",
+          fastScrollEnd: true,
+          preventOverlaps: true,
+        },
+      });
+
+      //client
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#client",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".client-heading", { yPercent: 100, opacity: 0, duration: 1 })
+        .from(
+          ".client-path-1 path",
+          { stagger: 0.05, x: 200, scale: 0 },
+          "<0.2"
+        )
+        .from(".client-path-2", { xPercent: 100, y: 100 }, "<0.4");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".client-grid",
+            start: "top center",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+            scrub: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".client-logo", {
+          clipPath: "inset(100% 0% 0% 0%)",
+          stagger: 0.1,
+        })
+        .from(
+          ".client-para-lines",
+          {
+            clipPath: "inset(0% 100% 0% 0%)",
+            stagger: 0.2,
+          },
+          "<"
+        );
     },
     { scope: container }
   );
