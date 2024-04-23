@@ -1,7 +1,7 @@
 import Image from "next/image";
 import s from "./client.module.scss";
 import Elements from "./Elements";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import SplitType from "split-type";
 
 const Client = () => {

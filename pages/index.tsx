@@ -1,5 +1,7 @@
+import About from "@/components/About/About";
 import Archive from "@/components/Archive/Archive";
 import Client from "@/components/Client/Client";
+import Contact from "@/components/Contact/Contact";
 import Hero from "@/components/Hero/Hero";
 import Showreel from "@/components/Showreel/Showreel";
 import Work from "@/components/Work/Work";
@@ -19,6 +21,8 @@ export default function Home() {
       <Work />
       <Archive />
       <Client />
+      <About />
+      <Contact />
       <div style={{ height: "100vh" }} />
     </>
   );

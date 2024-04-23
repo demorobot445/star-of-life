@@ -1,0 +1,97 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 200px;
+  h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 15.625rem;
+    line-height: 20.625rem;
+    font-weight: 400;
+    margin-inline: auto;
+    max-width: 1260px;
+    @include xxl {
+      max-width: 1560px;
+      font-size: 21.875rem;
+      line-height: 26.875rem;
+    }
+  }
+}
+
+.grid {
+  display: flex;
+  gap: 100px;
+  margin-top: 150px;
+}
+
+.content {
+  font-size: 3.25rem;
+  line-height: calc(3.25rem * 1.2);
+  font-weight: 400;
+  max-width: 920px;
+  &[data-hide] {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+  }
+}
+
+.box {
+  display: flex;
+  gap: 75px;
+  position: relative;
+  flex-direction: column;
+}
+
+.image {
+  width: 758px;
+  height: 814px;
+  object-fit: cover;
+}
+
+.pathOne {
+  position: absolute;
+  top: 330px;
+  left: -2%;
+  svg {
+    width: 30vw;
+    height: 15vw;
+  }
+}
+.pathTwo {
+  position: absolute;
+  top: 0px;
+  right: -16%;
+  svg {
+    width: 35vw;
+    height: 30vw;
+  }
+}
+.pathThree {
+  position: absolute;
+  top: -220px;
+  left: -47%;
+  svg {
+    width: 82vw;
+    height: 86vw;
+  }
+}
+.pathFour {
+  position: absolute;
+  bottom: -440px;
+  left: -18%;
+  svg {
+    width: 40vw;
+    height: 35vw;
+  }
+}

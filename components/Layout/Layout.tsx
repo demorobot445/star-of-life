@@ -296,6 +296,102 @@ const Layout: React.FC<Props> = ({ children }) => {
           },
           "<"
         );
+
+      //about
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".about-heading", { yPercent: 100, opacity: 0, duration: 1 })
+        .from(".about-path-2", { xPercent: 70 }, "<0.6");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#about-grid",
+            start: "top center",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+            scrub: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(
+          ".about-para-lines",
+          {
+            clipPath: "inset(0% 100% 0% 0%)",
+            stagger: 0.2,
+          },
+          "<"
+        );
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#about-grid",
+            start: "top center",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".about-img", { clipPath: "inset(100% 0% 0% 0%)" })
+        .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 })
+        .from(".about-path-3", { xPercent: 100 }, "<0.2")
+        .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
+
+      //contact
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#contact",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".contact-heading", { yPercent: 100, opacity: 0, duration: 1 })
+        .from(".contact-path-2", { xPercent: 100 }, "<0.6")
+        .from(".contact-path-3", { scale: 0 }, "<0.2");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".contact-grid",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: Power4.easeInOut,
+          },
+        })
+        .from(".contact-grid p", {
+          clipPath: "inset(100% 0% 0% 0%)",
+          stagger: 0.2,
+        })
+        .from(".contact-path-1", { scale: 0 });
     },
     { scope: container }
   );

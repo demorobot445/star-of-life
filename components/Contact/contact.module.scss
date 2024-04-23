@@ -1,0 +1,78 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 200px;
+  h1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 15.625rem;
+    line-height: 20.625rem;
+    font-weight: 400;
+    margin-inline: auto;
+    max-width: 1260px;
+    @include xxl {
+      max-width: 1560px;
+      font-size: 21.875rem;
+      line-height: 26.875rem;
+    }
+  }
+}
+
+.grid {
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  p {
+    text-align: center;
+    font-size: 3.75rem;
+    line-height: calc(3.75rem * 1.2);
+    font-weight: 400;
+    position: relative;
+  }
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+}
+
+.pathOne {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translateY(-40%);
+  z-index: -1;
+  svg {
+    width: 9vw;
+    height: 7vw;
+  }
+}
+.pathTwo {
+  position: absolute;
+  top: -680px;
+  left: 10%;
+  svg {
+    width: 95vw;
+    height: 64vw;
+  }
+}
+.pathThree {
+  position: absolute;
+  top: 200px;
+  right: -23%;
+  svg {
+    width: 42vw;
+    height: 36vw;
+  }
+}
