@@ -1,0 +1,116 @@
+@import "../../styles/breakpoint";
+
+.main {
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 200px;
+  overflow: hidden;
+}
+
+.nav {
+  display: flex;
+  gap: 25px;
+  margin-top: 50px;
+  a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: calc(1.5rem * 1.5);
+  }
+  @include xxl {
+    margin-top: 100px;
+    a {
+      text-decoration: none;
+      font-size: 1.875rem;
+      line-height: calc(1.875rem * 1.5);
+    }
+  }
+}
+
+.foot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-inline: 50px;
+  margin-top: 50px;
+  @include xxl {
+    margin-top: 100px;
+  }
+}
+
+.star {
+  height: 30px;
+  width: 30px;
+  @include xxl {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.logo {
+  margin-block: 80px;
+  svg {
+    height: 100px;
+    width: 50px;
+  }
+  @include xxl {
+    margin-block: 190px;
+    svg {
+      height: 160px;
+      width: 104px;
+    }
+  }
+}
+
+.pathOne {
+  position: absolute;
+  bottom: -340px;
+  right: -20%;
+  z-index: -1;
+  svg {
+    width: 53vw;
+    height: 57vw;
+  }
+}
+.pathTwo {
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  svg {
+    width: 40vw;
+    height: 28vw;
+  }
+}
+.pathThree {
+  position: absolute;
+  top: 0px;
+  right: 0%;
+  svg {
+    width: 23vw;
+    height: 20vw;
+  }
+}
+.pathFour {
+  position: absolute;
+  top: -210px;
+  left: -10%;
+  svg {
+    width: 34vw;
+    height: 30vw;
+  }
+}
+.pathFive {
+  position: absolute;
+  bottom: -50px;
+  left: -24%;
+  z-index: -1;
+  svg {
+    width: 57vw;
+    height: 25vw;
+  }
+}

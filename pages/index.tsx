@@ -2,7 +2,9 @@ import About from "@/components/About/About";
 import Archive from "@/components/Archive/Archive";
 import Client from "@/components/Client/Client";
 import Contact from "@/components/Contact/Contact";
+import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
+import Services from "@/components/Services/Services";
 import Showreel from "@/components/Showreel/Showreel";
 import Work from "@/components/Work/Work";
 import Head from "next/head";
@@ -21,9 +23,10 @@ export default function Home() {
       <Work />
       <Archive />
       <Client />
+      <Services />
       <About />
       <Contact />
-      <div style={{ height: "100vh" }} />
+      <Footer />
     </>
   );
 }
