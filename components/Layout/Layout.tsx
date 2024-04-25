@@ -353,7 +353,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         })
         .from(".about-img", { clipPath: "inset(100% 0% 0% 0%)" })
         .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 })
-        .from(".about-path-3", { xPercent: 100 }, "<0.2")
+        .to(".about-path-3 path", { strokeDashoffset: 0, duration: 2 }, "<0.2")
         .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
 
       //contact
@@ -372,7 +372,11 @@ const Layout: React.FC<Props> = ({ children }) => {
         })
         .from(".contact-heading", { yPercent: 100, opacity: 0, duration: 1 })
         .from(".contact-path-2", { xPercent: 100 }, "<0.6")
-        .from(".contact-path-3", { scale: 0 }, "<0.2");
+        .to(
+          ".contact-path-3 path",
+          { strokeDashoffset: 0, duration: 2 },
+          "<0.2"
+        );
 
       gsap
         .timeline({

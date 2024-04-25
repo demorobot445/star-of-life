@@ -8,7 +8,13 @@
 
 @font-face {
   font-family: SaolDisplay;
-  src: url("/fonts/saolDisplayLight.ttf");
+  src: url("/fonts/saolDisplayThin.woff2");
+}
+
+@font-face {
+  font-family: Apercu;
+  src: url("/fonts/apercuRegular.otf");
+  font-weight: 400;
 }
 
 :root {
@@ -21,7 +27,7 @@
 }
 
 body {
-  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  font-family: Apercu, sans-serif;
   color: var(--primary-text);
   background-color: var(--bg-one);
 }
@@ -29,13 +35,14 @@ body {
 button,
 li,
 a {
-  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  font-family: Apercu, sans-serif;
   color: var(--primary-text);
 }
 
 h1,
 h2 {
   font-family: SaolDisplay;
+  font-weight: 100;
 }
 
 html.lenis,

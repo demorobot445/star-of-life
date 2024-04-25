@@ -1,14 +1,15 @@
 import Image from "next/image";
 import s from "./client.module.scss";
 import Elements from "./Elements";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import SplitType from "split-type";
+import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 
 const Client = () => {
   const para = useRef<HTMLParagraphElement>(null);
   const paraHide = useRef<HTMLParagraphElement>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     SplitType.create(para.current!, {
       types: "lines",
       lineClass: "client-para-lines",

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import s from "./about.module.scss";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import SplitType from "split-type";
 import Elements from "./Elements";
+import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 
 const About = () => {
   const para = useRef<HTMLParagraphElement>(null);
@@ -10,7 +11,7 @@ const About = () => {
   const paraTwo = useRef<HTMLParagraphElement>(null);
   const paraTwoHide = useRef<HTMLParagraphElement>(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     SplitType.create(para.current!, {
       types: "lines",
       lineClass: "about-para-lines",

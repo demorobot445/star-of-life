@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource-variable/plus-jakarta-sans": "^5.0.20",
     "@gsap/react": "^2.1.0",
     "@studio-freight/react-lenis": "^0.0.47",
     "gsap": "^3.12.5",
