@@ -88,26 +88,27 @@ const Header = () => {
 
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
-      document.body.style.paddingRight = "";
       document.body.style.overflow = "";
+      if (innerWidth > 800) document.body.style.paddingRight = "";
     } else {
-      document.body.style.paddingRight = "16px";
       document.body.style.overflow = "hidden";
+      if (innerWidth > 800) document.body.style.paddingRight = "16px";
     }
+
     tl.current!.reversed(!tl.current!.reversed());
   });
 
   return (
     <div ref={container}>
       <div className={`large ${s.large}`}>
-        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
-        <h1 className="large-text">Digital Designer Digital Designer</h1>
-        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
-        <h1 className="large-text">Digital Designer Digital Designer</h1>
-        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
-        <h1 className="large-text">Digital Designer Digital Designer</h1>
-        <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
-        <h1 className="large-text">Digital Designer Digital Designer</h1>
+        {[...Array(20)].map((e, i) => {
+          return (
+            <div key={i}>
+              <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
+              <h1 className="large-text">Digital Designer Digital Designer</h1>
+            </div>
+          );
+        })}
       </div>
       <Elements />
       <header className={s.main}>

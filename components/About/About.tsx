@@ -40,7 +40,7 @@ const About = () => {
           width={1000}
           alt="owner"
         />
-        <div className={s.box}>
+        <div className={`about-para-box ${s.box}`}>
           <p ref={para} className={s.content}>
             Hello! I’m Philippe, a passionate digital designer with a focus on
             aesthetics and innovation. I’m also dedicated to using design and

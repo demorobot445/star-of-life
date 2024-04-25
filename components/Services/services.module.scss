@@ -1,23 +1,30 @@
 @import "../../styles/breakpoint";
 
 .main {
-  min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 400px;
+  margin-top: 100px;
+  @include lg {
+    margin-top: 400px;
+    min-height: 100vh;
+  }
   h1 {
     position: relative;
     z-index: 2;
     text-align: center;
     width: 100%;
-    font-size: 15.625rem;
-    line-height: 20.625rem;
     font-weight: 400;
     margin-inline: auto;
     max-width: 1260px;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    @include lg {
+      font-size: 15.625rem;
+      line-height: 20.625rem;
+    }
     @include xxl {
       max-width: 1560px;
       font-size: 21.875rem;
@@ -31,16 +38,23 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
+
   &[data-visible] {
     overflow: visible;
-    padding-left: 25vw;
+    @include lg {
+      padding-left: 25vw;
+    }
   }
 }
 
 .image {
   object-fit: cover;
-  width: 35vw;
-  height: 45vw;
+  height: 60vh;
+  width: 70vw;
+  @include lg {
+    height: 80vh;
+    width: 35vw;
+  }
 }
 
 .imgCover {
@@ -55,20 +69,27 @@
 .textbox {
   position: relative;
   height: 100vh;
-  width: 50vw;
-  min-width: 50vw;
+  width: 100vw;
+  min-width: 100vw;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  @include lg {
+    width: 50vw;
+    min-width: 50vw;
+  }
   h2 {
     -webkit-text-fill-color: var(--bg-three);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     text-align: center;
-    font-size: 5.5rem;
-    line-height: calc(5.5rem * 1.2);
+    font-size: 3rem;
+    line-height: calc(3rem * 1.5);
+    @include lg {
+      font-size: 5.5rem;
+      line-height: calc(5.5rem * 1.2);
+    }
     @include xxl {
       font-size: 7.5rem;
       line-height: calc(7.5rem * 1.2);
@@ -84,10 +105,15 @@
     bottom: 5%;
     transform: translateX(-50%);
     left: 50%;
-    font-size: 1rem;
-    line-height: calc(1rem * 1.5);
+    font-size: 0.875rem;
+    line-height: calc(0.875rem * 1.5);
     transition: 0.5s all var(--power4);
-    padding-inline: 2px;
+    padding-inline: 20px;
+    @include lg {
+      font-size: 1rem;
+      line-height: calc(1rem * 1.5);
+      padding-inline: 2px;
+    }
     @include xxl {
       min-height: 235px;
       font-size: 1.75rem;
@@ -107,8 +133,11 @@
 
 .pathOne {
   position: absolute;
-  top: -160px;
+  top: -70px;
   left: 40%;
+  @include lg {
+    top: -160px;
+  }
   svg {
     width: 23vw;
     height: 15vw;
@@ -116,8 +145,11 @@
 }
 .pathTwo {
   position: absolute;
-  top: -130px;
+  top: -50px;
   left: -17%;
+  @include lg {
+    top: -130px;
+  }
   svg {
     width: 30vw;
     height: 33vw;

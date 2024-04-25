@@ -1,23 +1,29 @@
 @import "../../styles/breakpoint";
 
 .main {
-  min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 200px;
+  @include lg {
+    min-height: 100vh;
+    margin-top: 200px;
+  }
   h1 {
     position: relative;
     z-index: 2;
     text-align: center;
     width: 100%;
-    font-size: 15.625rem;
-    line-height: 20.625rem;
     font-weight: 400;
     margin-inline: auto;
     max-width: 1260px;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    @include lg {
+      font-size: 15.625rem;
+      line-height: 20.625rem;
+    }
     @include xxl {
       max-width: 1560px;
       font-size: 21.875rem;
@@ -28,10 +34,17 @@
 
 .grid {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
-  gap: 100px;
-  margin-top: 130px;
-  padding-inline: 40px;
+  margin-top: 50px;
+  padding-inline: 20px;
+  gap: 50px;
+  @include lg {
+    gap: 100px;
+    padding-inline: 40px;
+    flex-direction: row;
+    margin-top: 130px;
+  }
   @include xxl {
     padding-inline: 0px;
     gap: 180px;
@@ -39,12 +52,19 @@
   &_logos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 72px;
+    gap: 20px;
+    @include lg {
+      gap: 72px;
+    }
   }
   &_logo {
-    width: 220px;
+    width: 100%;
     height: 55px;
     object-fit: contain;
+    @include lg {
+      width: 220px;
+      height: 55px;
+    }
     @include xxl {
       width: 240px;
       height: 75px;
@@ -53,10 +73,14 @@
   &_para {
     position: relative;
     p {
-      font-size: 3rem;
-      line-height: calc(3rem * 1.2);
+      font-size: 1.5rem;
+      line-height: calc(1.5rem * 1.5);
       font-weight: 400;
-      max-width: 700px;
+      @include lg {
+        max-width: 700px;
+        font-size: 3rem;
+        line-height: calc(3rem * 1.2);
+      }
       @include xxl {
         font-size: 3.25rem;
         line-height: calc(3.25rem * 1.2);
@@ -74,8 +98,11 @@
 
 .pathOne {
   position: absolute;
-  top: -100px;
+  top: -40px;
   left: 0%;
+  @include lg {
+    top: -100px;
+  }
   @include xxl {
     top: -160px;
   }

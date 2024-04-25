@@ -69,7 +69,7 @@ const Work = () => {
         <div className={`work-path-5 ${s.pathFive}`}>
           <WorkPathFive />
         </div>
-        <h2 className={s.tag}>01 Work</h2>
+        {/* <h2 className={s.tag}>01 Work</h2> */}
         <div className={s.slider_dots}>
           {data.map((e, i) => {
             return (

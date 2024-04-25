@@ -12,29 +12,47 @@ const Services = () => {
 
   useGSAP(
     () => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#service-grid",
-          scrub: true,
-          pin: true,
-          pinSpacing: true,
-          end: "+=6000",
-        },
-        defaults: {
-          ease: Power4.easeInOut,
-        },
-      });
+      let mm = gsap.matchMedia(),
+        breakPoint = 800;
 
-      data.map((e: any, i) => {
-        tl.to(".service-content-grid", { x: `-${50 * i}vw` }) //
-          .to(
-            `.service-subheading-${i}`,
-            { webkitTextFillColor: "black" },
-            "<0.2"
-          )
-          .to(`.service-para-${i}`, { clipPath: "inset(0% 0% 0% 0%)" }, "<")
-          .to(".service-image-grid", { y: `-${100 * i}vh` }, "<0.2");
-      });
+      mm.add(
+        {
+          isDesktop: `(min-width: ${breakPoint}px)`,
+          isMobile: `(max-width: ${breakPoint - 1}px)`,
+        },
+        (context) => {
+          let { isDesktop, isMobile } = context.conditions as {
+            isDesktop: boolean;
+            isMobile: boolean;
+          };
+
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: "#service-grid",
+              scrub: true,
+              pin: true,
+              pinSpacing: true,
+              end: "+=6000",
+            },
+            defaults: {
+              ease: Power4.easeInOut,
+            },
+          });
+
+          data.map((e: any, i) => {
+            tl.to(".service-content-grid", {
+              x: isDesktop ? `-${50 * i}vw` : `-${100 * i}vw`,
+            }) //
+              .to(
+                `.service-subheading-${i}`,
+                { webkitTextFillColor: "black" },
+                "<0.2"
+              )
+              .to(`.service-para-${i}`, { clipPath: "inset(0% 0% 0% 0%)" }, "<")
+              .to(".service-image-grid", { y: `-${100 * i}vh` }, "<0.2");
+          });
+        }
+      );
     },
     { scope: container }
   );

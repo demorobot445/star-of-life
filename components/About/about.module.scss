@@ -1,23 +1,30 @@
 @import "../../styles/breakpoint";
 
 .main {
-  min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 200px;
+  margin-top: 50px;
+  @include lg {
+    margin-top: 200px;
+    min-height: 100vh;
+  }
   h1 {
     position: relative;
     z-index: 2;
     text-align: center;
     width: 100%;
-    font-size: 15.625rem;
-    line-height: 20.625rem;
     font-weight: 400;
     margin-inline: auto;
     max-width: 1260px;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    @include lg {
+      font-size: 15.625rem;
+      line-height: 20.625rem;
+    }
     @include xxl {
       max-width: 1560px;
       font-size: 21.875rem;
@@ -28,15 +35,27 @@
 
 .grid {
   display: flex;
-  gap: 100px;
-  margin-top: 150px;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+  padding-inline: 20px;
+  @include lg {
+    flex-direction: row;
+    padding-inline: 0px;
+    gap: 100px;
+    margin-top: 150px;
+  }
 }
 
 .content {
-  font-size: 2.25rem;
-  line-height: calc(2.25rem * 1.2);
+  font-size: 1.5rem;
+  line-height: calc(1.5rem * 1.5);
   font-weight: 400;
   max-width: 920px;
+  @include lg {
+    font-size: 2.25rem;
+    line-height: calc(2.25rem * 1.2);
+  }
   @include xxl {
     font-size: 3.25rem;
     line-height: calc(3.25rem * 1.2);
@@ -58,9 +77,12 @@
 }
 
 .image {
-  height: 514px;
-  width: 458px;
+  width: 100%;
+  height: 450px;
   object-fit: cover;
+  @include lg {
+    width: 458px;
+  }
   @include xxl {
     width: 758px;
     height: 814px;

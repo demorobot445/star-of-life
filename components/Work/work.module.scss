@@ -1,23 +1,30 @@
 @import "../../styles/breakpoint";
 
 .main {
-  min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 600px;
+  margin-top: 200px;
+  @include lg {
+    min-height: 100vh;
+    margin-top: 600px;
+  }
   h1 {
     position: relative;
     z-index: 2;
     text-align: center;
     width: 100%;
-    font-size: 15.625rem;
-    line-height: 20.625rem;
     font-weight: 400;
     margin-inline: auto;
     max-width: 1260px;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    @include lg {
+      font-size: 15.625rem;
+      line-height: 20.625rem;
+    }
     @include xxl {
       max-width: 1560px;
       font-size: 21.875rem;
@@ -36,8 +43,13 @@
 
 .pathOne {
   position: absolute;
-  top: -780px;
+  top: -280px;
   left: 72%;
+  z-index: -1;
+  @include lg {
+    z-index: 0;
+    top: -780px;
+  }
   svg {
     width: 91.406vw;
     height: 78.906vw;
@@ -46,9 +58,9 @@
 
 .pathTwo {
   position: absolute;
+  z-index: 1;
   top: -250px;
   left: -15%;
-  z-index: 1;
   svg {
     width: 34.844vw;
     height: 31.094vw;
@@ -57,8 +69,11 @@
 
 .pathThree {
   position: absolute;
-  top: -630px;
+  top: -230px;
   left: 80%;
+  @include lg {
+    top: -630px;
+  }
   svg {
     width: 34vw;
     height: 39vw;
@@ -67,9 +82,12 @@
 
 .pathFour {
   position: absolute;
-  top: -120px;
-  left: -6%;
+  top: -210px;
   z-index: 2;
+  @include lg {
+    top: -120px;
+    left: -6%;
+  }
   svg {
     width: 13.021vw;
     height: 12.813vw;
@@ -87,22 +105,42 @@
 
 .pathSix {
   position: absolute;
-  top: -150px;
+  top: 50px;
   left: 73%;
   z-index: 4;
+  path {
+    fill: white;
+    @include lg {
+      fill: black;
+    }
+  }
+  @include lg {
+    top: -150px;
+  }
   svg {
-    width: 20.052vw;
-    height: 20.052vw;
+    height: 100px;
+    width: 100px;
+    @include lg {
+      height: 20.052vw;
+      width: 20.052vw;
+    }
   }
 }
 
 .counter {
   position: absolute;
-  z-index: 2;
-  font-size: 3.5rem;
-  line-height: calc(3.5rem * 1.2);
-  right: 42vw;
+  z-index: 5;
+  font-size: 2rem;
+  line-height: calc(2rem * 1.5);
   bottom: 5%;
+  right: 20px;
+  color: white;
+  @include lg {
+    right: 42vw;
+    color: var(--primary-text);
+    font-size: 3.5rem;
+    line-height: calc(3.5rem * 1.2);
+  }
   span {
     display: inline-block;
   }
@@ -114,12 +152,16 @@
 }
 
 .img {
-  width: 40vw;
-  height: 50vw;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 2;
   position: absolute;
   right: 0%;
+  @include lg {
+    width: 40vw;
+    height: 50vw;
+  }
 }
 
 .slider {
@@ -128,27 +170,16 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  &_img {
-    top: -30%;
-    left: 0%;
-    position: absolute;
-    background-image: url("/demo-img.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 85vw;
-    width: 82vw;
-    mask-image: url("/mask-path.svg");
-    mask-repeat: no-repeat;
-    mask-size: 85vw 82vw;
-  }
   &_dots {
     display: flex;
     flex-direction: column;
     gap: 6px;
     position: relative;
-    z-index: 2;
-    margin-left: -50px;
+    z-index: 5;
+    margin-left: 20px;
+    @include lg {
+      margin-left: 50px;
+    }
     &_dot {
       height: 32px;
       width: 32px;
@@ -168,8 +199,11 @@
         transform: translateX(-50%) translateY(-50%);
         top: 50%;
         left: 50%;
-        background-color: var(--primary-text);
+        background-color: white;
         border-radius: 999px;
+        @include lg {
+          background-color: var(--primary-text);
+        }
       }
       &::before {
         content: "";
@@ -179,9 +213,12 @@
         transform: translateX(-50%) translateY(-50%) scale(0);
         top: 50%;
         left: 50%;
-        border: 1px solid var(--primary-text);
+        border: 1px solid white;
         border-radius: 999px;
         transition: 0.3s all var(--power4);
+        @include lg {
+          border: 1px solid var(--primary-text);
+        }
       }
     }
   }
@@ -189,19 +226,39 @@
 
 .content {
   position: relative;
-  z-index: 2;
-  margin-left: 2.083vw;
+  z-index: 5;
+  margin-bottom: 100px;
+  align-self: flex-end;
+  margin-left: -20px;
+  @include lg {
+    margin-left: 2.083vw;
+    align-self: auto;
+    margin-bottom: 0px;
+  }
+
   h2 {
-    font-size: 4.5rem;
-    line-height: calc(4.5rem * 1.2);
+    font-size: 2.5rem;
+    line-height: calc(2.5rem * 1.2);
+    color: white;
+    @include lg {
+      font-size: 4.5rem;
+      line-height: calc(4.5rem * 1.2);
+      color: var(--primary-text);
+    }
     @include xxl {
       font-size: 5.625rem;
       line-height: calc(5.625rem * 1.2);
     }
   }
   p {
-    font-size: 1.5rem;
-    line-height: calc(1.5rem * 1.4);
+    font-size: 1rem;
+    line-height: calc(1rem * 1.5);
+    color: white;
+    @include lg {
+      font-size: 1.5rem;
+      line-height: calc(1.5rem * 1.4);
+      color: var(--primary-text);
+    }
     @include xxl {
       font-size: 1.875rem;
       line-height: calc(1.875rem * 1.2);

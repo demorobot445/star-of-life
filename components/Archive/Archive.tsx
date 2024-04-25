@@ -12,16 +12,34 @@ const Archive = () => {
 
   useGSAP(
     () => {
-      Array.from(grid.current!.children).map((e: any, i) => {
-        gsap.to(e, {
-          yPercent: Math.round(Math.random() * (-20 - 100) - 20),
-          ease: "none",
-          scrollTrigger: {
-            trigger: e,
-            scrub: true,
-          },
-        });
-      });
+      let mm = gsap.matchMedia(),
+        breakPoint = 800;
+
+      mm.add(
+        {
+          isDesktop: `(min-width: ${breakPoint}px)`,
+          isMobile: `(max-width: ${breakPoint - 1}px)`,
+        },
+        (context) => {
+          let { isDesktop, isMobile } = context.conditions as {
+            isDesktop: boolean;
+            isMobile: boolean;
+          };
+
+          Array.from(grid.current!.children).map((e: any, i) => {
+            gsap.to(e, {
+              yPercent: isDesktop
+                ? Math.round(Math.random() * (-20 - 100) - 20)
+                : Math.round(Math.random() * (-20 - 20) - 20),
+              ease: "none",
+              scrollTrigger: {
+                trigger: e,
+                scrub: true,
+              },
+            });
+          });
+        }
+      );
     },
     { scope: container }
   );

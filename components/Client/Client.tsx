@@ -38,7 +38,7 @@ const Client = () => {
             );
           })}
         </div>
-        <div className={s.grid_para}>
+        <div className={`client-grid-para ${s.grid_para}`}>
           <p ref={para}>
             I have worked with a wide range of clients and start-ups in
             industries such as healthcare, education, e-commerce, automotive and
