@@ -9,7 +9,8 @@
   margin-top: 200px;
   @include lg {
     min-height: 100vh;
-    margin-top: 600px;
+    margin-top: 120px;
+    // margin-top: 600px;
   }
   h1 {
     position: relative;
@@ -108,12 +109,7 @@
   top: 50px;
   left: 73%;
   z-index: 4;
-  path {
-    fill: white;
-    @include lg {
-      fill: black;
-    }
-  }
+
   @include lg {
     top: -150px;
   }
@@ -127,141 +123,79 @@
   }
 }
 
-.counter {
-  position: absolute;
-  z-index: 5;
-  font-size: 2rem;
-  line-height: calc(2rem * 1.5);
-  bottom: 5%;
-  right: 20px;
-  color: white;
-  @include lg {
-    right: 42vw;
-    color: var(--primary-text);
-    font-size: 3.5rem;
-    line-height: calc(3.5rem * 1.2);
-  }
-  span {
-    display: inline-block;
-  }
-  @include xxl {
-    bottom: 15%;
-    font-size: 5rem;
-    line-height: calc(5rem * 1.2);
-  }
-}
-
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-  position: absolute;
-  right: 0%;
-  @include lg {
-    width: 40vw;
-    height: 50vw;
-  }
-}
-
 .slider {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
-  &_dots {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    position: relative;
-    z-index: 5;
-    margin-left: 20px;
-    @include lg {
-      margin-left: 50px;
-    }
-    &_dot {
-      height: 32px;
-      width: 32px;
-      position: relative;
-      border: none;
-      background-color: transparent;
-      &[data-active="true"] {
-        &::before {
-          transform: translateX(-50%) translateY(-50%) scale(1);
-        }
-      }
-      &::after {
-        content: "";
-        height: 6px;
-        width: 6px;
-        position: absolute;
-        transform: translateX(-50%) translateY(-50%);
-        top: 50%;
-        left: 50%;
-        background-color: white;
-        border-radius: 999px;
-        @include lg {
-          background-color: var(--primary-text);
-        }
-      }
-      &::before {
-        content: "";
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transform: translateX(-50%) translateY(-50%) scale(0);
-        top: 50%;
-        left: 50%;
-        border: 1px solid white;
-        border-radius: 999px;
-        transition: 0.3s all var(--power4);
-        @include lg {
-          border: 1px solid var(--primary-text);
-        }
-      }
-    }
-  }
+  padding: 66px;
+  gap: 66px;
+}
+
+.slide {
+  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 132px);
+  width: 100%;
+  border-radius: 8px;
 }
 
 .content {
-  position: relative;
-  z-index: 5;
-  margin-bottom: 100px;
-  align-self: flex-end;
-  margin-left: -20px;
-  @include lg {
-    margin-left: 2.083vw;
-    align-self: auto;
-    margin-bottom: 0px;
-  }
-
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  z-index: 3;
+  padding-inline: 3.472vw;
+  min-height: 360px;
+  width: 100%;
   h2 {
-    font-size: 2.5rem;
-    line-height: calc(2.5rem * 1.2);
-    color: white;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    color: rgb(255 255 255);
     @include lg {
-      font-size: 4.5rem;
-      line-height: calc(4.5rem * 1.2);
-      color: var(--primary-text);
-    }
-    @include xxl {
-      font-size: 5.625rem;
-      line-height: calc(5.625rem * 1.2);
+      font-size: 8.889vw;
+      line-height: calc(8.889vw * 1.2);
     }
   }
   p {
     font-size: 1rem;
     line-height: calc(1rem * 1.5);
-    color: white;
+    color: rgb(255 255 255);
+    text-transform: uppercase;
+    padding: 0.694vw 1.389vw;
+    background-color: rgba(255 255 255 / 0.2);
+    width: fit-content;
+    border-radius: 9999px;
     @include lg {
-      font-size: 1.5rem;
-      line-height: calc(1.5rem * 1.4);
-      color: var(--primary-text);
+      font-size: 0.972vw;
+      line-height: calc(0.972vw * 1.5);
     }
-    @include xxl {
-      font-size: 1.875rem;
-      line-height: calc(1.875rem * 1.2);
-    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.694vw;
+  width: 45%;
+}
+
+.image {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  &_cover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(20 20 20 / 0.2);
+  }
+  img {
+    object-fit: cover;
   }
 }

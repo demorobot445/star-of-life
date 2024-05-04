@@ -67,37 +67,11 @@ const Layout: React.FC<Props> = ({ children }) => {
             });
 
           //work
-
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: "#showreel",
-                end: "bottom center",
-                toggleActions: "none play reverse none",
-                fastScrollEnd: isDesktop,
-                preventOverlaps: isDesktop,
-              },
-              defaults: {
-                ease: Power4.easeInOut,
-              },
-            })
-            .from(".work-path-1", { xPercent: 50 })
-            .from(".work-path-3", { y: -200, xPercent: 50 }, "<0.4")
-            .from(".work-path-3", { rotate: 10, duration: 0.2 })
-            .from(".work-path-3", { rotate: -10, duration: 0.2 })
-            .from(".work-path-3", { rotate: -0, duration: 0.2 })
-            .from(
-              ".work-path-2",
-              { xPercent: 100, yPercent: -150, rotate: 180, scale: 0 },
-              "<"
-            )
-            .from(".work-path-4", { x: -400 }, "<0.2");
-
           gsap
             .timeline({
               scrollTrigger: {
                 trigger: "#work",
-                start: "top center",
+                start: "top 80%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -106,49 +80,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".work-main-heading", {
+            .from(".work-heading", {
               yPercent: 100,
               opacity: 0,
               duration: 1,
             })
-            .to(
-              ".work-path-1",
-              { xPercent: -25, scale: 3, duration: 2 },
-              "<0.2"
-            )
-            .to(".work-path-1 path", { fill: "#FAF2FF" }, "<0.8")
-            .to(document.body, { backgroundColor: "#FAF2FF" }, "<1.2")
-            .from(
-              ".work-path-6",
-              {
-                scale: 0,
-                onComplete: () => {
-                  gsap.to(".work-path-6", {
-                    rotate: 360,
-                    repeat: -1,
-                    duration: 20,
-                    ease: "none",
-                  });
-                },
-              },
-              "<0.2"
-            );
-
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: ".work-slider",
-                start: "top center",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: isDesktop,
-                preventOverlaps: isDesktop,
-              },
-              defaults: {
-                ease: Power4.easeInOut,
-              },
-            })
-            .from(".work-path-5", { xPercent: -100, scale: 0 })
-            .from(".work-dot", { x: -100, opacity: 0, stagger: 0.1 }, "<0.2");
+            .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
 
           //archive
           gsap

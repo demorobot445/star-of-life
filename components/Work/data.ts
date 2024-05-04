@@ -1,33 +1,52 @@
 type Data = {
   name: string;
-  desc: string;
+  desc: string[];
   color: string;
 };
 
 export const data: Data[] = [
   {
-    name: "Bauhaus Tapete",
-    desc: "Art Direction • Konzept • Webdesign",
+    name: "Fruits At Home",
+    desc: [
+      "design product",
+      "Direction artistique",
+      "Identité de marque",
+      "Packaging",
+      "print / digital",
+      "Shooting photo / vidéo",
+      "Signalétique",
+    ],
     color: "#88C4D2",
   },
   {
-    name: "Brylee Gay",
-    desc: "Frontend Developer • Konzept • Webdesign",
+    name: "Arteck",
+    desc: [
+      "Identité de marque",
+      "Direction artistique",
+      "print / digital",
+      "Print haut de gamme",
+      "Shooting photo / vidéo",
+    ],
     color: "#ADDBD0",
   },
   {
-    name: "Fernando Benson",
-    desc: "Designer • Suspense • design",
+    name: "Moduléo",
+    desc: ["Direction artistique", "Identité de marque", "print / digital"],
     color: "#83D398",
   },
   {
-    name: "Kailee Curtis",
-    desc: "Lead Direction • Order • Webdev",
+    name: "Office Concept",
+    desc: [
+      "Contenu Editorial",
+      "Direction de production",
+      "Identité de marque",
+      "print / digital",
+    ],
     color: "#5F9784",
   },
   {
     name: "Arielle Wilkerson",
-    desc: "Backend • Development • Webdev",
+    desc: ["Identité de marque", "Shooting photo"],
     color: "#FFD95D",
   },
 ];
