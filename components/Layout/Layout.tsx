@@ -27,33 +27,12 @@ const Layout: React.FC<Props> = ({ children }) => {
           };
 
           // showreel
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: "#hero",
-                end: "bottom center",
-                toggleActions: "none play reverse none",
-                fastScrollEnd: isDesktop,
-                preventOverlaps: isDesktop,
-              },
-              defaults: {
-                ease: Power4.easeInOut,
-              },
-            })
-            .from(".path-6 path", { strokeDashoffset: 2600, duration: 2 })
-            .from(".path-3", { xPercent: -100 }, "<0.2")
-            .from(".path-4", { xPercent: -100 }, "<0.2")
-            .from(
-              ".path-7 path",
-              { x: -550, y: -200, scale: 2, stagger: 0.04 },
-              "<0.2"
-            );
 
           gsap
             .timeline({
               scrollTrigger: {
                 trigger: "#showreel",
-                start: "top center",
+                start: "top bottom",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -67,27 +46,13 @@ const Layout: React.FC<Props> = ({ children }) => {
               opacity: 0,
               duration: 1,
             })
-            .from(".path-9 path", { x: -400, stagger: 0.04 }, "<")
-            .to(
-              ".path-3",
-              {
-                xPercent: 100,
-                y: 400,
-                scale: 4,
-                rotate: 360,
-                zIndex: -1,
-                duration: 2,
-              },
-              "<0.2"
-            )
-            .to(".path-3 path", { fill: "#EAFCF8" }, "<0.8")
             .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
 
           gsap
             .timeline({
               scrollTrigger: {
                 trigger: ".showreel-video",
-                start: "top center",
+                start: "top bottom",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -96,13 +61,10 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(
-              ".showreel-video",
-              { clipPath: "inset(100% 0% 0% 0%)", duration: 2 },
-              "<0.2"
-            )
-            .from(".path-8", { x: 400 })
-            .from(".path-10 path", { scale: 0, stagger: 0.1 }, "<0.2");
+            .from(".showreel-video", {
+              clipPath: "inset(100% 25% 0% 25%)",
+              duration: 2,
+            });
 
           //work
 

@@ -21,18 +21,18 @@ const Elements = () => {
       <div className={`path-6 ${s.pathSix}`}>
         <PathSix />
       </div>
-      <div className={`path-7 ${s.pathSeven}`}>
+      {/* <div className={`path-7 ${s.pathSeven}`}>
         <PathSeven />
-      </div>
+      </div> */}
       <div className={`path-8 ${s.pathEight}`}>
         <PathEight />
       </div>
-      <div className={`path-9 ${s.pathNine}`}>
+      {/* <div className={`path-9 ${s.pathNine}`}>
         <PathNine />
-      </div>
-      <div className={`path-10 ${s.pathTen}`}>
+      </div> */}
+      {/* <div className={`path-10 ${s.pathTen}`}>
         <PathTen />
-      </div>
+      </div> */}
     </>
   );
 };
