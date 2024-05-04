@@ -2,6 +2,7 @@ import About from "@/components/About/About";
 import Archive from "@/components/Archive/Archive";
 import Client from "@/components/Client/Client";
 import Contact from "@/components/Contact/Contact";
+import Cookie from "@/components/Cookie/Cookie";
 import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
 import Services from "@/components/Services/Services";
@@ -27,6 +28,7 @@ export default function Home() {
       <About />
       <Contact />
       <Footer />
+      <Cookie />
     </>
   );
 }

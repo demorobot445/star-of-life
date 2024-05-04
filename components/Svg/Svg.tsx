@@ -1641,3 +1641,35 @@ export const Star = () => {
     </svg>
   );
 };
+
+export const Accept = () => {
+  return (
+    <svg
+      width="54"
+      height="50"
+      viewBox="0 0 54 50"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 25.1667L18.6667 41.8333L52 8.5"
+        stroke="black"
+        strokeWidth="5"
+      />
+    </svg>
+  );
+};
+
+export const Decline = () => {
+  return (
+    <svg
+      fill="none"
+      height="54"
+      viewBox="0 0 54 54"
+      width="54"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="m2 2 50 50m0-50-50 50" stroke="#000" strokeWidth="5" />
+    </svg>
+  );
+};
