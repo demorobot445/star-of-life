@@ -60,7 +60,16 @@ const Services = () => {
   return (
     <section id="service" ref={container} className={s.main}>
       <Elements />
-      <h1 className="service-heading">Services</h1>
+      <h1 className="service-heading">
+        <span>S</span>
+        <span>e</span>
+        <span>r</span>
+        <span>v</span>
+        <span>i</span>
+        <span>c</span>
+        <span>e</span>
+        <span>s</span>
+      </h1>
       <div id="service-grid" className={s.grid}>
         <InsideElements />
         <div className={`service-image-grid ${s.imgGrid}`}>

@@ -7,7 +7,15 @@ const Contact = () => {
   return (
     <section id="contact" className={s.main}>
       <Elements />
-      <h1 className="contact-heading">Contact</h1>
+      <h1 className="contact-heading">
+        <span>C</span>
+        <span>o</span>
+        <span>n</span>
+        <span>t</span>
+        <span>a</span>
+        <span>c</span>
+        <span>t</span>
+      </h1>
       <div className={`contact-grid ${s.grid}`}>
         <p>
           Lets start a project together

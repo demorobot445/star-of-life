@@ -22,7 +22,14 @@ const Client = () => {
   return (
     <section id="client" className={s.main}>
       <Elements />
-      <h1 className="client-heading">Clients</h1>
+      <h1 className="client-heading">
+        <span>C</span>
+        <span>l</span>
+        <span>i</span>
+        <span>e</span>
+        <span>n</span>
+        <span>t</span>
+      </h1>
       <div className={s.grid}>
         <div className={`client-grid ${s.grid_logos}`}>
           {[...Array(14)].map((e, i) => {

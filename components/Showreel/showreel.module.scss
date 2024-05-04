@@ -18,14 +18,27 @@
     max-width: 1260px;
     font-size: 4rem;
     line-height: calc(4rem * 1.2);
+    cursor: pointer;
+    span {
+      display: inline-block;
+      transition: 0.2s all var(--power4);
+      transform-origin: bottom;
+      &:hover {
+        transform: scaleY(1.4);
+      }
+    }
     @include lg {
       font-size: 15.625rem;
-      line-height: 20.625rem;
+      line-height: calc(15.625rem / 2);
+      margin-top: calc(15.625rem / 2);
+      margin-bottom: calc(15.625rem / 2);
     }
     @include xxl {
+      margin-top: 10.937rem;
+      margin-bottom: 10.937rem;
       max-width: 1560px;
       font-size: 21.875rem;
-      line-height: 26.875rem;
+      line-height: 10.937rem;
     }
   }
 }

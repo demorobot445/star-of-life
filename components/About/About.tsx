@@ -31,7 +31,13 @@ const About = () => {
   return (
     <section id="about" className={s.main}>
       <Elements />
-      <h1 className="about-heading">About</h1>
+      <h1 className="about-heading">
+        <span>A</span>
+        <span>b</span>
+        <span>o</span>
+        <span>u</span>
+        <span>t</span>
+      </h1>
       <div id="about-grid" className={s.grid}>
         <Image
           className={`about-img ${s.image}`}

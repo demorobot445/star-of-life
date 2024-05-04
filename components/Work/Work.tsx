@@ -46,7 +46,12 @@ const Work = () => {
   return (
     <section id="work" ref={container} className={s.main}>
       <Elements />
-      <h1 className="work-heading">Work</h1>
+      <h1 className="work-heading">
+        <span>W</span>
+        <span>o</span>
+        <span>r</span>
+        <span>k</span>
+      </h1>
       <div className={`work-slider ${s.slider}`}>
         <div className={`work-path-6 ${s.pathSix}`}>
           <WorkPathSix />

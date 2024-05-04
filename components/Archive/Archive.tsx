@@ -47,7 +47,15 @@ const Archive = () => {
   return (
     <section id="archive" ref={container} className={s.main}>
       <Elements />
-      <h1 className="archive-heading">Archive</h1>
+      <h1 className="archive-heading">
+        <span>A</span>
+        <span>r</span>
+        <span>c</span>
+        <span>h</span>
+        <span>i</span>
+        <span>v</span>
+        <span>e</span>
+      </h1>
       <div ref={grid} className={s.grid}>
         {data.map((e, i) => {
           return <Card id={i} {...e} key={i} />;

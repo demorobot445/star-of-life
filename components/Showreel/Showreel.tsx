@@ -38,7 +38,16 @@ const Showreel = () => {
   return (
     <section ref={container} id="showreel" className={s.main}>
       <Elements />
-      <h1 className="showreel-heading">Showreel</h1>
+      <h1 className="showreel-heading">
+        <span>S</span>
+        <span>h</span>
+        <span>o</span>
+        <span>w</span>
+        <span>r</span>
+        <span>e</span>
+        <span>e</span>
+        <span>l</span>
+      </h1>
       <video
         className={`showreel-video ${s.video}`}
         src="/demo-video.mp4"
