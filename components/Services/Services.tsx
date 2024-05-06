@@ -10,49 +10,74 @@ import InsideElements from "./InsideElements";
 const Services = () => {
   const container = useRef<HTMLElement>(null);
 
+  // useGSAP(
+  //   () => {
+  //     let mm = gsap.matchMedia(),
+  //       breakPoint = 800;
+
+  //     mm.add(
+  //       {
+  //         isDesktop: `(min-width: ${breakPoint}px)`,
+  //         isMobile: `(max-width: ${breakPoint - 1}px)`,
+  //       },
+  //       (context) => {
+  //         let { isDesktop, isMobile } = context.conditions as {
+  //           isDesktop: boolean;
+  //           isMobile: boolean;
+  //         };
+
+  //       }
+  //     );
+  //   },
+  //   { scope: container }
+  // );
+
   useGSAP(
     () => {
-      let mm = gsap.matchMedia(),
-        breakPoint = 800;
-
-      mm.add(
-        {
-          isDesktop: `(min-width: ${breakPoint}px)`,
-          isMobile: `(max-width: ${breakPoint - 1}px)`,
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            scrub: true,
+            end: "bottom top",
+          },
+          defaults: { ease: "none" },
+        })
+        .to(".service-path-2", { top: -500 })
+        .to(".service-path-5", { top: -450 }, "<")
+        .to(".service-path-4", { top: -1000 }, "<")
+        .to(".service-path-3", { top: 200 }, "<");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#service-grid",
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          // markers: true,
+          end: "+=6000",
         },
-        (context) => {
-          let { isDesktop, isMobile } = context.conditions as {
-            isDesktop: boolean;
-            isMobile: boolean;
-          };
+        defaults: {
+          ease: "none",
+        },
+      });
 
-          let tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: "#service-grid",
-              scrub: true,
-              pin: true,
-              pinSpacing: true,
-              end: "+=6000",
-            },
-            defaults: {
-              ease: Power4.easeInOut,
-            },
-          });
-
-          data.map((e: any, i) => {
-            tl.to(".service-content-grid", {
-              x: isDesktop ? `-${50 * i}vw` : `-${100 * i}vw`,
-            }) //
-              .to(
-                `.service-subheading-${i}`,
-                { webkitTextFillColor: "black" },
-                "<0.2"
-              )
-              .to(`.service-para-${i}`, { clipPath: "inset(0% 0% 0% 0%)" }, "<")
-              .to(".service-image-grid", { y: `-${100 * i}vh` }, "<0.2");
-          });
-        }
-      );
+      data.map((e: any, i) => {
+        gsap.set(`.service-para-${i}`, { color: "rgba(0, 0, 0, 0)" });
+        gsap.set(`.imgCover-${i}`, { scale: 0 });
+        //
+        tl.to(".service-content-grid", { x: `-${50 * i}vw` })
+          .to(
+            `.service-subheading-${i - 1}`,
+            { webkitTextFillColor: "transparent" },
+            "<"
+          )
+          .to(`.service-subheading-${i}`, { webkitTextFillColor: "black" }, "<")
+          .to(`.service-para-${i}`, { color: "rgba(0, 0, 0, 1)" }, "<")
+          .to(`.imgCover-${i}`, { scale: 1 }, "<")
+          .to(".service-image-grid", { y: `-${100 * i}vh` }, "<")
+          .to(`.imgCover-${i - 1}`, { scale: 0 }, "<")
+          .to(`.service-para-${i - 1}`, { color: "rgba(0, 0, 0, 0)" }, "<");
+      });
     },
     { scope: container }
   );
@@ -75,7 +100,7 @@ const Services = () => {
         <div className={`service-image-grid ${s.imgGrid}`}>
           {data.map((e, i) => {
             return (
-              <div key={i} className={s.imgCover}>
+              <div key={i} className={`imgCover-${i} ${s.imgCover}`}>
                 <Image
                   src={`/services/${i}.jpg`}
                   height={3000}

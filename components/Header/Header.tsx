@@ -163,6 +163,7 @@ const Header = () => {
           {[...Array(6)].map((e, i) => {
             return (
               <Image
+                key={i}
                 src={`/menu/${i}.jpeg`}
                 height={1000}
                 width={1000}

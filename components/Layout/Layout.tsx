@@ -385,10 +385,10 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#service",
-                start: "top center",
+                start: "top 80%",
                 toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
+                fastScrollEnd: isDesktop,
+                preventOverlaps: isDesktop,
               },
               defaults: {
                 ease: Power4.easeInOut,
@@ -399,30 +399,47 @@ const Layout: React.FC<Props> = ({ children }) => {
               opacity: 0,
               duration: 1,
             })
-            .from(".service-path-2", { xPercent: -100 }, "<0.6")
-            .from(".service-path-1 path", { scale: 0, stagger: 0.1 }, "<0.2")
-            .from(
-              ".service-path-6 path",
-              { scale: 0, stagger: 0.05, x: 200, y: -200 },
-              "<0.2"
-            );
+            .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
+          // gsap.timeline({
+          //   scrollTrigger: {
+          //     trigger: "#service",
+          //     start: "top center",
+          //     toggleActions: "play none none reverse",
+          //     fastScrollEnd: true,
+          //     preventOverlaps: true,
+          //   },
+          //   defaults: {
+          //     ease: Power4.easeInOut,
+          //   },
+          // });
+          // .from(".service-heading", {
+          //   yPercent: 100,
+          //   opacity: 0,
+          //   duration: 1,
+          // })
+          // .from(".service-path-2", { xPercent: -100 }, "<0.6")
+          // .from(".service-path-1 path", { scale: 0, stagger: 0.1 }, "<0.2")
+          // .from(
+          //   ".service-path-6 path",
+          //   { scale: 0, stagger: 0.05, x: 200, y: -200 },
+          //   "<0.2"
+          // );
 
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: "#service-grid",
-                start: "top 20%",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
-              },
-              defaults: {
-                ease: Power4.easeInOut,
-              },
-            })
-            .from(".service-path-4", { xPercent: -100 })
-            .from(".service-path-3", { xPercent: 150, rotate: 180 }, "<0.2")
-            .from(".service-path-5", { yPercent: 100, scale: 0 }, "<0.2");
+          gsap.timeline({
+            scrollTrigger: {
+              trigger: "#service-grid",
+              start: "top 20%",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: true,
+              preventOverlaps: true,
+            },
+            defaults: {
+              ease: Power4.easeInOut,
+            },
+          });
+          // .from(".service-path-4", { xPercent: -100 })
+          // .from(".service-path-3", { xPercent: 150, rotate: 180 }, "<0.2")
+          // .from(".service-path-5", { yPercent: 100, scale: 0 }, "<0.2");
 
           //footer
           gsap
