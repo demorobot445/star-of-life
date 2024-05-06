@@ -158,20 +158,20 @@
         line-height: 8.125rem;
         font-size: 6.25rem;
       }
-      &:hover {
-        svg {
-          path {
-            stroke-dashoffset: 2600px;
-          }
-        }
-      }
-      &[data-active="true"] {
-        svg {
-          path {
-            stroke-dashoffset: 2600px;
-          }
-        }
-      }
+      // &:hover {
+      //   svg {
+      //     path {
+      //       stroke-dashoffset: 2600px;
+      //     }
+      //   }
+      // }
+      // &[data-active="true"] {
+      //   svg {
+      //     path {
+      //       stroke-dashoffset: 2600px;
+      //     }
+      //   }
+      // }
       svg {
         position: absolute;
         height: 100%;
@@ -344,7 +344,30 @@
   justify-content: center;
   h1 {
     font-size: 10vw;
-    line-height: 8vw;
+    line-height: 9.3vw;
     white-space: nowrap;
+  }
+}
+
+.float {
+  position: fixed;
+  z-index: 999;
+  width: 225px;
+  height: 340px;
+  inset: 20px;
+  overflow: hidden;
+  transform: rotate(20deg);
+  pointer-events: none;
+  border-radius: 8px;
+  opacity: 0;
+  &_visible {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+  img {
+    height: 340px;
+    width: 225px;
+    object-fit: cover;
   }
 }

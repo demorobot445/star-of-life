@@ -7,12 +7,16 @@ import Elements from "./Elements";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MenuElements from "./MenuElements";
+import Image from "next/image";
 
 const Header = () => {
-  const [color, setColor] = useState<string>();
   const container = useRef<HTMLDivElement>(null);
   const { asPath } = useRouter();
   const tl = useRef<GSAPTimeline>();
+  const xTo = useRef<gsap.QuickToFunc>();
+  const yTo = useRef<gsap.QuickToFunc>();
+  const vTo = useRef<gsap.QuickToFunc>();
+  const oTo = useRef<gsap.QuickToFunc>();
 
   const { contextSafe } = useGSAP(
     () => {
@@ -54,8 +58,9 @@ const Header = () => {
         )
         .from(".large", { opacity: 0, duration: 0.5 })
         .to(".large", { rotate: -90, scale: 2 })
-        .to(".large-text", { xPercent: 80, duration: 3 }, "<1.5")
-        .to(".large", { opacity: 0 }, "<1")
+        .to(".large-text-1", { xPercent: 80, duration: 3 }, "<1.5")
+        .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
+        .to(".large", { opacity: 0 }, "<1.2")
         .from(".menu", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
         .from(".path-menu-2", { x: -500, y: 100 }, "<0.2")
@@ -75,16 +80,42 @@ const Header = () => {
         )
         .from(".menu-link", { yPercent: 100, opacity: 0, stagger: 0.2 }, "<0.2")
         .from(".menu-social", { yPercent: 100, opacity: 0 }, "<0.2");
+
+      //mouse move
+
+      xTo.current = gsap.quickTo(".float", "x", {
+        duration: 0.8,
+        ease: "power3",
+      });
+      yTo.current = gsap.quickTo(".float", "y", {
+        duration: 0.8,
+        ease: "power3",
+      });
+      oTo.current = gsap.quickTo(".float", "opacity", {
+        duration: 0.8,
+        ease: "power3",
+      });
+      vTo.current = gsap.quickTo(".visible", "y", {
+        duration: 0.8,
+        ease: "power3",
+      });
     },
     { scope: container }
   );
 
-  useGSAP(
-    () => {
-      gsap.to(".menu", { backgroundColor: color });
-    },
-    { dependencies: [color], scope: container }
-  );
+  const moveShape = contextSafe((e: React.MouseEvent) => {
+    xTo.current!(e.clientX - 112.5);
+    yTo.current!(e.clientY - 170);
+  });
+
+  const mouseEnter = contextSafe((elemNum: number) => {
+    vTo.current!(-340 * elemNum);
+    oTo.current!(1);
+  });
+
+  const mouseLeave = contextSafe(() => {
+    oTo.current!(0);
+  });
 
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
@@ -104,8 +135,10 @@ const Header = () => {
         {[...Array(20)].map((e, i) => {
           return (
             <div key={i}>
-              <h1 className="large-text">Phlippe Layani Phlippe Layani</h1>
-              <h1 className="large-text">Digital Designer Digital Designer</h1>
+              <h1 className="large-text-1">Phlippe Layani Phlippe Layani</h1>
+              <h1 className="large-text-2">
+                Digital Designer Digital Designer
+              </h1>
             </div>
           );
         })}
@@ -125,68 +158,76 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <nav className={`menu ${s.menu}`}>
+      <div className={`float ${s.float}`}>
+        <div className={`visible ${s.float_visible}`}>
+          {[...Array(6)].map((e, i) => {
+            return (
+              <Image
+                src={`/menu/${i}.jpeg`}
+                height={1000}
+                width={1000}
+                alt="menu"
+              />
+            );
+          })}
+        </div>
+      </div>
+      <nav onMouseMove={moveShape} className={`menu ${s.menu}`}>
         <MenuElements />
         <div className={s.menu_grid}>
           <Link
+            onMouseEnter={() => mouseEnter(0)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#ADDBD0")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#work"}
             href="#work"
           >
             Work<span>01</span>
-            <MenuLine />
           </Link>
           <Link
+            onMouseEnter={() => mouseEnter(1)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#83D398")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#archive"}
             href="#archive"
           >
             Archive<span>02</span>
-            <MenuLine />
           </Link>
           <Link
+            onMouseEnter={() => mouseEnter(2)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#C1927F")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#clients"}
             href="#clients"
           >
             Clients<span>03</span>
-            <MenuLine />
           </Link>
           <Link
+            onMouseEnter={() => mouseEnter(3)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#FFD95D")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#services"}
             href="#services"
           >
             Services<span>04</span>
-            <MenuLine />
           </Link>
           <Link
+            onMouseEnter={() => mouseEnter(4)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#FF9293")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#about"}
             href="#about"
           >
             About<span>05</span>
-            <MenuLine />
           </Link>
           <Link
+            onMouseEnter={() => mouseEnter(5)}
+            onMouseLeave={mouseLeave}
             className="menu-link"
-            onPointerEnter={() => setColor("#D6C2E4")}
-            onPointerLeave={() => setColor("#F6F2E9")}
             data-active={asPath === "/#contact"}
             href="#contact"
           >
             Contact<span>06</span>
-            <MenuLine />
           </Link>
         </div>
         <div className={`menu-social ${s.menu_social}`}>
