@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 @font-face {
@@ -70,4 +71,14 @@ main {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+.mouse {
+  height: 20px;
+  width: 20px;
+  border-radius: 999px;
+  backdrop-filter: invert(100%);
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
 }

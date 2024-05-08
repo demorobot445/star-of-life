@@ -80,42 +80,9 @@ const Header = () => {
         )
         .from(".menu-link", { yPercent: 100, opacity: 0, stagger: 0.2 }, "<0.2")
         .from(".menu-social", { yPercent: 100, opacity: 0 }, "<0.2");
-
-      //mouse move
-
-      xTo.current = gsap.quickTo(".float", "x", {
-        duration: 0.8,
-        ease: "power3",
-      });
-      yTo.current = gsap.quickTo(".float", "y", {
-        duration: 0.8,
-        ease: "power3",
-      });
-      oTo.current = gsap.quickTo(".float", "opacity", {
-        duration: 0.8,
-        ease: "power3",
-      });
-      vTo.current = gsap.quickTo(".visible", "y", {
-        duration: 0.8,
-        ease: "power3",
-      });
     },
     { scope: container }
   );
-
-  const moveShape = contextSafe((e: React.MouseEvent) => {
-    xTo.current!(e.clientX - 112.5);
-    yTo.current!(e.clientY - 170);
-  });
-
-  const mouseEnter = contextSafe((elemNum: number) => {
-    vTo.current!(-340 * elemNum);
-    oTo.current!(1);
-  });
-
-  const mouseLeave = contextSafe(() => {
-    oTo.current!(0);
-  });
 
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
@@ -158,36 +125,32 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <div className={`float ${s.float}`}>
-        <div className={`visible ${s.float_visible}`}>
-          {[...Array(6)].map((e, i) => {
-            return (
-              <Image
-                key={i}
-                src={`/menu/${i}.jpeg`}
-                height={1000}
-                width={1000}
-                alt="menu"
-              />
-            );
-          })}
-        </div>
-      </div>
-      <nav onMouseMove={moveShape} className={`menu ${s.menu}`}>
+
+      <nav className={`menu ${s.menu}`}>
         <MenuElements />
         <div className={s.menu_grid}>
-          <Link
-            onMouseEnter={() => mouseEnter(0)}
-            onMouseLeave={mouseLeave}
-            className="menu-link"
-            data-active={asPath === "/#work"}
-            href="#work"
-          >
-            Work<span>01</span>
-          </Link>
-          <Link
-            onMouseEnter={() => mouseEnter(1)}
-            onMouseLeave={mouseLeave}
+          {["Work", "Archive", "Clients", "Services", "About", "Contact"].map(
+            (e, i) => {
+              return (
+                <div key={i} className={s.menu3D}>
+                  <div className={s.menu3D_bottom}>
+                    <Link className="menu-link" href={`#${e.toLowerCase()}`}>
+                      {e}
+                      <span>0{i + 1}</span>
+                    </Link>
+                  </div>
+                  <div className={s.menu3D_front}>
+                    <Link className="menu-link" href={`#${e.toLowerCase()}`}>
+                      {e}
+                      <span>0{i + 1}</span>
+                    </Link>
+                  </div>
+                </div>
+              );
+            }
+          )}
+
+          {/* <Link
             className="menu-link"
             data-active={asPath === "/#archive"}
             href="#archive"
@@ -195,8 +158,6 @@ const Header = () => {
             Archive<span>02</span>
           </Link>
           <Link
-            onMouseEnter={() => mouseEnter(2)}
-            onMouseLeave={mouseLeave}
             className="menu-link"
             data-active={asPath === "/#clients"}
             href="#clients"
@@ -204,8 +165,6 @@ const Header = () => {
             Clients<span>03</span>
           </Link>
           <Link
-            onMouseEnter={() => mouseEnter(3)}
-            onMouseLeave={mouseLeave}
             className="menu-link"
             data-active={asPath === "/#services"}
             href="#services"
@@ -213,8 +172,6 @@ const Header = () => {
             Services<span>04</span>
           </Link>
           <Link
-            onMouseEnter={() => mouseEnter(4)}
-            onMouseLeave={mouseLeave}
             className="menu-link"
             data-active={asPath === "/#about"}
             href="#about"
@@ -222,14 +179,12 @@ const Header = () => {
             About<span>05</span>
           </Link>
           <Link
-            onMouseEnter={() => mouseEnter(5)}
-            onMouseLeave={mouseLeave}
             className="menu-link"
             data-active={asPath === "/#contact"}
             href="#contact"
           >
             Contact<span>06</span>
-          </Link>
+          </Link> */}
         </div>
         <div className={`menu-social ${s.menu_social}`}>
           <Link href="#">Linkedin</Link>

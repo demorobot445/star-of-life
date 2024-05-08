@@ -9,8 +9,10 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const container = useRef<HTMLElement>(null);
+  const xTo = useRef<gsap.QuickToFunc>();
+  const yTo = useRef<gsap.QuickToFunc>();
 
-  useGSAP(
+  const { contextSafe } = useGSAP(
     () => {
       let mm = gsap.matchMedia(),
         breakPoint = 800;
@@ -476,12 +478,27 @@ const Layout: React.FC<Props> = ({ children }) => {
             .from(".footer-path-3 path", { scale: 0, stagger: 0.04 }, "<0.2");
         }
       );
+
+      xTo.current = gsap.quickTo(".mouse", "x", {
+        duration: 0.8,
+        ease: "power4",
+      });
+      yTo.current = gsap.quickTo(".mouse", "y", {
+        duration: 0.8,
+        ease: "power4",
+      });
     },
     { scope: container }
   );
 
+  const moveMover = contextSafe((e: React.MouseEvent) => {
+    xTo.current!(e.clientX - 5);
+    yTo.current!(e.clientY - 5);
+  });
+
   return (
-    <main ref={container}>
+    <main onMouseMove={moveMover} ref={container}>
+      <div className="mouse" />
       <Header />
       {children}
     </main>
