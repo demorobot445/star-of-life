@@ -32,7 +32,7 @@ const Services = () => {
   //   { scope: container }
   // );
 
-  useGSAP(
+  const { contextSafe } = useGSAP(
     () => {
       gsap
         .timeline({
@@ -82,18 +82,41 @@ const Services = () => {
     { scope: container }
   );
 
+  const pointerEnter = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
+  });
+  const pointerLeave = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
+  });
+
   return (
     <section id="service" ref={container} className={s.main}>
       <Elements />
       <h1 className="service-heading">
-        <span>S</span>
-        <span>e</span>
-        <span>r</span>
-        <span>v</span>
-        <span>i</span>
-        <span>c</span>
-        <span>e</span>
-        <span>s</span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          S
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          e
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          r
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          v
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          i
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          c
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          e
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          s
+        </span>
       </h1>
       <div id="service-grid" className={s.grid}>
         <InsideElements />

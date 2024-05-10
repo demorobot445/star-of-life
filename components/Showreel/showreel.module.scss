@@ -21,11 +21,11 @@
     cursor: pointer;
     span {
       display: inline-block;
-      transition: 0.2s all var(--power4);
+      // transition: 0.2s all var(--power4);
       transform-origin: bottom;
-      &:hover {
-        transform: scaleY(1.4);
-      }
+      // &:hover {
+      //   transform: scaleY(1.4);
+      // }
     }
     @include lg {
       font-size: 15.625rem;

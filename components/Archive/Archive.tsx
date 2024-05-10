@@ -10,7 +10,7 @@ const Archive = () => {
   const container = useRef<HTMLElement>(null);
   const grid = useRef<HTMLDivElement>(null);
 
-  useGSAP(
+  const { contextSafe } = useGSAP(
     () => {
       let mm = gsap.matchMedia(),
         breakPoint = 800;
@@ -44,17 +44,38 @@ const Archive = () => {
     { scope: container }
   );
 
+  const pointerEnter = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
+  });
+  const pointerLeave = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
+  });
+
   return (
     <section id="archive" ref={container} className={s.main}>
       <Elements />
       <h1 className="archive-heading">
-        <span>A</span>
-        <span>r</span>
-        <span>c</span>
-        <span>h</span>
-        <span>i</span>
-        <span>v</span>
-        <span>e</span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          A
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          r
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          c
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          h
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          i
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          v
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          e
+        </span>
       </h1>
       <div ref={grid} className={s.grid}>
         {data.map((e, i) => {

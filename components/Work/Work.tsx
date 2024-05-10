@@ -10,7 +10,7 @@ import Image from "next/image";
 const Work = () => {
   const container = useRef<HTMLElement>(null);
 
-  useGSAP(
+  const { contextSafe } = useGSAP(
     () => {
       gsap.to(".work-path-6", {
         scrollTrigger: {
@@ -43,14 +43,29 @@ const Work = () => {
     { scope: container }
   );
 
+  const pointerEnter = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
+  });
+  const pointerLeave = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
+  });
+
   return (
     <section id="work" ref={container} className={s.main}>
       <Elements />
       <h1 className="work-heading">
-        <span>W</span>
-        <span>o</span>
-        <span>r</span>
-        <span>k</span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          W
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          o
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          r
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          k
+        </span>
       </h1>
       <div className={`work-slider ${s.slider}`}>
         <div className={`work-path-6 ${s.pathSix}`}>

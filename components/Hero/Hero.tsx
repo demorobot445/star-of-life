@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { PathFive } from "../Svg/Svg";
 import s from "./hero.module.scss";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   return (
@@ -8,10 +10,14 @@ const Hero = () => {
         <PathFive />
       </div>
       <h3>
-        Philippe Layani is a - and -based digital <br />
-        designer who blends , technology, and <br />
-        strategy to develop exceptional, -made interactive <br />
-        hat connect with their audiences.
+        <Typewriter
+          options={{
+            strings:
+              "Philippe Layani is a Berlin- and Vienna-based digital UX designer who blends creativity, technology, and strategy to develop exceptional, tailor-made interactive experiences that connect brands with their audiences.",
+            autoStart: true,
+            delay: 30,
+          }}
+        />
       </h3>
     </section>
   );

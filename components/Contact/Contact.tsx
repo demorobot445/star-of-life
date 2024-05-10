@@ -2,19 +2,45 @@ import Link from "next/link";
 import s from "./contact.module.scss";
 import Elements from "./Elements";
 import { ContactPathOne } from "../Svg/Svg";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 const Contact = () => {
+  const container = useRef<HTMLDivElement>(null);
+  const { contextSafe } = useGSAP(() => {}, { scope: container });
+
+  const pointerEnter = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
+  });
+  const pointerLeave = contextSafe((e: React.MouseEvent) => {
+    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
+  });
+
   return (
-    <section id="contact" className={s.main}>
+    <section ref={container} id="contact" className={s.main}>
       <Elements />
       <h1 className="contact-heading">
-        <span>C</span>
-        <span>o</span>
-        <span>n</span>
-        <span>t</span>
-        <span>a</span>
-        <span>c</span>
-        <span>t</span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          C
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          o
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          n
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          t
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          a
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          c
+        </span>
+        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
+          t
+        </span>
       </h1>
       <div className={`contact-grid ${s.grid}`}>
         <p>

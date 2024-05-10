@@ -34,7 +34,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#showreel",
-                start: "top bottom",
+                start: "top 80%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -43,10 +43,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".showreel-heading", {
+            .from(".showreel-heading span", {
               yPercent: 100,
               opacity: 0,
-              duration: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
             })
             .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
 
@@ -82,10 +84,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".work-heading", {
+            .from(".work-heading span", {
               yPercent: 100,
               opacity: 0,
-              duration: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
             })
             .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
 
@@ -103,10 +107,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".archive-heading", {
+            .from(".archive-heading span", {
               yPercent: 100,
               opacity: 0,
-              duration: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
             })
             .from(
               ".archive-path-1",
@@ -197,7 +203,13 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".client-heading", { yPercent: 100, opacity: 0, duration: 1 })
+            .from(".client-heading span", {
+              yPercent: 100,
+              opacity: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
+            })
             .from(
               ".client-path-1 path",
               { stagger: 0.05, x: 200, scale: 0 },
@@ -288,7 +300,13 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".about-heading", { yPercent: 100, opacity: 0, duration: 1 })
+            .from(".about-heading span", {
+              yPercent: 100,
+              opacity: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
+            })
             .from(".about-path-2", { xPercent: 70 }, "<0.6");
 
           gsap
@@ -351,10 +369,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".contact-heading", {
+            .from(".contact-heading span", {
               yPercent: 100,
               opacity: 0,
-              duration: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
             })
             .from(".contact-path-2", { xPercent: 100 }, "<0.6")
             .to(
@@ -396,10 +416,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".service-heading", {
+            .from(".service-heading span", {
               yPercent: 100,
               opacity: 0,
-              duration: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3",
             })
             .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
           // gsap.timeline({
