@@ -1,6 +1,6 @@
 import { PathFive } from "../Svg/Svg";
 import s from "./hero.module.scss";
-import Typewriter, { TypewriterClass } from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   return (
