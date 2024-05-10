@@ -86,7 +86,6 @@ const Showreel = () => {
           allow="autoplay; fullscreen; picture-in-picture"
         ></iframe>
       </div>
-      <script src="https://player.vimeo.com/api/player.js"></script>
       {/* <video
         className={`showreel-video ${s.video}`}
         src="/demo-video.mp4"
