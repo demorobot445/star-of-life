@@ -71,14 +71,30 @@ const Showreel = () => {
           l
         </span>
       </h1>
-      <video
+      <div
+        className={`showreel-video`}
+        style={{ padding: "56.25% 0 0 0", position: "relative" }}
+      >
+        <iframe
+          src="https://player.vimeo.com/video/933780210?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1"
+          style={{
+            position: "absolute",
+            inset: 0,
+            height: "100%",
+            width: "100%",
+          }}
+          allow="autoplay; fullscreen; picture-in-picture"
+        ></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+      {/* <video
         className={`showreel-video ${s.video}`}
         src="/demo-video.mp4"
         muted
         autoPlay
         playsInline
         loop
-      />
+      /> */}
     </section>
   );
 };

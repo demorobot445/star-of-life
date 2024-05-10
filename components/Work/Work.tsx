@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Elements from "./Elements";
 import s from "./work.module.scss";
 import { data } from "./data";
 import { useGSAP } from "@gsap/react";
-import gsap, { Power4 } from "gsap";
-import { WorkPathFive, WorkPathSix } from "../Svg/Svg";
+import gsap from "gsap";
+import { WorkPathSix } from "../Svg/Svg";
 import Image from "next/image";
 
 const Work = () => {
@@ -22,22 +22,27 @@ const Work = () => {
       });
 
       data.map((e, i) => {
-        if (i < data.length - 1) {
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: `.slide-${i}`,
-                start: "top-=66 top",
-                pin: true,
-                pinSpacing: false,
-                scrub: true,
-              },
-            })
-            .to(`.slide-${i}`, {
-              scale: 0.9,
-            })
-            .set(`.slide-${i}`, { opacity: 0 });
-        }
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: `.slide-${i}`,
+              start: "top center",
+              scrub: true,
+            },
+          })
+          .from(`.image-${i}`, { left: "100%", top: "50%", rotate: -35 });
+      });
+
+      data.map((e, i) => {
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: `.slide-${i}`,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          })
+          .from(`.heading-${i}`, { scale: 2 });
       });
     },
     { scope: container }
@@ -71,20 +76,39 @@ const Work = () => {
         <div className={`work-path-6 ${s.pathSix}`}>
           <WorkPathSix />
         </div>
-        {data.map(({ desc, name }, i) => {
+      </div>
+      <div className={s.slider}>
+        {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>
-              <div className={s.content}>
-                <h2>{name}</h2>
-                <div className={s.tags}>
-                  {desc.map((e, i) => {
-                    return <p key={i}>{e}</p>;
-                  })}
-                </div>
-              </div>
-              <div className={s.image}>
-                <div className={s.image_cover} />
-                <Image fill src={`/work/${i}.webp`} alt="card-img" />
+              <Image
+                className={`image-${i} ${s.image}`}
+                src={`/work/${i}.webp`}
+                alt="image"
+                height={2000}
+                width={2000}
+              />
+              <p className={s.tags}>website</p>
+              <p data-right className={s.tags}>
+                protfolio
+              </p>
+              <h2 className={`heading-${i}`}>{name}</h2>
+              <h2 className={`heading-${i}`} data-stroke>
+                {name}
+              </h2>
+              <div className={s.foot}>
+                <p>
+                  agency<span>spring / summer</span>
+                </p>
+                <p>
+                  role<span>lead designer / developer</span>
+                </p>
+                <p>
+                  client<span>unknown</span>
+                </p>
+                <p>
+                  year<span>2023</span>
+                </p>
               </div>
             </div>
           );
