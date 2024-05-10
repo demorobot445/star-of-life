@@ -135,6 +135,8 @@
   flex-direction: column;
   width: 100%;
   margin-top: 50px;
+  position: relative;
+  height: 100vh;
 }
 
 .slide {
@@ -144,7 +146,7 @@
   height: 100vh;
   width: 100%;
   margin-top: 100px;
-  position: relative;
+  position: absolute;
   h2 {
     position: relative;
     z-index: 1;
@@ -208,6 +210,7 @@
   position: absolute;
   transform: rotate(35deg);
   top: -35%;
+  left: -35%;
   width: 32vw;
   height: 45vw;
   z-index: 2;

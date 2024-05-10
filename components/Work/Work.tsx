@@ -21,29 +21,42 @@ const Work = () => {
         rotate: 360,
       });
 
-      data.map((e, i) => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: `.slide-${i}`,
-              start: "top center",
-              scrub: true,
-            },
-          })
-          .from(`.image-${i}`, { left: "100%", top: "50%", rotate: -35 });
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: `.slider`,
+          start: "top+=100 top",
+          end: "bottom+=3000 bottom",
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          // markers: true,
+        },
+        defaults: { ease: "none" },
       });
 
       data.map((e, i) => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: `.slide-${i}`,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          })
-          .from(`.heading-${i}`, { scale: 2 });
+        tl.to(`.slide-${i - 1}`, { yPercent: -100 })
+          .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+          .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 1.6 : 1.8 })
+          .from(`.image-${i}`, {
+            left: "120%",
+            top: "50%",
+            rotate: -35,
+            duration: 3,
+          });
       });
+
+      // data.map((e, i) => {
+      //   gsap
+      //     .timeline({
+      //       scrollTrigger: {
+      //         trigger: `.slide-${i}`,
+      //         start: "top 80%",
+      //         toggleActions: "play none none reverse",
+      //       },
+      //     })
+      //     .from(`.heading-${i}`, { scale: 2 });
+      // });
     },
     { scope: container }
   );
@@ -72,12 +85,11 @@ const Work = () => {
           k
         </span>
       </h1>
-      <div className={`work-slider ${s.slider}`}>
+
+      <div className={`slider ${s.slider}`}>
         <div className={`work-path-6 ${s.pathSix}`}>
           <WorkPathSix />
         </div>
-      </div>
-      <div className={s.slider}>
         {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>
