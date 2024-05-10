@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  // cursor: none;
+  cursor: none;
 }
 
 @font-face {
@@ -81,7 +81,6 @@ main {
   pointer-events: none;
   position: fixed;
   z-index: 9999;
-  display: none;
 }
 
 .animated_svg_style svg {
