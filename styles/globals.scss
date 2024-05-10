@@ -82,17 +82,3 @@ main {
   position: fixed;
   z-index: 9999;
 }
-
-.animated_svg_style svg {
-  display: inline;
-  width: 132px;
-  height: 60px;
-  position: relative;
-  /* top: -8px; */
-}
-.animated_text_style {
-  font-size: 3rem;
-  /* line-height: 2.25rem; */
-  width: 100px;
-  height: 100px;
-}
