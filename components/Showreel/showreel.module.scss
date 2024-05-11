@@ -11,6 +11,7 @@
     margin-top: 120px;
   }
   h1 {
+    overflow: visible;
     text-align: center;
     width: 100%;
     font-weight: 400;
@@ -19,6 +20,7 @@
     font-size: 4rem;
     line-height: calc(4rem * 1.2);
     cursor: default;
+    text-transform: uppercase;
     span {
       display: inline-block;
       // transition: 0.2s all var(--power4);
@@ -28,16 +30,16 @@
       // }
     }
     @include lg {
-      font-size: 15.625rem;
-      line-height: calc(15.625rem / 2);
-      margin-top: calc(15.625rem / 2);
-      margin-bottom: calc(15.625rem / 2);
+      font-size: 15rem;
+      line-height: calc(15rem / 2);
+      margin-top: calc(15rem / 2);
+      margin-bottom: calc(15rem / 2);
     }
     @include xxl {
       margin-top: 10.937rem;
       margin-bottom: 10.937rem;
       max-width: 1560px;
-      font-size: 21.875rem;
+      font-size: 18rem;
       line-height: 10.937rem;
     }
   }

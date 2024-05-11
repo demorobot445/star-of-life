@@ -143,6 +143,7 @@ const Header = () => {
           ].map((e, i) => {
             return (
               <div
+                key={i}
                 onPointerEnter={() => setColor(e.color)}
                 onPointerLeave={() => setColor("#F6F2E9")}
                 className={s.menuCover}

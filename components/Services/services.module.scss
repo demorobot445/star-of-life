@@ -19,6 +19,7 @@
     font-weight: 400;
     margin-inline: auto;
     max-width: 1260px;
+    text-transform: uppercase;
     font-size: 4rem;
     line-height: calc(4rem * 1.2);
     cursor: default;
@@ -44,9 +45,9 @@
 .pathOne {
   position: absolute;
   top: -70px;
-  left: 40%;
+  left: 60%;
   @include lg {
-    top: -160px;
+    top: 30px;
   }
   svg {
     width: 23vw;
@@ -67,8 +68,8 @@
 }
 .pathThree {
   position: absolute;
-  top: 1000px;
-  right: 9%;
+  top: 590px;
+  right: -1%;
   z-index: 2;
   svg {
     width: 26vw;
@@ -77,9 +78,9 @@
 }
 .pathFour {
   position: absolute;
-  top: 680px;
+  top: -160px;
   left: -20%;
-  z-index: 3;
+  z-index: -1;
   // @include xxl {
   //   top: 190px;
   // }
@@ -90,8 +91,8 @@
 }
 .pathFive {
   position: absolute;
-  top: 260px;
-  right: 0%;
+  top: 170px;
+  left: 0%;
   z-index: 3;
   svg {
     width: 20vw;
@@ -99,12 +100,95 @@
   }
 }
 .pathSix {
+  transform: rotate(45deg);
   position: absolute;
-  top: -410px;
-  right: 0%;
+  top: 520px;
+  right: 10%;
   svg {
     width: 20vw;
     height: 30vw;
+  }
+}
+
+.pathSeven {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  svg {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+.pathEight {
+  position: absolute;
+  top: 680px;
+  left: 1260px;
+  svg {
+    width: 25vw;
+    height: 12vw;
+  }
+}
+
+.pathNine {
+  position: absolute;
+  top: 6%;
+  left: 35%;
+  svg {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+.pathTen {
+  position: absolute;
+  top: 26%;
+  left: 15%;
+  z-index: -1;
+  svg {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+.pathEleven {
+  position: absolute;
+  transform: rotate(10deg);
+  position: absolute;
+  top: 23%;
+  left: 70%;
+  svg {
+    width: 15vw;
+    height: 15vw;
+  }
+}
+.pathTwelve {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  svg {
+    width: 34vw;
+    height: 31vw;
+  }
+}
+.pathThirteen {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  svg {
+    width: 28vw;
+    height: 15vw;
+  }
+}
+
+.pathFoutheen {
+  position: absolute;
+  top: -15%;
+  left: 0%;
+  z-index: -1;
+  svg {
+    width: 45vw;
+    height: 45vw;
   }
 }
 

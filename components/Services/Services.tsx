@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Elements from "./Elements";
 import InsideElements from "./InsideElements";
-import { ServiceMenu } from "../Svg/Svg";
+import { ServiceMenu, ServicePathTwo } from "../Svg/Svg";
 
 const Services = () => {
   const container = useRef<HTMLElement>(null);
@@ -148,9 +148,11 @@ const Services = () => {
         {data.map(({ color, heading }, i) => {
           return (
             <div
+              key={i}
               style={{ background: color, zIndex: i }}
               className={`slide-${i} ${s.slide}`}
             >
+              <Elements id={i} />
               <h3>{heading}</h3>
             </div>
           );

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Elements from "./Elements";
 import s from "./work.module.scss";
 import { data } from "./data";
@@ -9,6 +9,8 @@ import Image from "next/image";
 
 const Work = () => {
   const container = useRef<HTMLElement>(null);
+
+  const [counter, setCounter] = useState<number>(1);
 
   const { contextSafe } = useGSAP(
     () => {
@@ -35,7 +37,8 @@ const Work = () => {
       });
 
       data.map((e, i) => {
-        tl.to(`.slide-${i - 1}`, { yPercent: -100 })
+        tl.call(() => setCounter(i + 1))
+          .to(`.slide-${i - 1}`, { yPercent: -100 })
           .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
           .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 1.6 : 1.8 })
           .from(`.image-${i}`, {
@@ -43,7 +46,8 @@ const Work = () => {
             top: "50%",
             rotate: -35,
             duration: 3,
-          });
+          })
+          .call(() => setCounter(i + 1));
       });
 
       // data.map((e, i) => {
@@ -90,6 +94,10 @@ const Work = () => {
         {/* <div className={`work-path-6 ${s.pathSix}`}>
           <WorkPathSix />
         </div> */}
+        <div className={s.counter}>
+          <h2>0{counter}/05</h2>
+        </div>
+
         {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>

@@ -23,6 +23,7 @@
     font-size: 4rem;
     line-height: calc(4rem * 1.2);
     cursor: default;
+    text-transform: uppercase;
     span {
       display: inline-block;
       transform-origin: bottom;
@@ -270,4 +271,14 @@
   //   2% 83%,
   //   0% 90%
   // );
+}
+
+.counter {
+  position: absolute;
+  bottom: 1.5vw;
+  left: 2.5vw;
+  h2 {
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+  }
 }
