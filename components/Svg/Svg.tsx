@@ -1,3 +1,6 @@
+import React from "react";
+import { data } from "../Services/data";
+
 export const Logo = () => {
   return (
     <svg viewBox="0 0 80 121" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1670,6 +1673,31 @@ export const Decline = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="m2 2 50 50m0-50-50 50" stroke="#000" strokeWidth="5" />
+    </svg>
+  );
+};
+
+export const ServiceMenu = () => {
+  return (
+    <svg viewBox="-10 0 520 500" xmlns="http://www.w3.org/2000/svg">
+      <path
+        id="curve"
+        d="M 0, 250 a 250,250 0 1,1 500,0 a 250,250 0 1,1 -500,0"
+      ></path>
+      <text style={{ color: "black" }} width="500">
+        <textPath xlinkHref="#curve">
+          {data.map((e, i) => {
+            return (
+              <React.Fragment key={i}>
+                <tspan>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </tspan>
+                <tspan>{e.heading}</tspan>
+              </React.Fragment>
+            );
+          })}
+        </textPath>
+      </text>
     </svg>
   );
 };

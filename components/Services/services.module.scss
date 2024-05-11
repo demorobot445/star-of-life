@@ -41,104 +41,6 @@
     }
   }
 }
-
-.grid {
-  display: flex;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-
-  &[data-visible] {
-    overflow: visible;
-    @include lg {
-      padding-left: 25vw;
-    }
-  }
-}
-
-.image {
-  object-fit: cover;
-  height: 60vh;
-  width: 70vw;
-  @include lg {
-    height: 80vh;
-    width: 35vw;
-  }
-}
-
-.imgCover {
-  height: 100vh;
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.textbox {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  min-width: 100vw;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @include lg {
-    width: 50vw;
-    min-width: 50vw;
-  }
-  h2 {
-    -webkit-text-fill-color: var(--bg-three);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    text-align: center;
-    font-size: 3rem;
-    line-height: calc(3rem * 1.5);
-    @include lg {
-      font-size: 5.5rem;
-      line-height: calc(5.5rem * 1.2);
-    }
-    @include xxl {
-      font-size: 7.5rem;
-      line-height: calc(7.5rem * 1.2);
-    }
-  }
-  p {
-    // clip-path: inset(100% 0% 0% 0%);
-    min-height: 150px;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    bottom: 5%;
-    transform: translateX(-50%);
-    left: 50%;
-    font-size: 0.875rem;
-    line-height: calc(0.875rem * 1.5);
-    transition: 0.5s all var(--power4);
-    padding-inline: 20px;
-    @include lg {
-      font-size: 1rem;
-      line-height: calc(1rem * 1.5);
-      padding-inline: 2px;
-    }
-    @include xxl {
-      min-height: 235px;
-      font-size: 1.75rem;
-      line-height: calc(1.75rem * 1.4);
-    }
-  }
-}
-
-.imgGrid {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  inset: 0;
-}
-
 .pathOne {
   position: absolute;
   top: -70px;
@@ -203,5 +105,47 @@
   svg {
     width: 20vw;
     height: 30vw;
+  }
+}
+
+.slider {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin-top: 150px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: circle(0% at 50% 50%);
+  h3 {
+    text-align: center;
+    font-size: clamp(56px, 12vw, 202px);
+    line-height: 1.1;
+    color: white;
+  }
+}
+
+.menu {
+  svg {
+    position: absolute;
+    height: 50vw;
+    width: 50vw;
+    z-index: 20;
+    transform: translateX(-50%) rotate(62deg);
+    left: 50%;
+    bottom: -80%;
+    textPath {
+      fill: white;
+    }
+    path {
+      fill: transparent;
+    }
   }
 }
