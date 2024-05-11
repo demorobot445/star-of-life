@@ -56,7 +56,7 @@ const Client = () => {
       </h1>
       <div className={s.grid}>
         <div className={`client-grid ${s.grid_logos}`}>
-          {[...Array(14)].map((e, i) => {
+          {[...Array(27)].map((e, i) => {
             return (
               <Image
                 key={i}

@@ -56,14 +56,14 @@
   }
   @include xxl {
     padding-inline: 0px;
-    gap: 180px;
+    gap: 140px;
   }
   &_logos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     @include lg {
-      gap: 72px;
+      gap: 40px;
     }
   }
   &_logo {
@@ -76,7 +76,7 @@
     }
     @include xxl {
       width: 240px;
-      height: 75px;
+      height: 55px;
     }
   }
   &_para {
@@ -97,10 +97,11 @@
     }
     &_hide {
       position: absolute;
+      z-index: -1;
+      color: white;
       inset: 0;
       height: 100%;
       width: 100%;
-      opacity: 0.5;
     }
   }
 }

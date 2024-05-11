@@ -12,14 +12,14 @@ const Work = () => {
 
   const { contextSafe } = useGSAP(
     () => {
-      gsap.to(".work-path-6", {
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top bottom",
-          scrub: true,
-        },
-        rotate: 360,
-      });
+      // gsap.to(".work-path-6", {
+      //   scrollTrigger: {
+      //     trigger: container.current,
+      //     start: "top bottom",
+      //     scrub: true,
+      //   },
+      //   rotate: 360,
+      // });
 
       let tl = gsap.timeline({
         scrollTrigger: {
@@ -87,9 +87,9 @@ const Work = () => {
       </h1>
 
       <div className={`slider ${s.slider}`}>
-        <div className={`work-path-6 ${s.pathSix}`}>
+        {/* <div className={`work-path-6 ${s.pathSix}`}>
           <WorkPathSix />
-        </div>
+        </div> */}
         {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>
