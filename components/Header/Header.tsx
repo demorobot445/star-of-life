@@ -11,12 +11,9 @@ import Image from "next/image";
 
 const Header = () => {
   const container = useRef<HTMLDivElement>(null);
+  const [color, setColor] = useState<string>();
   const { asPath } = useRouter();
   const tl = useRef<GSAPTimeline>();
-  const xTo = useRef<gsap.QuickToFunc>();
-  const yTo = useRef<gsap.QuickToFunc>();
-  const vTo = useRef<gsap.QuickToFunc>();
-  const oTo = useRef<gsap.QuickToFunc>();
 
   const { contextSafe } = useGSAP(
     () => {
@@ -96,6 +93,13 @@ const Header = () => {
     tl.current!.reversed(!tl.current!.reversed());
   });
 
+  useGSAP(
+    () => {
+      gsap.to(".menu", { backgroundColor: color });
+    },
+    { dependencies: [color], scope: container }
+  );
+
   return (
     <div ref={container}>
       <div className={`large ${s.large}`}>
@@ -129,26 +133,44 @@ const Header = () => {
       <nav className={`menu ${s.menu}`}>
         <MenuElements />
         <div className={s.menu_grid}>
-          {["Work", "Archive", "Clients", "Services", "About", "Contact"].map(
-            (e, i) => {
-              return (
+          {[
+            { heading: "Work", color: "#ADDBD0" },
+            { heading: "Archive", color: "#83D398" },
+            { heading: "Clients", color: "#C1927F" },
+            { heading: "Services", color: "#FFD95D" },
+            { heading: "About", color: "#FF9293" },
+            { heading: "Contact", color: "#D6C2E4" },
+          ].map((e, i) => {
+            return (
+              <div
+                onPointerEnter={() => setColor(e.color)}
+                onPointerLeave={() => setColor("#F6F2E9")}
+                className={s.menuCover}
+              >
+                <MenuLine />
                 <div key={i} className={s.menu3D}>
                   <div className={s.menu3D_bottom}>
-                    <Link className="menu-link" href={`#${e.toLowerCase()}`}>
-                      {e}
+                    <Link
+                      className="menu-link"
+                      href={`#${e.heading.toLowerCase()}`}
+                    >
+                      {e.heading}
                       <span>0{i + 1}</span>
                     </Link>
                   </div>
                   <div className={s.menu3D_front}>
-                    <Link className="menu-link" href={`#${e.toLowerCase()}`}>
-                      {e}
+                    <Link
+                      className="menu-link"
+                      href={`#${e.heading.toLowerCase()}`}
+                    >
+                      {e.heading}
                       <span>0{i + 1}</span>
                     </Link>
                   </div>
                 </div>
-              );
-            }
-          )}
+              </div>
+            );
+          })}
 
           {/* <Link
             className="menu-link"

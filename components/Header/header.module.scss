@@ -158,20 +158,20 @@
         line-height: 8.125rem;
         font-size: 6.25rem;
       }
-      // &:hover {
-      //   svg {
-      //     path {
-      //       stroke-dashoffset: 2600px;
-      //     }
-      //   }
-      // }
-      // &[data-active="true"] {
-      //   svg {
-      //     path {
-      //       stroke-dashoffset: 2600px;
-      //     }
-      //   }
-      // }
+      &:hover {
+        svg {
+          path {
+            stroke-dashoffset: 2600px;
+          }
+        }
+      }
+      &[data-active="true"] {
+        svg {
+          path {
+            stroke-dashoffset: 2600px;
+          }
+        }
+      }
       svg {
         position: absolute;
         height: 100%;
@@ -393,5 +393,28 @@
   &_front {
     position: absolute;
     transform: translateZ(65px);
+  }
+}
+
+.menuCover {
+  position: relative;
+  svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.4);
+    path {
+      transition: 0.5s all var(--power4);
+      transition-delay: 0.2s;
+      stroke-dasharray: 1300px;
+      stroke-dashoffset: 1300px;
+    }
+  }
+  &:hover {
+    svg {
+      path {
+        stroke-dashoffset: 2600px;
+      }
+    }
   }
 }
