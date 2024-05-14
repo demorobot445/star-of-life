@@ -6,6 +6,7 @@ import Elements from "./Elements";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { AboutHeading } from "../Svg/Svg";
 
 const About = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -31,35 +32,12 @@ const About = () => {
     });
   }, []);
 
-  const { contextSafe } = useGSAP(() => {}, { scope: container });
-
-  const pointerEnter = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
-  });
-  const pointerLeave = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
-  });
-
   return (
     <section ref={container} id="about" className={s.main}>
       <Elements />
-      <h1 className="about-heading">
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          A
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          b
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          o
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          u
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          t
-        </span>
-      </h1>
+      <div className={`about-heading ${s.heading}`}>
+        <AboutHeading />
+      </div>
       <div id="about-grid" className={s.grid}>
         <Image
           className={`about-img ${s.image}`}

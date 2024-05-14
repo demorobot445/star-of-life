@@ -42,6 +42,19 @@
   }
 }
 
+.heading {
+  margin-inline: auto;
+  margin-bottom: 100px;
+  svg {
+    width: 60vw;
+    path {
+      fill: transparent;
+      stroke-dasharray: 1260px;
+      stroke: black;
+    }
+  }
+}
+
 .grid {
   display: flex;
   flex-direction: column-reverse;
@@ -110,12 +123,12 @@
 .pathOne {
   position: absolute;
   top: -40px;
-  left: 0%;
+  left: -2%;
   @include lg {
-    top: -100px;
+    top: -162px;
   }
   @include xxl {
-    top: -160px;
+    top: -220px;
   }
   svg {
     width: 36vw;

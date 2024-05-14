@@ -34,7 +34,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#showreel",
-                start: "top 80%",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -43,13 +43,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".showreel-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".showreel-heading path", {
+              strokeDashoffset: 1740,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".showreel-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
 
           gsap
@@ -75,7 +82,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#work",
-                start: "top 80%",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -84,13 +91,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".work-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".work-heading path", {
+              strokeDashoffset: 2340,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".work-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
 
           //archive
@@ -98,7 +112,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#archive",
-                start: "top center",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -107,13 +121,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".archive-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".archive-heading path", {
+              strokeDashoffset: 1360,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".archive-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .from(
               ".archive-path-1",
               { clipPath: "inset(0% 0% 0% 100%)", duration: 1 },
@@ -194,7 +215,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#client",
-                start: isDesktop ? "top center" : "top-=50 center",
+                start: isDesktop ? "top 70%" : "top-=50 center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -203,13 +224,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".client-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".client-heading path", {
+              strokeDashoffset: 1260,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".client-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .from(
               ".client-path-1 path",
               { stagger: 0.05, x: 200, scale: 0 },
@@ -291,7 +319,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#about",
-                start: "top center",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -300,13 +328,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".about-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".about-heading path", {
+              strokeDashoffset: 1120,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".about-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .from(".about-path-2", { xPercent: 70 }, "<0.6");
 
           gsap
@@ -360,7 +395,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#contact",
-                start: "top center",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -369,13 +404,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".contact-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".contact-heading path", {
+              strokeDashoffset: 1290,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".contact-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .from(".contact-path-2", { xPercent: 100 }, "<0.6")
             .to(
               ".contact-path-3 path",
@@ -407,7 +449,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#service",
-                start: "top 80%",
+                start: "top 70%",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -416,13 +458,20 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".service-heading span", {
-              yPercent: 100,
-              opacity: 0,
-              duration: 0.8,
-              stagger: 0.1,
+            .from(".services-heading path", {
+              strokeDashoffset: 1500,
+              duration: 3,
               ease: "power3",
             })
+            .to(
+              ".services-heading path",
+              {
+                duration: 0.8,
+                fill: "black",
+                ease: "power3",
+              },
+              "<2"
+            )
             .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
           // gsap.timeline({
           //   scrollTrigger: {
@@ -449,18 +498,18 @@ const Layout: React.FC<Props> = ({ children }) => {
           //   "<0.2"
           // );
 
-          gsap.timeline({
-            scrollTrigger: {
-              trigger: "#service-grid",
-              start: "top 20%",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-            },
-            defaults: {
-              ease: Power4.easeInOut,
-            },
-          });
+          // gsap.timeline({
+          //   scrollTrigger: {
+          //     trigger: "#service-grid",
+          //     start: "top 20%",
+          //     toggleActions: "play none none reverse",
+          //     fastScrollEnd: true,
+          //     preventOverlaps: true,
+          //   },
+          //   defaults: {
+          //     ease: Power4.easeInOut,
+          //   },
+          // });
           // .from(".service-path-4", { xPercent: -100 })
           // .from(".service-path-3", { xPercent: 150, rotate: 180 }, "<0.2")
           // .from(".service-path-5", { yPercent: 100, scale: 0 }, "<0.2");

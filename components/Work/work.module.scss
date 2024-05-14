@@ -42,6 +42,19 @@
   }
 }
 
+.heading {
+  margin-inline: auto;
+  margin-bottom: 100px;
+  svg {
+    width: 50vw;
+    path {
+      fill: transparent;
+      stroke-dasharray: 2340px;
+      stroke: black;
+    }
+  }
+}
+
 .tag {
   font-size: 3.125rem;
   line-height: calc(3.125rem * 1.2);

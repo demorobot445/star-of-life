@@ -1,7 +1,7 @@
 import Link from "next/link";
 import s from "./contact.module.scss";
 import Elements from "./Elements";
-import { ContactPathOne } from "../Svg/Svg";
+import { ContactHeading, ContactPathOne } from "../Svg/Svg";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -20,29 +20,9 @@ const Contact = () => {
   return (
     <section ref={container} id="contact" className={s.main}>
       <Elements />
-      <h1 className="contact-heading">
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          C
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          o
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          n
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          t
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          a
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          c
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          t
-        </span>
-      </h1>
+      <div className={`contact-heading ${s.heading}`}>
+        <ContactHeading />
+      </div>
       <div className={`contact-grid ${s.grid}`}>
         <p>
           Lets start a project together

@@ -4,7 +4,7 @@ import s from "./work.module.scss";
 import { data } from "./data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { WorkPathSix } from "../Svg/Svg";
+import { WorkHeading, WorkPathSix } from "../Svg/Svg";
 import Image from "next/image";
 
 const Work = () => {
@@ -65,30 +65,12 @@ const Work = () => {
     { scope: container }
   );
 
-  const pointerEnter = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
-  });
-  const pointerLeave = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
-  });
-
   return (
     <section id="work" ref={container} className={s.main}>
       <Elements />
-      <h1 className="work-heading">
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          W
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          o
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          r
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          k
-        </span>
-      </h1>
+      <div className={`work-heading ${s.heading}`}>
+        <WorkHeading />
+      </div>
 
       <div className={`slider ${s.slider}`}>
         {/* <div className={`work-path-6 ${s.pathSix}`}>

@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Elements from "./Elements";
 import InsideElements from "./InsideElements";
-import { ServiceMenu, ServicePathTwo } from "../Svg/Svg";
+import { ServiceMenu, ServicePathTwo, ServicesHeading } from "../Svg/Svg";
 
 const Services = () => {
   const container = useRef<HTMLElement>(null);
@@ -105,41 +105,11 @@ const Services = () => {
     { scope: container }
   );
 
-  const pointerEnter = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
-  });
-  const pointerLeave = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
-  });
-
   return (
     <section id="service" ref={container} className={s.main}>
-      <h1 className="service-heading">
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          S
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          e
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          r
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          v
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          i
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          c
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          e
-        </span>
-        <span onMouseEnter={pointerEnter} onMouseLeave={pointerLeave}>
-          s
-        </span>
-      </h1>
+      <div className={`services-heading ${s.heading}`}>
+        <ServicesHeading />
+      </div>
       <div className={`slider ${s.slider}`}>
         <div className={`menu ${s.menu}`}>
           <ServiceMenu />

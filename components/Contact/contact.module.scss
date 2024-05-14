@@ -43,6 +43,21 @@
   }
 }
 
+.heading {
+  margin-inline: auto;
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 4;
+  svg {
+    width: 70vw;
+    path {
+      fill: transparent;
+      stroke-dasharray: 1290px;
+      stroke: black;
+    }
+  }
+}
+
 .grid {
   display: flex;
   flex-direction: column;

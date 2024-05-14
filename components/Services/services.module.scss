@@ -42,6 +42,20 @@
     }
   }
 }
+
+.heading {
+  margin-inline: auto;
+  margin-bottom: 100px;
+  svg {
+    width: 80vw;
+    path {
+      fill: transparent;
+      stroke-dasharray: 1500px;
+      stroke: black;
+    }
+  }
+}
+
 .pathOne {
   position: absolute;
   top: -70px;
