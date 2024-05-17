@@ -20,7 +20,7 @@ const Hero = () => {
     stop: BerlinStop,
   } = useLottie({
     animationData: Berlin,
-    loop: false,
+    loop: true,
   });
   const {
     View: ViennaView,
@@ -28,7 +28,7 @@ const Hero = () => {
     stop: ViennaStop,
   } = useLottie({
     animationData: Vienna,
-    loop: false,
+    loop: true,
   });
   const {
     View: UxView,
@@ -36,7 +36,7 @@ const Hero = () => {
     stop: UxStop,
   } = useLottie({
     animationData: Ux,
-    loop: false,
+    loop: true,
   });
   const {
     View: TailorView,
@@ -44,7 +44,7 @@ const Hero = () => {
     stop: TailorStop,
   } = useLottie({
     animationData: Tailor,
-    loop: false,
+    loop: true,
   });
   const {
     View: BrandView,
@@ -52,7 +52,7 @@ const Hero = () => {
     stop: BrandStop,
   } = useLottie({
     animationData: Brand,
-    loop: false,
+    loop: true,
   });
 
   const typeOne = useRef<HTMLSpanElement>(null);
@@ -105,8 +105,15 @@ const Hero = () => {
         })
         .call(() => BerlinPlay())
         .set(".coverOne", { display: "inline-flex" })
-        .to(".lottieOne", { clipPath: "inset(0% 0% 100% 0%)" }, `>3`)
-        .from(".lottieTextOne", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .add(() => {
+          gsap
+            .timeline({
+              repeat: -1,
+              repeatDelay: 3,
+            })
+            .to(".lottieOne", { rotateY: 90, duration: 0.4 }, `>3`)
+            .from(".lottieTextOne", { rotateY: 90 });
+        })
         .to(textTwo.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -114,8 +121,15 @@ const Hero = () => {
         })
         .call(() => ViennaPlay())
         .set(".coverTwo", { display: "inline-flex" })
-        .to(".lottieTwo", { clipPath: "inset(0% 0% 100% 0%)" }, `>3`)
-        .from(".lottieTextTwo", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .add(() => {
+          gsap
+            .timeline({
+              repeat: -1,
+              repeatDelay: 3,
+            })
+            .to(".lottieTwo", { rotateY: 90, duration: 0.4 }, `>3`)
+            .from(".lottieTextTwo", { rotateY: 90 }, "<");
+        })
         .to(textThree.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -123,8 +137,15 @@ const Hero = () => {
         })
         .call(() => UxPlay())
         .set(".coverThree", { display: "inline-flex" })
-        .to(".lottieThree", { clipPath: "inset(0% 0% 100% 0%)" }, `>3`)
-        .from(".lottieTextThree", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .add(() => {
+          gsap
+            .timeline({
+              repeat: -1,
+              repeatDelay: 3,
+            })
+            .to(".lottieThree", { rotateY: 90, duration: 0.4 }, `>3`)
+            .from(".lottieTextThree", { rotateY: 90 }, "<");
+        })
         .to(textFour.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -137,8 +158,15 @@ const Hero = () => {
         })
         .call(() => TailorPlay())
         .set(".coverFour", { display: "inline-flex" })
-        .to(".lottieFour", { clipPath: "inset(0% 0% 100% 0%)" }, `>3`)
-        .from(".lottieTextFour", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .add(() => {
+          gsap
+            .timeline({
+              repeat: -1,
+              repeatDelay: 3,
+            })
+            .to(".lottieFour", { rotateY: 90, duration: 0.4 }, `>3`)
+            .from(".lottieTextFour", { rotateY: 90 }, "<");
+        })
         .to(textFive.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -151,8 +179,15 @@ const Hero = () => {
         })
         .call(() => BrandPlay())
         .set(".coverFive", { display: "inline-flex" })
-        .to(".lottieFive", { clipPath: "inset(0% 0% 100% 0%)" }, `>3`)
-        .from(".lottieTextFive", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .add(() => {
+          gsap
+            .timeline({
+              repeat: -1,
+              repeatDelay: 3,
+            })
+            .to(".lottieFive", { rotateY: 90, duration: 0.4 }, `>3`)
+            .from(".lottieTextFive", { rotateY: 90 }, "<");
+        })
         .to(textSix.chars, {
           stagger: 0.08,
           display: "inline-block",

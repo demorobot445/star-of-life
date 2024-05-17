@@ -64,13 +64,13 @@
     margin-inline: auto;
     @include lg {
       max-width: 1260px;
-      font-size: 3.25rem;
-      line-height: 4.0625rem;
+      font-size: 3.12rem;
+      line-height: calc(3.12rem * 1.5);
     }
     @include xxl {
       max-width: 1560px;
-      font-size: 4.0625rem;
-      line-height: 4.875rem;
+      font-size: 4rem;
+      line-height: calc(4rem * 1.2);
     }
   }
   &_cursor {
@@ -86,6 +86,9 @@
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
+    span {
+      transform-style: preserve-3d;
+    }
   }
   &_svg {
     height: 136px;
@@ -93,6 +96,7 @@
     display: inline-flex;
     position: absolute;
     bottom: -7px;
+
     &[data-position="vienna"] {
       bottom: 5px;
       left: 12px;
