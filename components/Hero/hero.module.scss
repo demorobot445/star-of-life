@@ -64,13 +64,13 @@
     margin-inline: auto;
     @include lg {
       max-width: 1260px;
-      font-size: 3.12rem;
-      line-height: calc(3.12rem * 1.5);
+      font-size: 3.25rem;
+      line-height: 4.0625rem;
     }
     @include xxl {
       max-width: 1560px;
-      font-size: 4rem;
-      line-height: calc(4rem * 1.2);
+      font-size: 4.0625rem;
+      line-height: 4.875rem;
     }
   }
   &_cursor {
@@ -133,5 +133,43 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+.svg {
+  width: 350px;
+  position: relative;
+  display: none;
+  @include lg {
+    width: 300px;
+  }
+  @include xxl {
+    width: 350px;
+  }
+  &[data-change] {
+    div {
+      @include lg {
+        bottom: -140px;
+      }
+      @include xxl {
+        bottom: -165px;
+      }
+    }
+  }
+  div {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -175px;
+    @include lg {
+      width: 300px;
+      height: 300px;
+      bottom: -150px;
+    }
+    @include xxl {
+      width: 350px;
+      height: 350px;
+      bottom: -175px;
+    }
   }
 }

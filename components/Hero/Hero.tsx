@@ -10,6 +10,8 @@ import Vienna from "./lottie/vienna.json";
 import Ux from "./lottie/ux.json";
 import Tailor from "./lottie/tailor.json";
 import Brand from "./lottie/brand.json";
+import Creativity from "./lottie/creativity.json";
+import Experience from "./lottie/experience.json";
 
 const Hero = () => {
   const container = useRef<HTMLElement>(null);
@@ -55,6 +57,23 @@ const Hero = () => {
     loop: true,
   });
 
+  const {
+    View: CreativityView,
+    play: CreativityPlay,
+    stop: CreativityStop,
+  } = useLottie({
+    animationData: Creativity,
+    loop: true,
+  });
+  const {
+    View: ExperienceView,
+    play: ExperiencePlay,
+    stop: ExperienceStop,
+  } = useLottie({
+    animationData: Experience,
+    loop: true,
+  });
+
   const typeOne = useRef<HTMLSpanElement>(null);
   const typeTwo = useRef<HTMLSpanElement>(null);
   const typeThree = useRef<HTMLSpanElement>(null);
@@ -97,6 +116,8 @@ const Hero = () => {
           UxStop();
           TailorStop();
           BrandStop();
+          ExperienceStop();
+          CreativityStop();
         })
         .to(textOne.chars, {
           stagger: 0.08,
@@ -151,6 +172,8 @@ const Hero = () => {
           display: "inline-block",
           ease: "none",
         })
+        .call(() => CreativityPlay())
+        .set(".lottieSeven", { display: "inline-flex" })
         .to(textFour2.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -172,6 +195,8 @@ const Hero = () => {
           display: "inline-block",
           ease: "none",
         })
+        .call(() => ExperiencePlay())
+        .set(".lottieSix", { display: "inline-flex" })
         .to(textFive2.chars, {
           stagger: 0.08,
           display: "inline-block",
@@ -226,10 +251,11 @@ const Hero = () => {
               {UxView}
             </span>
           </span>
-          <span ref={typeFour}>
-            designer who blends , technology, and strategy{" "}
+          <span ref={typeFour}>designer who blends technology, </span>
+          <span data-change className={`lottieSeven ${s.svg}`}>
+            {CreativityView}
           </span>
-          <span ref={typeFour2}> to develop exceptional</span>
+          <span ref={typeFour2}>and strategy to develop exceptional</span>
           <span className={`coverFour ${s.heading_cover}`}>
             <span className="lottieTextFour">tailor</span>
             <span
@@ -240,7 +266,8 @@ const Hero = () => {
             </span>
           </span>
           <span ref={typeFive}>-made interactive</span>
-          <span ref={typeFive2}> experiences that connect</span>
+          <span className={`lottieSix ${s.svg}`}>{ExperienceView}</span>
+          <span ref={typeFive2}> that connect</span>
           <span className={`coverFive ${s.heading_cover}`}>
             <span className="lottieTextFive">Brands</span>
             <span
