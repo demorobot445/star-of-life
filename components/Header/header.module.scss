@@ -410,7 +410,7 @@
       stroke-dashoffset: 1300px;
     }
   }
-  &:hover {
+  &[data-active="true"] {
     svg {
       path {
         stroke-dashoffset: 2600px;

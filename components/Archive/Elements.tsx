@@ -49,6 +49,23 @@ const Elements = () => {
       <div className={`archive-path-11 ${s.pathEleven}`}>
         <ArchivePathEleven />
       </div>
+
+      <div className={`archive-path-12 ${s.pathTwelve}`}>
+        <ArchivePathSix />
+      </div>
+
+      <div className={`archive-path-13 ${s.pathThirteen}`}>
+        <ArchivePathSeven />
+      </div>
+      <div className={`archive-path-14 ${s.pathFouteen}`}>
+        <ArchivePathEight />
+      </div>
+      <div className={`archive-path-15 ${s.pathFifty}`}>
+        <ArchivePathNine />
+      </div>
+      <div className={`archive-path-10 ${s.pathTen}`}>
+        <ArchivePathTen />
+      </div>
     </>
   );
 };

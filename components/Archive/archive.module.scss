@@ -239,3 +239,49 @@
     height: 16vw;
   }
 }
+
+.pathTwelve {
+  position: absolute;
+  top: 4630px;
+  left: 73%;
+  z-index: 2;
+  svg {
+    width: 31vw;
+    height: 23vw;
+  }
+}
+.pathThirteen {
+  position: absolute;
+  top: 3880px;
+  left: -4%;
+  svg {
+    width: 23vw;
+    height: 21vw;
+  }
+}
+.pathFouteen {
+  position: absolute;
+  top: 3500px;
+  left: 36%;
+  svg {
+    width: 100px;
+    height: 100px;
+    @include lg {
+      width: 12vw;
+      height: 10vw;
+    }
+  }
+}
+.pathFifty {
+  position: absolute;
+  bottom: 1975px;
+  right: 0%;
+  z-index: 2;
+  @include xxl {
+    bottom: 690px;
+  }
+  svg {
+    width: 49vw;
+    height: 10vw;
+  }
+}

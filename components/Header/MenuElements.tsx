@@ -12,9 +12,11 @@ import s from "./header.module.scss";
 const MenuElements = () => {
   return (
     <>
+      {/* <div className="hover-path-menu-1"> */}
       <div className={`path-menu-1 ${s.pathMenuOne}`}>
         <MenuPathOne />
       </div>
+      {/* </div> */}
       <div className={`path-menu-2 ${s.pathMenuTwo}`}>
         <MenuPathTwo />
       </div>

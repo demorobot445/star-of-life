@@ -7,13 +7,18 @@ import Elements from "./Elements";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MenuElements from "./MenuElements";
-import Image from "next/image";
 
 const Header = () => {
   const container = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState<string>();
-  const { asPath } = useRouter();
+  const [activeMenu, setActiveMenu] = useState<number>(-1);
   const tl = useRef<GSAPTimeline>();
+  const tlPathOne = useRef<GSAPTimeline>();
+  const tlPathTwo = useRef<GSAPTimeline>();
+  const tlPathThree = useRef<GSAPTimeline>();
+  const tlPathFour = useRef<GSAPTimeline>();
+  const tlPathFive = useRef<GSAPTimeline>();
+  const tlPathSix = useRef<GSAPTimeline>();
 
   const { contextSafe } = useGSAP(
     () => {
@@ -77,6 +82,106 @@ const Header = () => {
         )
         .from(".menu-link", { yPercent: 100, opacity: 0, stagger: 0.2 }, "<0.2")
         .from(".menu-social", { yPercent: 100, opacity: 0 }, "<0.2");
+
+      tlPathOne.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-1", {
+          y: 200,
+          scale: 0.2,
+        })
+        .to(".path-menu-1", {
+          y: 0,
+          scale: 1,
+        });
+      tlPathTwo.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-4", {
+          rotate: 360,
+        })
+        .to(".path-menu-4", {
+          rotate: 0,
+        });
+
+      tlPathThree.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-8", {
+          rotate: 180,
+          scale: 0.5,
+        })
+        .to(".path-menu-8", {
+          rotate: 0,
+          scale: 1,
+        });
+      tlPathFour.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-6", {
+          rotate: 180,
+          scale: 0.5,
+        })
+        .to(".path-menu-6", {
+          rotate: 0,
+          scale: 1,
+        });
+      tlPathFive.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-2", {
+          scale: 2,
+          x: -200,
+        })
+        .to(".path-menu-2", {
+          x: 0,
+          scale: 1,
+        });
+      tlPathSix.current = gsap
+        .timeline({
+          paused: true,
+          repeat: -1,
+          defaults: {
+            duration: 2,
+            ease: "power4",
+          },
+        })
+        .to(".path-menu-7", {
+          scale: 2,
+        })
+        .to(".path-menu-7", {
+          scale: 0.7,
+        });
     },
     { scope: container }
   );
@@ -91,6 +196,7 @@ const Header = () => {
     }
 
     tl.current!.reversed(!tl.current!.reversed());
+    setActiveMenu(-1);
   });
 
   useGSAP(
@@ -99,6 +205,48 @@ const Header = () => {
     },
     { dependencies: [color], scope: container }
   );
+
+  const handlePointerEnter = (color: string, key: number) => {
+    setColor(color);
+    switch (key) {
+      case 0:
+        tlPathOne.current?.play();
+        break;
+
+      case 1:
+        tlPathTwo.current?.play();
+        break;
+
+      case 2:
+        tlPathThree.current?.play();
+        break;
+
+      case 3:
+        tlPathFour.current?.play();
+        break;
+
+      case 4:
+        tlPathFive.current?.play();
+        break;
+
+      case 5:
+        tlPathSix.current?.play();
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const handlePointerLeave = () => {
+    setColor("#F6F2E9");
+    tlPathOne.current!.paused(true);
+    tlPathTwo.current!.paused(true);
+    tlPathThree.current!.paused(true);
+    tlPathFour.current!.paused(true);
+    tlPathFive.current!.paused(true);
+    tlPathSix.current!.paused(true);
+  };
 
   return (
     <div ref={container}>
@@ -144,8 +292,12 @@ const Header = () => {
             return (
               <div
                 key={i}
-                onPointerEnter={() => setColor(e.color)}
-                onPointerLeave={() => setColor("#F6F2E9")}
+                data-active={i === activeMenu}
+                onClick={() => {
+                  setActiveMenu(i);
+                }}
+                onPointerEnter={() => handlePointerEnter(e.color, i)}
+                onPointerLeave={() => handlePointerLeave()}
                 className={s.menuCover}
               >
                 <MenuLine />
@@ -153,7 +305,8 @@ const Header = () => {
                   <div className={s.menu3D_bottom}>
                     <Link
                       className="menu-link"
-                      href={`#${e.heading.toLowerCase()}`}
+                      href="#"
+                      // href={`#${e.heading.toLowerCase()}`}
                     >
                       {e.heading}
                       <span>0{i + 1}</span>
@@ -162,7 +315,8 @@ const Header = () => {
                   <div className={s.menu3D_front}>
                     <Link
                       className="menu-link"
-                      href={`#${e.heading.toLowerCase()}`}
+                      href="#"
+                      // href={`#${e.heading.toLowerCase()}`}
                     >
                       {e.heading}
                       <span>0{i + 1}</span>

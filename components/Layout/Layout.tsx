@@ -551,12 +551,12 @@ const Layout: React.FC<Props> = ({ children }) => {
       );
 
       xTo.current = gsap.quickTo(".mouse", "x", {
-        duration: 0.8,
-        ease: "power4",
+        duration: 0.01,
+        ease: "none",
       });
       yTo.current = gsap.quickTo(".mouse", "y", {
-        duration: 0.8,
-        ease: "power4",
+        duration: 0.01,
+        ease: "none",
       });
     },
     { scope: container }
