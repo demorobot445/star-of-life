@@ -249,7 +249,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             gsap
               .timeline({
                 scrollTrigger: {
-                  trigger: ".client-grid",
+                  trigger: ".client-grid-para",
                   start: "top center",
                   end: "bottom center",
                   toggleActions: "play none none reverse",
@@ -260,10 +260,6 @@ const Layout: React.FC<Props> = ({ children }) => {
                 defaults: {
                   ease: Power4.easeInOut,
                 },
-              })
-              .from(".client-logo", {
-                clipPath: "inset(100% 0% 0% 0%)",
-                stagger: 0.1,
               })
               .from(
                 ".client-para-lines",
@@ -293,6 +289,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                 clipPath: "inset(100% 0% 0% 0%)",
                 stagger: 0.1,
               });
+
             gsap
               .timeline({
                 scrollTrigger: {

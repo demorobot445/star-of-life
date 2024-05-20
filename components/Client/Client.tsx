@@ -7,6 +7,7 @@ import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ClientsHeading } from "../Svg/Svg";
+import Marquee from "react-fast-marquee";
 
 const Client = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ const Client = () => {
     SplitType.create(paraHide.current!, {
       types: "lines",
     });
-  }, []);
+  }, [para.current, paraHide.current]);
 
   const { contextSafe } = useGSAP(() => {}, { scope: container });
 
@@ -33,18 +34,34 @@ const Client = () => {
       </div>
       <div className={s.grid}>
         <div className={`client-grid ${s.grid_logos}`}>
-          {[...Array(27)].map((e, i) => {
-            return (
-              <Image
-                key={i}
-                className={`client-logo ${s.grid_logo}`}
-                src={`/clients/${i}.png`}
-                height={1000}
-                width={1000}
-                alt="logo"
-              />
-            );
-          })}
+          <Marquee>
+            {[...Array(27)].map((e, i) => {
+              return (
+                <Image
+                  key={i}
+                  className={`client-logo ${s.grid_logo}`}
+                  src={`/clients/${i}.png`}
+                  height={1000}
+                  width={1000}
+                  alt="logo"
+                />
+              );
+            })}
+          </Marquee>
+          <Marquee direction="right">
+            {[...Array(27)].map((e, i) => {
+              return (
+                <Image
+                  key={i}
+                  className={`client-logo ${s.grid_logo}`}
+                  src={`/clients/${i}.png`}
+                  height={1000}
+                  width={1000}
+                  alt="logo"
+                />
+              );
+            })}
+          </Marquee>
         </div>
         <div className={`client-grid-para ${s.grid_para}`}>
           <p ref={para}>

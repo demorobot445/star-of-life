@@ -81,8 +81,15 @@
 .pathTwo {
   position: absolute;
   z-index: 1;
-  top: -250px;
-  left: -15%;
+  top: 250px;
+  left: -10%;
+  transform-origin: left;
+  &[data-change] {
+    left: auto;
+    right: -45%;
+    top: -50px;
+    rotate: 180deg;
+  }
   svg {
     width: 34.844vw;
     height: 31.094vw;
@@ -91,11 +98,9 @@
 
 .pathThree {
   position: absolute;
-  top: -230px;
-  left: 80%;
-  @include lg {
-    top: -630px;
-  }
+  bottom: -150px;
+  left: 70%;
+  transform: rotate(45deg) scale(1.2);
   svg {
     width: 34vw;
     height: 39vw;
@@ -104,11 +109,22 @@
 
 .pathFour {
   position: absolute;
-  top: -210px;
+  top: 0px;
   z-index: 2;
-  @include lg {
-    top: -120px;
-    left: -6%;
+
+  &[data-change="1"] {
+    left: 25%;
+    top: 500px;
+  }
+  &[data-change="2"] {
+    top: auto;
+    bottom: 400px;
+    right: 36%;
+  }
+  &[data-change="3"] {
+    top: auto;
+    bottom: 50px;
+    right: 5%;
   }
   svg {
     width: 13.021vw;
@@ -117,11 +133,11 @@
 }
 .pathFive {
   position: absolute;
-  top: -30%;
-  left: -10%;
+  top: -20%;
+  left: -20%;
   svg {
-    width: 95.521vw;
-    height: 85.469vw;
+    width: 80vw;
+    height: 80vw;
   }
 }
 
@@ -164,7 +180,7 @@
   h2 {
     position: relative;
     z-index: 1;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: center;
     font-size: 17vw;
     line-height: 0.825;

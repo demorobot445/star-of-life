@@ -4,7 +4,7 @@ import s from "./work.module.scss";
 import { data } from "./data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { WorkHeading, WorkPathSix } from "../Svg/Svg";
+import { WorkHeading } from "../Svg/Svg";
 import Image from "next/image";
 
 const Work = () => {
@@ -40,6 +40,11 @@ const Work = () => {
         tl.call(() => setCounter(i + 1))
           .to(`.slide-${i - 1}`, { yPercent: -100 })
           .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+          .from(`.work-path-${i + 1}`, {
+            scale: 0,
+            duration: 0.8,
+            ease: "power4",
+          })
           .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 1.6 : 1.8 })
           .from(`.image-${i}`, {
             left: "120%",
@@ -47,7 +52,12 @@ const Work = () => {
             rotate: -35,
             duration: 3,
           })
-          .call(() => setCounter(i + 1));
+          .call(() => setCounter(i + 1))
+          .to(`.work-path-${i + 1}`, {
+            scale: 0,
+            duration: 0.8,
+            ease: "power4",
+          });
       });
 
       // data.map((e, i) => {
@@ -67,7 +77,6 @@ const Work = () => {
 
   return (
     <section id="work" ref={container} className={s.main}>
-      <Elements />
       <div className={`work-heading ${s.heading}`}>
         <WorkHeading />
       </div>
@@ -83,6 +92,7 @@ const Work = () => {
         {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>
+              <Elements id={i} />
               <Image
                 className={`image-${i} ${s.image}`}
                 src={`/work/${i}.webp`}
