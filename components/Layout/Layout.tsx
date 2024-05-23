@@ -564,10 +564,57 @@ const Layout: React.FC<Props> = ({ children }) => {
     yTo.current!(e.clientY - 5);
   });
 
+  const handlePointerEnter = contextSafe(() => {
+    gsap.to(".mouse", { scale: 8, ease: "power4", duration: 0.8 });
+    gsap
+      .timeline({
+        defaults: { ease: "power4" },
+      })
+      .to(".menuinside", {
+        opacity: 0,
+        stagger: {
+          amount: 0.5,
+          from: "random",
+        },
+      })
+      .to(
+        ".menuoutside",
+        {
+          opacity: 1,
+          stagger: {
+            amount: 0.5,
+            from: "random",
+          },
+        },
+        "<0.1"
+      )
+      .to(
+        ".menuoutside",
+        {
+          y: 100,
+          opacity: 0,
+          duration: 2,
+          stagger: {
+            amount: 0.5,
+            from: "random",
+          },
+        },
+        "<0.5"
+      )
+      .to(".menuinside", { opacity: 1 }, "<0.2")
+      .set(".menuoutside", { y: 0 });
+  });
+  const handlePointerLeave = contextSafe(() => {
+    gsap.to(".mouse", { scale: 1 });
+  });
+
   return (
     <main onMouseMove={moveMover} ref={container}>
       <div className="mouse" />
-      <Header />
+      <Header
+        menuBtnEnter={handlePointerEnter}
+        menuBtnLeave={handlePointerLeave}
+      />
       {children}
     </main>
   );

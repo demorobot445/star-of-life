@@ -5,10 +5,16 @@ import { useGSAP } from "@gsap/react";
 import gsap, { Power4 } from "gsap";
 import Elements from "./Elements";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import MenuElements from "./MenuElements";
+import RandomLetter from "../Footer/RandomLetter";
 
-const Header = () => {
+const Header = ({
+  menuBtnEnter,
+  menuBtnLeave,
+}: {
+  menuBtnEnter: () => void;
+  menuBtnLeave: () => void;
+}) => {
   const container = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState<string>();
   const [activeMenu, setActiveMenu] = useState<number>(-1);
@@ -268,9 +274,30 @@ const Header = () => {
           <Logo />
         </div>
         <div className={s.menuBtn}>
-          <button onClick={handleClick}>
-            Menu
-            <div>
+          <button
+            onPointerEnter={menuBtnEnter}
+            onPointerLeave={menuBtnLeave}
+            onClick={handleClick}
+          >
+            <div className={s.menufloat}>
+              {Array.from("Menu").map((e, i) => {
+                return (
+                  <span className="menuinside" key={i}>
+                    {e}
+                  </span>
+                );
+              })}
+              <div>
+                {Array.from("Menu").map((e, i) => {
+                  return (
+                    <span className="menuoutside" key={i}>
+                      <RandomLetter />
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+            <div className={s.menuBtn_box}>
               <span className="line-1" />
               <span className="line-2" />
             </div>

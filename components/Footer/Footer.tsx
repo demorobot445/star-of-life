@@ -26,9 +26,15 @@ const Footer = () => {
         <Link href="/">Contact</Link>
       </nav>
       <div className={`footer-nav-2 ${s.nav}`}>
-        <CustomLink text="Linkedin" />
-        <CustomLink text="Instagram" />
-        <CustomLink text="Behance" />
+        <CustomLink
+          href="https://www.linkedin.com/in/philippe-layani-56636a77"
+          text="Linkedin"
+        />
+        <CustomLink
+          href="https://www.instagram.com/layanidigital/?hl=de"
+          text="Instagram"
+        />
+        <CustomLink href="https://www.behance.net/Layani" text="Behance" />
       </div>
       <div className={s.foot}>
         <p className="footer-foot">From Berlin & Vienna with Heart</p>

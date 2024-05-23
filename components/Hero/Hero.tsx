@@ -178,7 +178,7 @@ const Hero = () => {
         .call(() => CreativityPlay())
         .set(".lottieSeven", { display: "inline-flex" })
         .to(textFour2.chars, {
-          stagger: 0.08,
+          stagger: 0.09,
           display: "inline-block",
           ease: "none",
         })
@@ -194,12 +194,12 @@ const Hero = () => {
             .from(".lottieTextFour", { rotateY: 90 }, "<");
         })
         .to(textFive.chars, {
-          stagger: 0.08,
+          stagger: 0.09,
           display: "inline-block",
           ease: "none",
         })
         .to(textFive2.chars, {
-          stagger: 0.08,
+          stagger: 0.09,
           display: "inline-block",
           ease: "none",
         })

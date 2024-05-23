@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-const CustomLink = ({ text }: { text: string }) => {
-  const container = useRef<HTMLDivElement>(null);
+const CustomLink = ({ text, href }: { text: string; href: string }) => {
+  const container = useRef<HTMLAnchorElement>(null);
 
   const { contextSafe } = useGSAP(
     () => {
@@ -56,12 +56,14 @@ const CustomLink = ({ text }: { text: string }) => {
   });
 
   return (
-    <div
+    <Link
+      href={href}
+      target="_blank"
       onPointerEnter={handlePointerEnter}
       ref={container}
       className={`${s.link} custom-link`}
     >
-      <Link href="#">
+      <div>
         {Array.from(text).map((e, i) => {
           return (
             <span className="inside" key={i}>
@@ -69,8 +71,8 @@ const CustomLink = ({ text }: { text: string }) => {
             </span>
           );
         })}
-      </Link>
-      <div>
+      </div>
+      <div className={s.link_box}>
         {Array.from(text).map((e, i) => {
           return (
             <span className="outside" key={i}>
@@ -79,7 +81,7 @@ const CustomLink = ({ text }: { text: string }) => {
           );
         })}
       </div>
-    </div>
+    </Link>
   );
 };
 
