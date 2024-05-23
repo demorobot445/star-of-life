@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo, Star } from "../Svg/Svg";
 import s from "./footer.module.scss";
 import Elements from "./Elements";
+import CustomLink from "./CustomLink";
 
 const Footer = () => {
   return (
@@ -25,9 +26,9 @@ const Footer = () => {
         <Link href="/">Contact</Link>
       </nav>
       <div className={`footer-nav-2 ${s.nav}`}>
-        <Link href="#">Linkedin</Link>
-        <Link href="#">Instagram</Link>
-        <Link href="#">Ehance</Link>
+        <CustomLink text="Linkedin" />
+        <CustomLink text="Instagram" />
+        <CustomLink text="Behance" />
       </div>
       <div className={s.foot}>
         <p className="footer-foot">From Berlin & Vienna with Heart</p>

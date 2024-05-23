@@ -81,6 +81,7 @@ const Hero = () => {
   const typeFour2 = useRef<HTMLSpanElement>(null);
   const typeFive = useRef<HTMLSpanElement>(null);
   const typeFive2 = useRef<HTMLSpanElement>(null);
+  const typeFive3 = useRef<HTMLSpanElement>(null);
   const typeSix = useRef<HTMLSpanElement>(null);
 
   useGSAP(
@@ -92,6 +93,7 @@ const Hero = () => {
       let textFour2 = SplitType.create(typeFour2.current!, { split: "chars" });
       let textFive = SplitType.create(typeFive.current!, { split: "chars" });
       let textFive2 = SplitType.create(typeFive2.current!, { split: "chars" });
+      let textFive3 = SplitType.create(typeFive3.current!, { split: "chars" });
       let textSix = SplitType.create(typeSix.current!, { split: "chars" });
 
       gsap.set(".coverOne", { display: "none" });
@@ -106,6 +108,7 @@ const Hero = () => {
       gsap.set(textFour2.chars, { display: "none" });
       gsap.set(textFive.chars, { display: "none" });
       gsap.set(textFive2.chars, { display: "none" });
+      gsap.set(textFive3.chars, { display: "none" });
       gsap.set(textSix.chars, { display: "none" });
 
       gsap
@@ -195,9 +198,14 @@ const Hero = () => {
           display: "inline-block",
           ease: "none",
         })
+        .to(textFive2.chars, {
+          stagger: 0.08,
+          display: "inline-block",
+          ease: "none",
+        })
         .call(() => ExperiencePlay())
         .set(".lottieSix", { display: "inline-flex" })
-        .to(textFive2.chars, {
+        .to(textFive3.chars, {
           stagger: 0.08,
           display: "inline-block",
           ease: "none",
@@ -265,9 +273,10 @@ const Hero = () => {
               {TailorView}
             </span>
           </span>
-          <span ref={typeFive}>-made interactive</span>
+          <span ref={typeFive}>-made </span>
+          <span ref={typeFive2}>interactive</span>
           <span className={`lottieSix ${s.svg}`}>{ExperienceView}</span>
-          <span ref={typeFive2}> that connect</span>
+          <span ref={typeFive3}> that connect</span>
           <span className={`coverFive ${s.heading_cover}`}>
             <span className="lottieTextFive">Brands</span>
             <span

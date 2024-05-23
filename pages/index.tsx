@@ -1,4 +1,5 @@
 import About from "@/components/About/About";
+import AnimeStar from "@/components/AnimeStar/AnimeStar";
 import Archive from "@/components/Archive/Archive";
 import Client from "@/components/Client/Client";
 import Contact from "@/components/Contact/Contact";
@@ -20,12 +21,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <AnimeStar />
       <Showreel />
+      <AnimeStar />
       <Work />
+      <AnimeStar />
       <Archive />
+      <AnimeStar />
       <Client />
+      <AnimeStar />
       <Services />
+      <AnimeStar />
       <About />
+      <AnimeStar />
       <Contact />
       <Footer />
       <Cookie />

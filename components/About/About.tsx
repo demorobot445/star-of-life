@@ -12,8 +12,8 @@ const About = () => {
   const container = useRef<HTMLDivElement>(null);
   const para = useRef<HTMLParagraphElement>(null);
   const paraHide = useRef<HTMLParagraphElement>(null);
-  const paraTwo = useRef<HTMLParagraphElement>(null);
-  const paraTwoHide = useRef<HTMLParagraphElement>(null);
+  // const paraTwo = useRef<HTMLParagraphElement>(null);
+  // const paraTwoHide = useRef<HTMLParagraphElement>(null);
 
   useIsomorphicLayoutEffect(() => {
     SplitType.create(para.current!, {
@@ -23,13 +23,13 @@ const About = () => {
     SplitType.create(paraHide.current!, {
       types: "lines",
     });
-    SplitType.create(paraTwo.current!, {
-      types: "lines",
-      lineClass: "about-para-lines",
-    });
-    SplitType.create(paraTwoHide.current!, {
-      types: "lines",
-    });
+    // SplitType.create(paraTwo.current!, {
+    //   types: "lines",
+    //   lineClass: "about-para-lines",
+    // });
+    // SplitType.create(paraTwoHide.current!, {
+    //   types: "lines",
+    // });
   }, []);
 
   return (
@@ -63,7 +63,7 @@ const About = () => {
             interior decor, travel, culture, and art, all of which inspire my
             creative process.
           </p>
-          <div className={s.box}>
+          {/* <div className={s.box}>
             <p ref={paraTwo} className={s.content}>
               Let’s connect and create innovative digital solutions and
               impactful brand experiences together.
@@ -72,7 +72,7 @@ const About = () => {
               Let’s connect and create innovative digital solutions and
               impactful brand experiences together.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

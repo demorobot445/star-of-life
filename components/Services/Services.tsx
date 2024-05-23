@@ -1,49 +1,26 @@
-import Image from "next/image";
 import { data } from "./data";
 import s from "./services.module.scss";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Elements from "./Elements";
-import InsideElements from "./InsideElements";
-import { ServiceMenu, ServicePathTwo, ServicesHeading } from "../Svg/Svg";
+import { ServiceMenu, ServicesHeading } from "../Svg/Svg";
 
 const Services = () => {
   const container = useRef<HTMLElement>(null);
 
-  // useGSAP(
-  //   () => {
-  //     let mm = gsap.matchMedia(),
-  //       breakPoint = 800;
-
-  //     mm.add(
-  //       {
-  //         isDesktop: `(min-width: ${breakPoint}px)`,
-  //         isMobile: `(max-width: ${breakPoint - 1}px)`,
-  //       },
-  //       (context) => {
-  //         let { isDesktop, isMobile } = context.conditions as {
-  //           isDesktop: boolean;
-  //           isMobile: boolean;
-  //         };
-
-  //       }
-  //     );
-  //   },
-  //   { scope: container }
-  // );
-
-  const { contextSafe } = useGSAP(
+  useGSAP(
     () => {
       gsap
         .timeline({
           scrollTrigger: {
             trigger: `.slider`,
             start: "top top",
-            end: "bottom+=3000 bottom",
+            end: "bottom+=3000 top",
             scrub: true,
             pin: true,
             pinSpacing: true,
+            // markers: true,
           },
           defaults: { ease: "none" },
         })

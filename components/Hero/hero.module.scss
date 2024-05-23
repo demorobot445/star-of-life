@@ -91,15 +91,16 @@
     }
   }
   &_svg {
-    height: 136px;
-    width: 136px;
-    display: inline-flex;
     position: absolute;
-    bottom: -7px;
+    display: inline-flex;
+    height: 200px;
+    width: 200px;
+    left: -32px;
+    bottom: -17px;
 
     &[data-position="vienna"] {
       bottom: 5px;
-      left: 12px;
+      left: -16px;
     }
     &[data-position="ux"] {
       height: 75px;
