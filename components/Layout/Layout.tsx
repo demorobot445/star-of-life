@@ -565,7 +565,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   });
 
   const handlePointerEnter = contextSafe(() => {
-    gsap.to(".mouse", { scale: 8, ease: "power4", duration: 0.8 });
     gsap
       .timeline({
         defaults: { ease: "power4" },
@@ -603,9 +602,21 @@ const Layout: React.FC<Props> = ({ children }) => {
       )
       .to(".menuinside", { opacity: 1 }, "<0.2")
       .set(".menuoutside", { y: 0 });
+
+    gsap.to(".mouse", {
+      scale: 4,
+      ease: "power4",
+      duration: 0.8,
+      borderWidth: 1,
+      "backdrop-filter": "invert(0%)",
+    });
   });
   const handlePointerLeave = contextSafe(() => {
-    gsap.to(".mouse", { scale: 1 });
+    gsap.to(".mouse", {
+      scale: 1,
+      borderWidth: 0,
+      "backdrop-filter": "invert(100%)",
+    });
   });
 
   return (

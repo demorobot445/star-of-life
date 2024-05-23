@@ -81,5 +81,7 @@ main {
   pointer-events: none;
   position: fixed;
   z-index: 9999;
+  position: relative;
+  border: 0px solid black;
   // display: none;
 }
