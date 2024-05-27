@@ -21,19 +21,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <AnimeStar />
       <Showreel />
-      <AnimeStar />
       <Work />
-      <AnimeStar />
       <Archive />
-      <AnimeStar />
       <Client />
-      <AnimeStar />
       <Services />
-      <AnimeStar />
       <About />
-      <AnimeStar />
       <Contact />
       <Footer />
       <Cookie />

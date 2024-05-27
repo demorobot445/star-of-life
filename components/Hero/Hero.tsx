@@ -12,10 +12,14 @@ import Tailor from "./lottie/tailor.json";
 import Brand from "./lottie/brand.json";
 import Creativity from "./lottie/creativity.json";
 import Experience from "./lottie/experience.json";
+import ArrowDown from "./lottie/arrow-down.json";
 
 const Hero = () => {
   const container = useRef<HTMLElement>(null);
-
+  const { View: ArrowView } = useLottie({
+    animationData: ArrowDown,
+    loop: true,
+  });
   const {
     View: BerlinView,
     play: BerlinPlay,
@@ -92,7 +96,6 @@ const Hero = () => {
       let textFour = SplitType.create(typeFour.current!, { split: "chars" });
       let textFour2 = SplitType.create(typeFour2.current!, { split: "chars" });
       let textFive = SplitType.create(typeFive.current!, { split: "chars" });
-      let textFive2 = SplitType.create(typeFive2.current!, { split: "chars" });
       let textFive3 = SplitType.create(typeFive3.current!, { split: "chars" });
       let textSix = SplitType.create(typeSix.current!, { split: "chars" });
 
@@ -107,7 +110,6 @@ const Hero = () => {
       gsap.set(textFour.chars, { display: "none" });
       gsap.set(textFour2.chars, { display: "none" });
       gsap.set(textFive.chars, { display: "none" });
-      gsap.set(textFive2.chars, { display: "none" });
       gsap.set(textFive3.chars, { display: "none" });
       gsap.set(textSix.chars, { display: "none" });
 
@@ -178,7 +180,7 @@ const Hero = () => {
         .call(() => CreativityPlay())
         .set(".lottieSeven", { display: "inline-flex" })
         .to(textFour2.chars, {
-          stagger: 0.09,
+          stagger: 0.12,
           display: "inline-block",
           ease: "none",
         })
@@ -194,12 +196,7 @@ const Hero = () => {
             .from(".lottieTextFour", { rotateY: 90 }, "<");
         })
         .to(textFive.chars, {
-          stagger: 0.09,
-          display: "inline-block",
-          ease: "none",
-        })
-        .to(textFive2.chars, {
-          stagger: 0.09,
+          stagger: 0.12,
           display: "inline-block",
           ease: "none",
         })
@@ -232,6 +229,7 @@ const Hero = () => {
 
   return (
     <section ref={container} id="hero" className={s.main}>
+      <div className={s.arrow}>{ArrowView}</div>
       <div className={s.pathFive}>
         <PathFive />
       </div>
@@ -273,8 +271,7 @@ const Hero = () => {
               {TailorView}
             </span>
           </span>
-          <span ref={typeFive}>-made </span>
-          <span ref={typeFive2}>interactive</span>
+          <span ref={typeFive}>-made interactive</span>
           <span className={`lottieSix ${s.svg}`}>{ExperienceView}</span>
           <span ref={typeFive3}> that connect</span>
           <span className={`coverFive ${s.heading_cover}`}>

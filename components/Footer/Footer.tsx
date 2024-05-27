@@ -18,12 +18,12 @@ const Footer = () => {
         <Star />
       </div>
       <nav className={`footer-nav-1 ${s.nav}`}>
-        <Link href="/">Work</Link>
-        <Link href="/">Archive</Link>
-        <Link href="/">Clients</Link>
-        <Link href="/">Services</Link>
-        <Link href="/">About</Link>
-        <Link href="/">Contact</Link>
+        <CustomLink href="/" text="Work" />
+        <CustomLink href="/" text="Archive" />
+        <CustomLink href="/" text="Clients" />
+        <CustomLink href="/" text="Services" />
+        <CustomLink href="/" text="About" />
+        <CustomLink href="/" text="Contact" />
       </nav>
       <div className={`footer-nav-2 ${s.nav}`}>
         <CustomLink

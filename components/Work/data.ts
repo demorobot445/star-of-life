@@ -6,7 +6,7 @@ type Data = {
 
 export const data: Data[] = [
   {
-    name: "Fruits At Home",
+    name: "Bauhaus Tapete",
     desc: [
       "design product",
       "Direction artistique",
@@ -16,10 +16,10 @@ export const data: Data[] = [
       "Shooting photo / vidéo",
       "Signalétique",
     ],
-    color: "#88C4D2",
+    color: "#ecded9",
   },
   {
-    name: "Arteck",
+    name: "Thyssen-Bornemisz",
     desc: [
       "Identité de marque",
       "Direction artistique",
@@ -27,26 +27,55 @@ export const data: Data[] = [
       "Print haut de gamme",
       "Shooting photo / vidéo",
     ],
-    color: "#ADDBD0",
+    color: "#fcebe4",
   },
   {
-    name: "Moduléo",
+    name: "WWTF",
     desc: ["Direction artistique", "Identité de marque", "print / digital"],
-    color: "#83D398",
+    color: "#fff4ce",
   },
   {
-    name: "Office Concept",
+    name: "Kim Layani",
     desc: [
       "Contenu Editorial",
       "Direction de production",
       "Identité de marque",
       "print / digital",
     ],
-    color: "#5F9784",
+    color: "#daf2e0",
   },
   {
-    name: "Arielle Wilkerson",
+    name: "Everphone",
     desc: ["Identité de marque", "Shooting photo"],
-    color: "#FFD95D",
+    color: "#dbedf2",
+  },
+  {
+    name: "Vermietet.de",
+    desc: [
+      "design product",
+      "Direction artistique",
+      "Identité de marque",
+      "Packaging",
+      "print / digital",
+      "Shooting photo / vidéo",
+      "Signalétique",
+    ],
+    color: "#eafcf8",
+  },
+  {
+    name: "Mynd Yoga",
+    desc: [
+      "Identité de marque",
+      "Direction artistique",
+      "print / digital",
+      "Print haut de gamme",
+      "Shooting photo / vidéo",
+    ],
+    color: "#faf2fe",
+  },
+  {
+    name: "Monipol",
+    desc: ["Direction artistique", "Identité de marque", "print / digital"],
+    color: "#ebebeb",
   },
 ];

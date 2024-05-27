@@ -61,6 +61,42 @@ const Elements = ({ id }: { id: number }) => {
         </div>
       );
 
+    case 5:
+      return (
+        <>
+          <div className={`work-path-6 ${s.pathTwo}`}>
+            <WorkPathTwo />
+          </div>
+          <div data-change className={`work-path-6 ${s.pathTwo}`}>
+            <WorkPathTwo />
+          </div>
+        </>
+      );
+
+    case 6:
+      return (
+        <>
+          <div className={`work-path-7 ${s.pathFour}`}>
+            <WorkPathFour />
+          </div>
+          <div data-change="1" className={`work-path-7 ${s.pathFour}`}>
+            <WorkPathFour />
+          </div>
+          <div data-change="2" className={`work-path-7 ${s.pathFour}`}>
+            <WorkPathFour />
+          </div>
+          <div data-change="3" className={`work-path-7 ${s.pathFour}`}>
+            <WorkPathFour />
+          </div>
+        </>
+      );
+    case 7:
+      return (
+        <div className={`work-path-8 ${s.pathOne}`}>
+          <WorkPathOne />
+        </div>
+      );
+
     default:
       return <></>;
   }

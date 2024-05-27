@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo, MenuLine } from "../Svg/Svg";
 import s from "./header.module.scss";
 import { useGSAP } from "@gsap/react";
@@ -15,6 +15,7 @@ const Header = ({
   menuBtnEnter: () => void;
   menuBtnLeave: () => void;
 }) => {
+  const header = useRef<HTMLElement>(null);
   const container = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState<string>();
   const [activeMenu, setActiveMenu] = useState<number>(-1);
@@ -254,6 +255,30 @@ const Header = ({
     tlPathSix.current!.paused(true);
   };
 
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  const onScroll = useCallback(() => {
+    setScrollY(window.scrollY);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [onScroll]);
+
+  useGSAP(
+    () => {
+      if (scrollY > 100) {
+        gsap.to(".logo", { scale: 0.7, ease: "power4", duration: 0.8 });
+      } else {
+        gsap.to(".logo", { scale: 1, ease: "power4", duration: 0.8 });
+      }
+    },
+    { scope: header, dependencies: [scrollY] }
+  );
+
   return (
     <div ref={container}>
       <div className={`large ${s.large}`}>
@@ -269,8 +294,8 @@ const Header = ({
         })}
       </div>
       <Elements />
-      <header className={s.main}>
-        <div className={s.logo}>
+      <header ref={header} className={s.main}>
+        <div className={`${s.logo} logo`}>
           <Logo />
         </div>
         <div className={s.menuBtn}>

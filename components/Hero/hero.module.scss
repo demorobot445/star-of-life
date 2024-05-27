@@ -9,6 +9,7 @@
   position: relative;
   padding-inline: 20px;
   height: calc(100vh - 80px);
+  margin-top: 154px;
   @include lg {
     height: calc(100vh - 154px);
     padding-inline: 0px;
@@ -64,13 +65,8 @@
     margin-inline: auto;
     @include lg {
       max-width: 1260px;
-      font-size: 3.25rem;
-      line-height: 4.0625rem;
-    }
-    @include xxl {
-      max-width: 1560px;
-      font-size: 4.0625rem;
-      line-height: 4.875rem;
+      font-size: 2.8rem;
+      line-height: calc(2.8rem * 1.5);
     }
   }
   &_cursor {
@@ -93,32 +89,29 @@
   &_svg {
     position: absolute;
     display: inline-flex;
-    height: 200px;
-    width: 200px;
-    left: -32px;
-    bottom: -17px;
+    height: 167px;
+    width: 167px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
 
     &[data-position="vienna"] {
-      bottom: 5px;
-      left: -16px;
+      bottom: 11px;
     }
     &[data-position="ux"] {
       height: 75px;
       width: 75px;
       bottom: 6px;
-      left: -6px;
     }
     &[data-position="tailor"] {
       height: 128px;
       width: 128px;
       bottom: -25px;
-      left: 0px;
     }
     &[data-position="brand"] {
-      height: 128px;
-      width: 128px;
-      bottom: -25px;
-      left: 17px;
+      height: 150px;
+      width: 150px;
+      bottom: -37px;
     }
   }
 }
@@ -173,4 +166,14 @@
       bottom: -175px;
     }
   }
+}
+
+.arrow {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 5px;
+  height: 60px;
+  width: 60px;
+  z-index: 2;
 }
