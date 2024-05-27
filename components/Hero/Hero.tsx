@@ -83,8 +83,8 @@ const Hero = () => {
   const typeThree = useRef<HTMLSpanElement>(null);
   const typeFour = useRef<HTMLSpanElement>(null);
   const typeFour2 = useRef<HTMLSpanElement>(null);
+  const typeFour3 = useRef<HTMLSpanElement>(null);
   const typeFive = useRef<HTMLSpanElement>(null);
-  const typeFive2 = useRef<HTMLSpanElement>(null);
   const typeFive3 = useRef<HTMLSpanElement>(null);
   const typeSix = useRef<HTMLSpanElement>(null);
 
@@ -95,6 +95,7 @@ const Hero = () => {
       let textThree = SplitType.create(typeThree.current!, { split: "chars" });
       let textFour = SplitType.create(typeFour.current!, { split: "chars" });
       let textFour2 = SplitType.create(typeFour2.current!, { split: "chars" });
+      let textFour3 = SplitType.create(typeFour3.current!, { split: "chars" });
       let textFive = SplitType.create(typeFive.current!, { split: "chars" });
       let textFive3 = SplitType.create(typeFive3.current!, { split: "chars" });
       let textSix = SplitType.create(typeSix.current!, { split: "chars" });
@@ -109,6 +110,7 @@ const Hero = () => {
       gsap.set(textThree.chars, { display: "none" });
       gsap.set(textFour.chars, { display: "none" });
       gsap.set(textFour2.chars, { display: "none" });
+      gsap.set(textFour3.chars, { display: "none" });
       gsap.set(textFive.chars, { display: "none" });
       gsap.set(textFive3.chars, { display: "none" });
       gsap.set(textSix.chars, { display: "none" });
@@ -180,6 +182,11 @@ const Hero = () => {
         .call(() => CreativityPlay())
         .set(".lottieSeven", { display: "inline-flex" })
         .to(textFour2.chars, {
+          stagger: 0.12,
+          display: "inline-block",
+          ease: "none",
+        })
+        .to(textFour3.chars, {
           stagger: 0.12,
           display: "inline-block",
           ease: "none",
@@ -261,7 +268,8 @@ const Hero = () => {
           <span data-change className={`lottieSeven ${s.svg}`}>
             {CreativityView}
           </span>
-          <span ref={typeFour2}>and strategy to develop exceptional</span>
+          <span ref={typeFour2}>and </span>
+          <span ref={typeFour3}>strategy to develop exceptional</span>
           <span className={`coverFour ${s.heading_cover}`}>
             <span className="lottieTextFour">tailor</span>
             <span

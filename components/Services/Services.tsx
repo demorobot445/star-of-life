@@ -122,6 +122,7 @@ const Services = () => {
 
   return (
     <section id="service" ref={container} className={s.main}>
+      <h2 className={s.tag}>04 Services</h2>
       <div className={`services-heading ${s.heading}`}>
         <ServicesHeading />
       </div>

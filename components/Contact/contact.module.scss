@@ -133,3 +133,14 @@
     height: 36vw;
   }
 }
+
+.tag {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-50%) rotate(270deg);
+  top: 50%;
+  left: -50px;
+  font-size: 2.5rem;
+  line-height: calc(2.5rem * 1.2);
+  margin-top: 350px;
+}

@@ -197,6 +197,14 @@
   }
 }
 
+.tag {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-50%) rotate(270deg);
+  top: 50%;
+  left: 0px;
+}
+
 .tags {
   position: absolute;
   transform: translateY(-50%);

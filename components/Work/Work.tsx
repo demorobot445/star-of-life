@@ -78,6 +78,7 @@ const Work = () => {
 
   return (
     <section id="work" ref={container} className={s.main}>
+      <h2 className={s.tag}>01 Work</h2>
       <div className={`work-heading ${s.heading}`}>
         <WorkHeading />
       </div>

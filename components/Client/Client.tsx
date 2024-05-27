@@ -28,6 +28,7 @@ const Client = () => {
 
   return (
     <section ref={container} id="client" className={s.main}>
+      <h2 className={s.tag}>03 Clients</h2>
       <Elements />
       <div className={`client-heading ${s.heading}`}>
         <ClientsHeading />
@@ -35,7 +36,7 @@ const Client = () => {
       <div className={s.grid}>
         <div className={`client-grid ${s.grid_logos}`}>
           <Marquee>
-            {[...Array(27)].map((e, i) => {
+            {[...Array(38)].map((e, i) => {
               return (
                 <Image
                   key={i}
@@ -49,7 +50,7 @@ const Client = () => {
             })}
           </Marquee>
           <Marquee direction="right">
-            {[...Array(27)].map((e, i) => {
+            {[...Array(38)].map((e, i) => {
               return (
                 <Image
                   key={i}

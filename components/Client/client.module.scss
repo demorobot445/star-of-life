@@ -152,3 +152,13 @@
     height: 28vw;
   }
 }
+
+.tag {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-50%) rotate(270deg);
+  top: 50%;
+  left: -55px;
+  font-size: 2.5rem;
+  line-height: calc(2.5rem * 1.2);
+}

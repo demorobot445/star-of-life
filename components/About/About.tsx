@@ -34,6 +34,7 @@ const About = () => {
 
   return (
     <section ref={container} id="about" className={s.main}>
+      <h2 className={s.tag}>05 About</h2>
       <Elements />
       <div className={`about-heading ${s.heading}`}>
         <AboutHeading />
