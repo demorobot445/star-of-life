@@ -6,6 +6,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { WorkHeading } from "../Svg/Svg";
 import Image from "next/image";
+import { useSnapshot } from "valtio";
+import { store } from "@/store";
 
 const Work = () => {
   const container = useRef<HTMLElement>(null);
@@ -27,7 +29,7 @@ const Work = () => {
         scrollTrigger: {
           trigger: `.slider`,
           start: "top+=100 top",
-          end: "bottom+=3000 bottom",
+          end: "bottom+=5000 bottom",
           scrub: true,
           pin: true,
           pinSpacing: true,
@@ -46,12 +48,12 @@ const Work = () => {
             duration: 0.8,
             ease: "power4",
           })
-          .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 1.6 : 1.8 })
+          .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
           .from(`.image-${i}`, {
             left: "120%",
             top: "50%",
             rotate: -35,
-            duration: 3,
+            duration: 4,
           })
           .call(() => setCounter(i + 1))
           .to(`.work-path-${i + 1}`, {
@@ -75,6 +77,9 @@ const Work = () => {
     },
     { scope: container }
   );
+
+  const { workHeadingPointerEnter, workHeadingPointerLeave } =
+    useSnapshot(store);
 
   return (
     <section id="work" ref={container} className={s.main}>
@@ -106,11 +111,16 @@ const Work = () => {
               <p data-right className={s.tags}>
                 protfolio
               </p>
-              <h2 className={`heading-${i}`}>{name}</h2>
-              <h2 className={`heading-${i}`} data-stroke>
-                {name}
-              </h2>
-              <div className={s.foot}>
+              <div
+                onPointerEnter={workHeadingPointerEnter}
+                onPointerLeave={workHeadingPointerLeave}
+              >
+                <h2 className={`heading-${i}`}>{name}</h2>
+                <h2 className={`heading-${i}`} data-stroke>
+                  {name}
+                </h2>
+              </div>
+              {/* <div className={s.foot}>
                 <p>
                   agency<span>spring / summer</span>
                 </p>
@@ -123,7 +133,7 @@ const Work = () => {
                 <p>
                   year<span>2023</span>
                 </p>
-              </div>
+              </div> */}
             </div>
           );
         })}

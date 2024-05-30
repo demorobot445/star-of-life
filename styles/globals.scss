@@ -31,6 +31,7 @@ body {
   font-family: Apercu, sans-serif;
   color: var(--primary-text);
   background-color: var(--bg-one);
+  scroll-behavior: smooth;
 }
 
 button,
@@ -82,4 +83,16 @@ main {
   position: fixed;
   z-index: 9999;
   border: 0px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -2.5px;
+  left: -2.5px;
+  overflow: hidden;
+  p {
+    font-size: 1.5rem;
+    line-height: calc(1.5rem * 1.5);
+    color: white;
+    opacity: 0;
+  }
 }

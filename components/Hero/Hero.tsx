@@ -236,7 +236,9 @@ const Hero = () => {
 
   return (
     <section ref={container} id="hero" className={s.main}>
-      <div className={s.arrow}>{ArrowView}</div>
+      <div onClick={() => window.scrollTo(0, innerHeight)} className={s.arrow}>
+        {ArrowView}
+      </div>
       <div className={s.pathFive}>
         <PathFive />
       </div>

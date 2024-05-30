@@ -16,7 +16,7 @@ export const data: Data[] = [
       "Shooting photo / vidéo",
       "Signalétique",
     ],
-    color: "#ecded9",
+    color: "#dbedf2",
   },
   {
     name: "Thyssen-Bornemisz",

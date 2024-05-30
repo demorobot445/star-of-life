@@ -16,12 +16,12 @@ const Elements = () => {
       {/* <div className={`footer-path-2 ${s.pathTwo}`}>
         <FooterPathTwo />
       </div> */}
-      <div className={`footer-path-3 ${s.pathThree}`}>
+      {/* <div className={`footer-path-3 ${s.pathThree}`}>
         <FooterPathThree />
-      </div>
-      <div className={`footer-path-4 ${s.pathFour}`}>
+      </div> */}
+      {/* <div className={`footer-path-4 ${s.pathFour}`}>
         <FooterPathFour />
-      </div>
+      </div> */}
       <div className={`footer-path-5 ${s.pathFive}`}>
         <FooterPathFive />
       </div>

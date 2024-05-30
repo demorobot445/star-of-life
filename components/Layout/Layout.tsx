@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Header from "../Header/Header";
 import { useGSAP } from "@gsap/react";
 import gsap, { Power4 } from "gsap";
+import { store } from "@/store";
 
 type Props = {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#showreel",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -82,7 +83,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#work",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -112,7 +113,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#archive",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -215,7 +216,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#client",
-                start: isDesktop ? "top 70%" : "top-=50 center",
+                start: isDesktop ? "top center" : "top-=50 center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -224,11 +225,16 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".client-heading path", {
-              strokeDashoffset: 1260,
-              duration: 3,
-              ease: "power3",
-            })
+            .to(document.body, { backgroundColor: "#fcebe5" })
+            .from(
+              ".client-heading path",
+              {
+                strokeDashoffset: 1260,
+                duration: 3,
+                ease: "power3",
+              },
+              "<"
+            )
             .to(
               ".client-heading path",
               {
@@ -316,7 +322,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#about",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -392,7 +398,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#contact",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: true,
                 preventOverlaps: true,
@@ -446,7 +452,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             .timeline({
               scrollTrigger: {
                 trigger: "#service",
-                start: "top 70%",
+                start: "top center",
                 toggleActions: "play none none reverse",
                 fastScrollEnd: isDesktop,
                 preventOverlaps: isDesktop,
@@ -525,9 +531,10 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".footer-star-1", { scale: 0, rotate: 360 })
-            .from(".footer-star-2", { scale: 0, rotate: 360 }, "<0.2")
-            .from(".footer-path-4", { xPercent: -100 }, "<0.2")
+            .from(".call", { opacity: 0, y: 200 })
+            // .from(".footer-star-1", { scale: 0, rotate: 360 })
+            .from(".footer-star-2", { scale: 0, rotate: 360 })
+            // .from(".footer-path-4", { xPercent: -100 }, "<0.2")
             .from(
               ".footer-path-1 path",
               { xPercent: 100, stagger: 0.1 },
@@ -542,8 +549,8 @@ const Layout: React.FC<Props> = ({ children }) => {
             .from(".footer-nav-2 a", {
               clipPath: "inset(100% 0% 0% 0%)",
               stagger: 0.1,
-            })
-            .from(".footer-path-3 path", { scale: 0, stagger: 0.04 }, "<0.2");
+            });
+          // .from(".footer-path-3 path", { scale: 0, stagger: 0.04 }, "<0.2");
         }
       );
 
@@ -555,6 +562,19 @@ const Layout: React.FC<Props> = ({ children }) => {
         duration: 0.01,
         ease: "none",
       });
+
+      store.workHeadingPointerEnter = () => {
+        gsap
+          .timeline()
+          .to(".mouse", { height: 100, width: 100, top: -40, left: -40 })
+          .to(".mouse p", { opacity: 1 }, "<0.4");
+      };
+      store.workHeadingPointerLeave = () => {
+        gsap
+          .timeline()
+          .to(".mouse p", { opacity: 0 })
+          .to(".mouse", { height: 20, width: 20, top: -2.5, left: -2.5 }, "<");
+      };
     },
     { scope: container }
   );
@@ -604,16 +624,22 @@ const Layout: React.FC<Props> = ({ children }) => {
       .set(".menuoutside", { y: 0 });
 
     gsap.to(".mouse", {
-      scale: 4,
+      height: 100,
+      width: 100,
+      left: -40,
+      top: -40,
       ease: "power4",
       duration: 0.8,
-      borderWidth: 1,
+      borderWidth: 4,
       "backdrop-filter": "invert(0%)",
     });
   });
   const handlePointerLeave = contextSafe(() => {
     gsap.to(".mouse", {
-      scale: 1,
+      height: 20,
+      width: 20,
+      left: -2.5,
+      top: -2.5,
       borderWidth: 0,
       "backdrop-filter": "invert(100%)",
     });
@@ -621,7 +647,9 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <main onMouseMove={moveMover} ref={container}>
-      <div className="mouse" />
+      <div className="mouse">
+        <p>View</p>
+      </div>
       <Header
         menuBtnEnter={handlePointerEnter}
         menuBtnLeave={handlePointerLeave}

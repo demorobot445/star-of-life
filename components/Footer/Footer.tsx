@@ -8,11 +8,18 @@ const Footer = () => {
   return (
     <footer id="footer" className={s.main}>
       <Elements />
-      <div className={`footer-star-1 ${s.star}`}>
+      {/* <div className={`footer-star-1 ${s.star}`}>
         <Star />
       </div>
       <div className={s.logo}>
         <Logo />
+      </div> */}
+      <div className={`call ${s.call}`}>
+        <h2>Join us Newsletter</h2>
+        <div>
+          <input placeholder="Enter Your Email" type="text" />
+          <button>submit</button>
+        </div>
       </div>
       <div className={`footer-star-2 ${s.star}`}>
         <Star />

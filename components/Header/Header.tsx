@@ -7,6 +7,7 @@ import Elements from "./Elements";
 import Link from "next/link";
 import MenuElements from "./MenuElements";
 import RandomLetter from "../Footer/RandomLetter";
+import CustomLink from "../Footer/CustomLink";
 
 const Header = ({
   menuBtnEnter,
@@ -66,6 +67,8 @@ const Header = ({
           "<"
         )
         .from(".large", { opacity: 0, duration: 0.5 })
+        .from(".large-text-1", { xPercent: 100, duration: 3 }, "<0.3")
+        .from(".large-text-2", { xPercent: -100, duration: 3 }, "<")
         .to(".large", { rotate: -90, scale: 2 })
         .to(".large-text-1", { xPercent: 80, duration: 3 }, "<1.5")
         .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
@@ -416,9 +419,9 @@ const Header = ({
           </Link> */}
         </div>
         <div className={`menu-social ${s.menu_social}`}>
-          <Link href="#">Linkedin</Link>
-          <Link href="#">Instagram</Link>
-          <Link href="#">Behance</Link>
+          <CustomLink href="/" text="Linkedin" />
+          <CustomLink href="/" text="Instagram" />
+          <CustomLink href="/" text="Behance" />
         </div>
       </nav>
     </div>
