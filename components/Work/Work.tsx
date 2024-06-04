@@ -29,7 +29,7 @@ const Work = () => {
         scrollTrigger: {
           trigger: `.slider`,
           start: "top+=100 top",
-          end: "bottom+=5000 bottom",
+          end: "bottom+=6000 bottom",
           scrub: true,
           pin: true,
           pinSpacing: true,
@@ -107,10 +107,10 @@ const Work = () => {
                 height={2000}
                 width={2000}
               />
-              <p className={s.tags}>website</p>
-              <p data-right className={s.tags}>
+              {/* <p className={s.tags}>website</p> */}
+              {/* <p data-right className={s.tags}>
                 protfolio
-              </p>
+              </p> */}
               <div
                 onPointerEnter={workHeadingPointerEnter}
                 onPointerLeave={workHeadingPointerLeave}

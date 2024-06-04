@@ -89,14 +89,14 @@
   &_svg {
     position: absolute;
     display: inline-flex;
-    height: 167px;
-    width: 167px;
-    bottom: -8px;
+    height: 155px;
+    width: 155px;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
 
     &[data-position="vienna"] {
-      bottom: 11px;
+      bottom: 5px;
     }
     &[data-position="ux"] {
       height: 75px;
@@ -104,8 +104,8 @@
       bottom: 6px;
     }
     &[data-position="tailor"] {
-      height: 128px;
-      width: 128px;
+      height: 118px;
+      width: 118px;
       bottom: -25px;
     }
     &[data-position="brand"] {

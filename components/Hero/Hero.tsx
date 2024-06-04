@@ -13,6 +13,7 @@ import Brand from "./lottie/brand.json";
 import Creativity from "./lottie/creativity.json";
 import Experience from "./lottie/experience.json";
 import ArrowDown from "./lottie/arrow-down.json";
+import { useScrollTo } from "react-use-window-scroll";
 
 const Hero = () => {
   const container = useRef<HTMLElement>(null);
@@ -182,12 +183,12 @@ const Hero = () => {
         .call(() => CreativityPlay())
         .set(".lottieSeven", { display: "inline-flex" })
         .to(textFour2.chars, {
-          stagger: 0.12,
+          stagger: 0.1,
           display: "inline-block",
           ease: "none",
         })
         .to(textFour3.chars, {
-          stagger: 0.12,
+          stagger: 0.1,
           display: "inline-block",
           ease: "none",
         })
@@ -203,7 +204,7 @@ const Hero = () => {
             .from(".lottieTextFour", { rotateY: 90 }, "<");
         })
         .to(textFive.chars, {
-          stagger: 0.12,
+          stagger: 0.1,
           display: "inline-block",
           ease: "none",
         })
@@ -233,10 +234,14 @@ const Hero = () => {
     },
     { scope: container }
   );
+  const scrollTo = useScrollTo();
 
   return (
     <section ref={container} id="hero" className={s.main}>
-      <div onClick={() => window.scrollTo(0, innerHeight)} className={s.arrow}>
+      <div
+        onClick={() => scrollTo({ top: innerHeight, behavior: "smooth" })}
+        className={s.arrow}
+      >
         {ArrowView}
       </div>
       <div className={s.pathFive}>

@@ -66,13 +66,15 @@ const Header = ({
           { top: "50%", y: "-50%", rotate: -45, duration: 0.5 },
           "<"
         )
-        .from(".large", { opacity: 0, duration: 0.5 })
+        .to(header.current!, { opacity: 0 })
+        .from(".large", { opacity: 0, duration: 0.5 }, "<")
         .from(".large-text-1", { xPercent: 100, duration: 3 }, "<0.3")
         .from(".large-text-2", { xPercent: -100, duration: 3 }, "<")
         .to(".large", { rotate: -90, scale: 2 })
         .to(".large-text-1", { xPercent: 80, duration: 3 }, "<1.5")
         .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
-        .to(".large", { opacity: 0 }, "<1.2")
+        // .to(".large", { opacity: 0 }, "<1.2")
+        .to(header.current!, { opacity: 1 }, "<1.2")
         .from(".menu", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
         .from(".path-menu-2", { x: -500, y: 100 }, "<0.2")

@@ -19,7 +19,7 @@ const Contact = () => {
 
   return (
     <section ref={container} id="contact" className={s.main}>
-      <h2 className={s.tag}>06 Contact</h2>
+      {/* <h2 className={s.tag}>06 Contact</h2> */}
       <Elements />
       <div className={`contact-heading ${s.heading}`}>
         <ContactHeading />

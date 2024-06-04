@@ -47,7 +47,7 @@ const Archive = () => {
 
   return (
     <section id="archive" ref={container} className={s.main}>
-      <h2 className={s.tag}>02 Archive</h2>
+      {/* <h2 className={s.tag}>02 Archive</h2> */}
       <Elements />
       <div className={`archive-heading ${s.heading}`}>
         <ArchiveHeading />

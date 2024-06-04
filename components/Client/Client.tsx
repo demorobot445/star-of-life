@@ -28,7 +28,7 @@ const Client = () => {
 
   return (
     <section ref={container} id="client" className={s.main}>
-      <h2 className={s.tag}>03 Clients</h2>
+      {/* <h2 className={s.tag}>03 Clients</h2> */}
       <Elements />
       <div className={`client-heading ${s.heading}`}>
         <ClientsHeading />

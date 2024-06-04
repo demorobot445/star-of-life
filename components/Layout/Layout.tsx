@@ -10,6 +10,7 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const container = useRef<HTMLElement>(null);
+  const mouseHover = useRef<GSAPTween>();
   const xTo = useRef<gsap.QuickToFunc>();
   const yTo = useRef<gsap.QuickToFunc>();
 
@@ -563,17 +564,24 @@ const Layout: React.FC<Props> = ({ children }) => {
         ease: "none",
       });
 
+      mouseHover.current = gsap.to(".mouse", {
+        scale: 4,
+        ease: "power4",
+        duration: 0.8,
+        "backdrop-filter": "invert(0%)",
+        paused: true,
+      });
+
+      let tl = gsap
+        .timeline({ paused: true })
+        .to(".mouse", { scale: 7 })
+        .to(".mousepara", { opacity: 1 }, "<0.4");
+
       store.workHeadingPointerEnter = () => {
-        gsap
-          .timeline()
-          .to(".mouse", { height: 100, width: 100, top: -40, left: -40 })
-          .to(".mouse p", { opacity: 1 }, "<0.4");
+        tl.play();
       };
       store.workHeadingPointerLeave = () => {
-        gsap
-          .timeline()
-          .to(".mouse p", { opacity: 0 })
-          .to(".mouse", { height: 20, width: 20, top: -2.5, left: -2.5 }, "<");
+        tl.reverse();
       };
     },
     { scope: container }
@@ -589,66 +597,24 @@ const Layout: React.FC<Props> = ({ children }) => {
       .timeline({
         defaults: { ease: "power4" },
       })
-      .to(".menuinside", {
-        opacity: 0,
-        stagger: {
-          amount: 0.5,
-          from: "random",
-        },
-      })
+      .to(".menuinside", { opacity: 0, stagger: 0.1 })
+      .to(".menuoutside", { opacity: 1, stagger: 0.1 }, "<")
       .to(
         ".menuoutside",
-        {
-          opacity: 1,
-          stagger: {
-            amount: 0.5,
-            from: "random",
-          },
-        },
+        { keyframes: { y: [0, 80, 0], opacity: [1, 0, 0] }, stagger: 0.1 },
         "<0.1"
       )
-      .to(
-        ".menuoutside",
-        {
-          y: 100,
-          opacity: 0,
-          duration: 2,
-          stagger: {
-            amount: 0.5,
-            from: "random",
-          },
-        },
-        "<0.5"
-      )
-      .to(".menuinside", { opacity: 1 }, "<0.2")
-      .set(".menuoutside", { y: 0 });
-
-    gsap.to(".mouse", {
-      height: 100,
-      width: 100,
-      left: -40,
-      top: -40,
-      ease: "power4",
-      duration: 0.8,
-      borderWidth: 4,
-      "backdrop-filter": "invert(0%)",
-    });
+      .to(".menuinside", { opacity: 1, duration: 0.2, stagger: 0.1 }, "<0.3");
+    mouseHover.current?.play();
   });
   const handlePointerLeave = contextSafe(() => {
-    gsap.to(".mouse", {
-      height: 20,
-      width: 20,
-      left: -2.5,
-      top: -2.5,
-      borderWidth: 0,
-      "backdrop-filter": "invert(100%)",
-    });
+    mouseHover.current?.reverse();
   });
 
   return (
     <main onMouseMove={moveMover} ref={container}>
       <div className="mouse">
-        <p>View</p>
+        <p className="mousepara">View</p>
       </div>
       <Header
         menuBtnEnter={handlePointerEnter}
