@@ -1,3 +1,5 @@
+@import "./breakpoint";
+
 *,
 *::after,
 *::before {
@@ -83,10 +85,13 @@ main {
   position: fixed;
   z-index: 9999;
   border: 1px solid black;
-  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  display: none;
+  @include lg {
+    display: flex;
+  }
   p {
     font-size: 1.5rem;
     line-height: calc(1.5rem * 1.5);

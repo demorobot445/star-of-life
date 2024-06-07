@@ -6,12 +6,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 200px;
+  margin-top: 120px;
   background-color: rgba(255, 255, 255, 0);
   @include lg {
     min-height: 100vh;
-    margin-top: 120px;
-    // margin-top: 600px;
+    margin-top: 200px;
   }
   h1 {
     position: relative;
@@ -45,7 +44,9 @@
 
 .heading {
   margin-inline: auto;
-  margin-bottom: 100px;
+  @include lg {
+    margin-bottom: 100px;
+  }
   svg {
     width: 50vw;
     path {
@@ -165,9 +166,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 50px;
   position: relative;
   height: 100vh;
+  @include lg {
+    margin-top: 50px;
+  }
 }
 
 .slide {
@@ -176,15 +179,21 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  margin-top: 100px;
   position: absolute;
+  @include lg {
+    margin-top: 100px;
+  }
   h2 {
     position: relative;
     z-index: 1;
     // text-transform: uppercase;
     text-align: center;
-    font-size: 17vw;
-    line-height: 0.825;
+    font-size: 4rem;
+    line-height: calc(4rem * 1.2);
+    @include lg {
+      font-size: 17vw;
+      line-height: 0.825;
+    }
     &[data-stroke] {
       position: absolute;
       left: 50%;
@@ -248,12 +257,18 @@
   overflow: hidden;
   position: absolute;
   transform: rotate(35deg);
-  top: -35%;
+  top: -54%;
   left: -35%;
-  width: 32vw;
-  height: 45vw;
+  width: 62vw;
+  height: 85vw;
   z-index: 2;
   object-fit: cover;
+  @include lg {
+    top: -35%;
+    left: -35%;
+    width: 32vw;
+    height: 45vw;
+  }
   // clip-path: polygon(
   //   0% 98%,
   //   3% 100%,
@@ -313,8 +328,12 @@
 
 .counter {
   position: absolute;
-  bottom: 1.5vw;
-  left: 2.5vw;
+  left: 20px;
+  bottom: 20px;
+  @include lg {
+    bottom: 1.5vw;
+    left: 2.5vw;
+  }
   h2 {
     font-size: 4rem;
     line-height: calc(4rem * 1.2);

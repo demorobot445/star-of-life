@@ -16,64 +16,51 @@ const Work = () => {
 
   const { contextSafe } = useGSAP(
     () => {
-      // gsap.to(".work-path-6", {
-      //   scrollTrigger: {
-      //     trigger: container.current,
-      //     start: "top bottom",
-      //     scrub: true,
-      //   },
-      //   rotate: 360,
-      // });
+      let mm = gsap.matchMedia();
 
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: `.slider`,
-          start: "top+=100 top",
-          end: "bottom+=6000 bottom",
-          scrub: true,
-          pin: true,
-          pinSpacing: true,
-          // markers: true,
-        },
-        defaults: { ease: "none" },
-      });
+      mm.add(
+        { isMobile: `(max-width: 599px)`, isDesktop: `(min-width: 600px)` },
+        (context) => {
+          let { isMobile } = context.conditions as { isMobile: boolean };
 
-      data.map((e, i) => {
-        tl.call(() => setCounter(i + 1))
-          .to(container.current!, { backgroundColor: e.color })
-          .to(`.slide-${i - 1}`, { yPercent: -100 })
-          .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
-          .from(`.work-path-${i + 1}`, {
-            scale: 0,
-            duration: 0.8,
-            ease: "power4",
-          })
-          .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
-          .from(`.image-${i}`, {
-            left: "120%",
-            top: "50%",
-            rotate: -35,
-            duration: 4,
-          })
-          .call(() => setCounter(i + 1))
-          .to(`.work-path-${i + 1}`, {
-            scale: 0,
-            duration: 0.8,
-            ease: "power4",
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: `.slider`,
+              start: isMobile ? "top top" : "top+=100 top",
+              end: "bottom+=6000 bottom",
+              scrub: true,
+              pin: true,
+              pinSpacing: true,
+            },
+            defaults: { ease: "none" },
           });
-      });
 
-      // data.map((e, i) => {
-      //   gsap
-      //     .timeline({
-      //       scrollTrigger: {
-      //         trigger: `.slide-${i}`,
-      //         start: "top 80%",
-      //         toggleActions: "play none none reverse",
-      //       },
-      //     })
-      //     .from(`.heading-${i}`, { scale: 2 });
-      // });
+          data.map((e, i) => {
+            tl.call(() => setCounter(i + 1))
+              .to(container.current!, { backgroundColor: e.color })
+              .to(`.slide-${i - 1}`, { yPercent: -100 })
+              .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+              .from(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
+              })
+              .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
+              .from(`.image-${i}`, {
+                left: isMobile ? "100%" : "120%",
+                top: isMobile ? "70%" : "50%",
+                rotate: -35,
+                duration: 4,
+              })
+              .call(() => setCounter(i + 1))
+              .to(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
+              });
+          });
+        }
+      );
     },
     { scope: container }
   );
@@ -83,15 +70,11 @@ const Work = () => {
 
   return (
     <section id="work" ref={container} className={s.main}>
-      <h2 className={s.tag}>01 Work</h2>
       <div className={`work-heading ${s.heading}`}>
         <WorkHeading />
       </div>
 
       <div className={`slider ${s.slider}`}>
-        {/* <div className={`work-path-6 ${s.pathSix}`}>
-          <WorkPathSix />
-        </div> */}
         <div className={s.counter}>
           <h2>0{counter}/08</h2>
         </div>

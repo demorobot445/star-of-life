@@ -339,9 +339,13 @@
   justify-content: center;
   h1 {
     background-color: var(--bg-one);
-    font-size: 10vw;
-    line-height: 9.3vw;
+    font-size: 20vw;
+    line-height: 19.3vw;
     white-space: nowrap;
+    @include lg {
+      font-size: 10vw;
+      line-height: 9.3vw;
+    }
   }
 }
 
@@ -369,8 +373,8 @@
 }
 
 .menu3D {
-  width: 370px;
-  height: 130px;
+  width: 150px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,6 +383,10 @@
   transition: 0.8s all var(--power4);
   transform: rotate3d(1, 0, 0, 0deg);
   z-index: 2;
+  @include lg {
+    width: 370px;
+    height: 130px;
+  }
   &:hover {
     transform: rotate3d(1, 0, 0, 90deg);
   }
