@@ -361,9 +361,9 @@ const Header = ({
                 <div key={i} className={s.menu3D}>
                   <div className={s.menu3D_bottom}>
                     <Link
+                      onClick={handleClick}
                       className="menu-link"
-                      href="#"
-                      // href={`#${e.heading.toLowerCase()}`}
+                      href={`#${e.heading.toLowerCase()}`}
                     >
                       {e.heading}
                       <span>0{i + 1}</span>

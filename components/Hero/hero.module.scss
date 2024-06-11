@@ -103,7 +103,8 @@
 
     &[data-position="vienna"] {
       @include lg {
-        bottom: 5px;
+        width: 120px;
+        bottom: -6px;
       }
     }
     &[data-position="ux"] {

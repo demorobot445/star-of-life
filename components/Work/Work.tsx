@@ -27,7 +27,7 @@ const Work = () => {
             scrollTrigger: {
               trigger: `.slider`,
               start: isMobile ? "top top" : "top+=100 top",
-              end: "bottom+=6000 bottom",
+              end: "bottom+=10000 bottom",
               scrub: true,
               pin: true,
               pinSpacing: true,
@@ -50,7 +50,7 @@ const Work = () => {
                 left: isMobile ? "100%" : "120%",
                 top: isMobile ? "70%" : "50%",
                 rotate: -35,
-                duration: 4,
+                duration: 5,
               })
               .call(() => setCounter(i + 1))
               .to(`.work-path-${i + 1}`, {

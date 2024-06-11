@@ -532,7 +532,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(".call", { opacity: 0, y: 200 })
+            // .from(".call", { opacity: 0, y: 200 })
             // .from(".footer-star-1", { scale: 0, rotate: 360 })
             .from(".footer-star-2", { scale: 0, rotate: 360 })
             // .from(".footer-path-4", { xPercent: -100 }, "<0.2")
@@ -594,14 +594,19 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   const handlePointerEnter = contextSafe(() => {
     gsap
-      .timeline({
-        defaults: { ease: "power4" },
-      })
+      .timeline()
       .to(".menuinside", { opacity: 0, stagger: 0.1 })
       .to(".menuoutside", { opacity: 1, stagger: 0.1 }, "<")
       .to(
         ".menuoutside",
-        { keyframes: { y: [0, 80, 0], opacity: [1, 0, 0] }, stagger: 0.1 },
+        {
+          keyframes: { y: [0, 80, 0], opacity: [1, 0, 0] },
+          stagger: {
+            amount: 0.1,
+            from: "random",
+          },
+          duration: 1.5,
+        },
         "<0.1"
       )
       .to(".menuinside", { opacity: 1, duration: 0.2, stagger: 0.1 }, "<0.3");

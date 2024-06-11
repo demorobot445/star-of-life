@@ -27,7 +27,7 @@ const Client = () => {
   const { contextSafe } = useGSAP(() => {}, { scope: container });
 
   return (
-    <section ref={container} id="client" className={s.main}>
+    <section ref={container} id="clients" className={s.main}>
       {/* <h2 className={s.tag}>03 Clients</h2> */}
       <Elements />
       <div className={`client-heading ${s.heading}`}>
