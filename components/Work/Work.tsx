@@ -47,8 +47,8 @@ const Work = () => {
               })
               .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
               .from(`.image-${i}`, {
-                left: isMobile ? "100%" : "120%",
-                top: isMobile ? "70%" : "50%",
+                left: isMobile ? "80%" : "120%",
+                top: isMobile ? "100%" : "50%",
                 rotate: -35,
                 duration: 5,
               })

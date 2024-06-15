@@ -103,7 +103,7 @@
 }
 
 .video {
-  height: 250px;
+  height: 330px;
   object-fit: cover;
   @include lg {
     width: 100%;
@@ -113,23 +113,38 @@
 
 .pathThree {
   position: absolute;
-  bottom: -70%;
-  left: -19%;
   z-index: 2;
+  left: -60%;
+  bottom: -120%;
+  @include lg {
+    bottom: -70%;
+    left: -19%;
+  }
   svg {
-    height: 41.708vw;
-    width: 46.208vw;
+    width: 433.94px;
+    height: 363.48px;
+    @include lg {
+      height: 41.708vw;
+      width: 46.208vw;
+    }
   }
 }
 
 .pathFour {
   position: absolute;
-  bottom: -20%;
   left: -10%;
   z-index: 2;
+  bottom: -50%;
+  @include lg {
+    bottom: -20%;
+  }
   svg {
-    width: 20.503vw;
-    height: 16.491vw;
+    height: 155px;
+    width: 193px;
+    @include lg {
+      height: 16.491vw;
+      width: 20.503vw;
+    }
   }
 }
 

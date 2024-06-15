@@ -24,12 +24,12 @@
     font-weight: 400;
     margin-inline: auto;
     @include lg {
-      max-width: 1260px;
+      // max-width: 1260px;
       font-size: 3.25rem;
       line-height: 4.0625rem;
     }
     @include xxl {
-      max-width: 1560px;
+      // max-width: 1560px;
       font-size: 4.0625rem;
       line-height: 4.875rem;
     }
@@ -57,17 +57,18 @@
 .heading {
   display: flex;
   h3 {
-    font-size: 1.5rem;
-    line-height: calc(1.5rem * 1.5);
+    font-size: 2rem;
+    line-height: calc(2rem * 1.5);
     font-weight: 400;
     margin-inline: auto;
     @include lg {
+      width: 80%;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      max-width: 1260px;
-      font-size: 2.8rem;
-      line-height: calc(2.8rem * 1.5);
+      // max-width: 1260px;
+      font-size: 3.28vw;
+      line-height: calc(3.28vw * 1.5);
     }
   }
   &_cursor {

@@ -225,10 +225,14 @@
   h3 {
     font-family: SaolDisplay;
     text-align: center;
-    font-size: clamp(56px, 12vw, 202px);
-    line-height: 1.1;
     color: black;
     font-weight: 100;
+    font-size: 4.5rem;
+    line-height: calc(4.5rem * 1.2);
+    @include lg {
+      font-size: clamp(56px, 12vw, 202px);
+      line-height: 1.1;
+    }
   }
 }
 

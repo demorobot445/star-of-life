@@ -45,7 +45,9 @@
 
 .heading {
   margin-inline: auto;
-  margin-bottom: 100px;
+  @include lg {
+    margin-bottom: 100px;
+  }
   svg {
     width: 80vw;
     path {
@@ -61,7 +63,7 @@
   display: grid;
   justify-content: center;
   padding-inline: 20px;
-  row-gap: 50px;
+  row-gap: 12px;
   @include lg {
     row-gap: 100px;
     column-gap: 250px;
@@ -77,13 +79,21 @@
   gap: 12px;
   position: relative;
   h2 {
-    font-size: 2.1875rem;
-    line-height: 2.1875rem;
+    font-size: 1.5625rem;
+    line-height: calc(1.5625rem * 1.5);
+    @include lg {
+      font-size: 2.1875rem;
+      line-height: 2.1875rem;
+    }
   }
   p {
-    font-size: 1.5625rem;
-    line-height: calc(1.5625rem * 1.4);
-    max-width: 450px;
+    font-size: 1.25rem;
+    line-height: calc(1.25rem * 1.5);
+    @include lg {
+      line-height: calc(1.5625rem * 1.4);
+      font-size: 1.5625rem;
+      max-width: 450px;
+    }
   }
   @include lg {
     &[data-varient="absolute"] {
@@ -99,23 +109,21 @@
   }
   &_img {
     width: 100%;
-    height: 354px;
     object-fit: cover;
     background-color: white;
+    width: 354px;
+    height: 271px;
     @include lg {
+      height: 354px;
       width: 578px;
-    }
-    &[data-varient="long"] {
-      width: 100%;
-      height: 649px;
-      @include lg {
+      &[data-varient="long"] {
+        height: 649px;
+
         width: 424px;
       }
-    }
-    &[data-varient="square"] {
-      width: 100%;
-      height: 470px;
-      @include lg {
+      &[data-varient="square"] {
+        height: 470px;
+
         width: 424px;
       }
     }
@@ -123,7 +131,10 @@
   &_box {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
+    @include lg {
+      gap: 24px;
+    }
   }
 }
 

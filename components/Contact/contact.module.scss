@@ -45,9 +45,11 @@
 
 .heading {
   margin-inline: auto;
-  margin-bottom: 100px;
   position: relative;
   z-index: 4;
+  @include lg {
+    margin-bottom: 100px;
+  }
   svg {
     width: 70vw;
     path {
@@ -62,7 +64,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  gap: 50px;
+  gap: 33px;
   padding-inline: 20px;
   @include lg {
     padding-inline: 0px;
@@ -76,8 +78,8 @@
     text-align: center;
     font-weight: 400;
     position: relative;
-    font-size: 1.75rem;
-    line-height: calc(1.75rem * 1.5);
+    font-size: 1.5rem;
+    line-height: calc(1.5rem * 1.5);
     @include lg {
       font-size: 3rem;
       line-height: calc(3rem * 1.2);
@@ -94,7 +96,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 33px;
   @include lg {
     flex-direction: row;
     gap: 90px;
