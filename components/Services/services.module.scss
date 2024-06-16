@@ -233,6 +233,10 @@
       font-size: clamp(56px, 12vw, 202px);
       line-height: 1.1;
     }
+    @include xxl {
+      font-size: 10.9vw;
+      line-height: calc(10.9vw * 1.2);
+    }
   }
 }
 
@@ -245,6 +249,9 @@
     transform: translateX(-50%) rotate(62deg);
     left: 50%;
     bottom: -80%;
+    @include xxl {
+      bottom: -70%;
+    }
     path {
       fill: transparent;
     }

@@ -86,15 +86,15 @@
     height: 45px;
     object-fit: fill;
     padding: 8px;
-
     @include lg {
       padding: 15px;
       width: 260px;
       height: 100px;
     }
     @include xxl {
-      width: 320px;
-      height: 100px;
+      padding: 1vw;
+      width: 23.4vw;
+      height: 8.7vw;
     }
   }
   &_para {
@@ -112,8 +112,8 @@
         line-height: calc(3rem * 1.2);
       }
       @include xxl {
-        font-size: 3.25rem;
-        line-height: calc(3.25rem * 1.2);
+        font-size: 3.8vw;
+        line-height: calc(3.8vw * 1.2);
       }
     }
     &_hide {
@@ -139,7 +139,7 @@
     top: -162px;
   }
   @include xxl {
-    top: -220px;
+    top: -15%;
   }
   svg {
     width: 36vw;

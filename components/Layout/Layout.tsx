@@ -565,7 +565,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       });
 
       mouseHover.current = gsap.to(".mouse", {
-        scale: 4,
+        scale: 0.4,
         ease: "power4",
         duration: 0.8,
         "backdrop-filter": "invert(0%)",
@@ -574,7 +574,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       let tl = gsap
         .timeline({ paused: true })
-        .to(".mouse", { scale: 7 })
+        .to(".mouse", { scale: 1 })
         .to(".mousepara", { opacity: 1 }, "<0.4");
 
       store.workHeadingPointerEnter = () => {
@@ -588,8 +588,8 @@ const Layout: React.FC<Props> = ({ children }) => {
   );
 
   const moveMover = contextSafe((e: React.MouseEvent) => {
-    xTo.current!(e.clientX - 5);
-    yTo.current!(e.clientY - 5);
+    xTo.current!(e.clientX - 90);
+    yTo.current!(e.clientY - 90);
   });
 
   const handlePointerEnter = contextSafe(() => {

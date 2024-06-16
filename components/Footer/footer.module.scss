@@ -14,6 +14,9 @@
     height: 420px;
     margin-top: 140px;
   }
+  @include xxl {
+    height: 40vw;
+  }
 }
 
 .nav {
@@ -34,8 +37,8 @@
     a,
     span {
       text-decoration: none;
-      font-size: 1.875rem;
-      line-height: calc(1.875rem * 1.5);
+      font-size: 2.1vw;
+      line-height: calc(2.1vw * 1.4);
     }
   }
 }
@@ -48,6 +51,8 @@
   margin-top: 50px;
   @include xxl {
     margin-top: 100px;
+    font-size: 1vw;
+    line-height: calc(1vw * 1.5);
   }
 }
 

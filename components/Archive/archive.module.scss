@@ -85,6 +85,10 @@
       font-size: 2.1875rem;
       line-height: 2.1875rem;
     }
+    @include xxl {
+      font-size: 2.56vw;
+      line-height: 2.56vw;
+    }
   }
   p {
     font-size: 1.25rem;
@@ -93,6 +97,11 @@
       line-height: calc(1.5625rem * 1.4);
       font-size: 1.5625rem;
       max-width: 450px;
+    }
+    @include xxl {
+      font-size: 1.8vw;
+      line-height: calc(1.8vw * 1.4);
+      max-width: 32vw;
     }
   }
   @include lg {
@@ -118,13 +127,23 @@
       width: 578px;
       &[data-varient="long"] {
         height: 649px;
-
         width: 424px;
       }
       &[data-varient="square"] {
         height: 470px;
-
         width: 424px;
+      }
+    }
+    @include xxl {
+      height: 25vw;
+      width: 42vw;
+      &[data-varient="long"] {
+        height: 47vw;
+        width: 31vw;
+      }
+      &[data-varient="square"] {
+        height: 34vw;
+        width: 31vw;
       }
     }
   }

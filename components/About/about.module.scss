@@ -59,7 +59,7 @@
 .grid {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   gap: 20px;
   margin-top: 50px;
   padding-inline: 20px;
@@ -81,8 +81,9 @@
     line-height: calc(2.25rem * 1.2);
   }
   @include xxl {
-    font-size: 3.25rem;
-    line-height: calc(3.25rem * 1.2);
+    max-width: 67vw;
+    font-size: 3.1vw;
+    line-height: calc(3.1vw * 1.2);
   }
   &[data-hide] {
     position: absolute;
@@ -109,8 +110,8 @@
     width: 458px;
   }
   @include xxl {
-    width: 758px;
-    height: 814px;
+    width: 33.5vw;
+    height: 33.5vw;
   }
 }
 

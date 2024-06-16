@@ -337,5 +337,9 @@
   h2 {
     font-size: 4rem;
     line-height: calc(4rem * 1.2);
+    @include xxl {
+      font-size: 4.6vw;
+      line-height: calc(4.6vw * 1.2);
+    }
   }
 }

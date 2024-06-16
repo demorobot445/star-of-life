@@ -187,8 +187,8 @@
         }
       }
       @include xxl {
-        font-size: 9.375rem;
-        line-height: 11.25rem;
+        font-size: 10.9vw;
+        line-height: 13vw;
       }
       span {
         font-size: 1rem;
@@ -397,6 +397,10 @@
   @include lg {
     width: 370px;
     height: 130px;
+  }
+  @include xxl {
+    width: 27vw;
+    height: 9.5vw;
   }
   &:hover {
     transform: rotate3d(1, 0, 0, 90deg);
