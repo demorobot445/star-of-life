@@ -37,7 +37,7 @@ const Work = () => {
 
           data.map((e, i) => {
             tl.call(() => setCounter(i + 1))
-              .to(container.current!, { backgroundColor: e.color })
+              // .to(container.current!, { backgroundColor: e.color })
               .to(`.slide-${i - 1}`, { yPercent: -100 })
               .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
               .from(`.work-path-${i + 1}`, {
