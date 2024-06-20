@@ -68,8 +68,8 @@ const Header = ({
         )
         .to(header.current!, { opacity: 0 })
         .from(".large", { opacity: 0, duration: 0.5 }, "<")
-        .from(".large-text-1", { xPercent: 100, duration: 3 }, "<0.3")
-        .from(".large-text-2", { xPercent: -100, duration: 3 }, "<")
+        .from(".large-text-1", { xPercent: 100, duration: 2 }, "<0.3")
+        .from(".large-text-2", { xPercent: -100, duration: 2 }, "<")
         .to(".large", { rotate: -90, scale: 2 })
         .to(".large-text-1", { xPercent: 80, duration: 3 }, "<1.5")
         .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
@@ -211,15 +211,15 @@ const Header = ({
     setActiveMenu(-1);
   });
 
-  useGSAP(
-    () => {
-      gsap.to(".menu", { backgroundColor: color });
-    },
-    { dependencies: [color], scope: container }
-  );
+  // useGSAP(
+  //   () => {
+  //     gsap.to(".menu", { backgroundColor: color });
+  //   },
+  //   { dependencies: [color], scope: container }
+  // );
 
   const handlePointerEnter = (color: string, key: number) => {
-    setColor(color);
+    // setColor(color);
     switch (key) {
       case 0:
         tlPathOne.current?.play();
@@ -361,6 +361,7 @@ const Header = ({
                 <div key={i} className={s.menu3D}>
                   <div className={s.menu3D_bottom}>
                     <Link
+                      scroll={false}
                       onClick={handleClick}
                       className="menu-link"
                       href={`#${e.heading.toLowerCase()}`}
@@ -371,6 +372,7 @@ const Header = ({
                   </div>
                   <div className={s.menu3D_front}>
                     <Link
+                      scroll={false}
                       className="menu-link"
                       href="#"
                       // href={`#${e.heading.toLowerCase()}`}

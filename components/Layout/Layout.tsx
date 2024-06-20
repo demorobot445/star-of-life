@@ -58,8 +58,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: "power3",
               },
               "<2"
-            )
-            .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
+            );
+          // .to(document.body, { backgroundColor: "#EAFCF8" }, "<1.2");
 
           gsap
             .timeline({
@@ -106,8 +106,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: "power3",
               },
               "<2"
-            )
-            .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
+            );
+          // .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
 
           //archive
           gsap
@@ -226,7 +226,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .to(document.body, { backgroundColor: "#fcebe5" })
+            // .to(document.body, { backgroundColor: "#fcebe5" })
             .from(
               ".client-heading path",
               {
@@ -475,8 +475,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: "power3",
               },
               "<2"
-            )
-            .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
+            );
+          // .to(document.body, { backgroundColor: "#EBEBEB" }, "<1.2");
           // gsap.timeline({
           //   scrollTrigger: {
           //     trigger: "#service",

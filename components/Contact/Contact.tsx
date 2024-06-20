@@ -34,10 +34,15 @@ const Contact = () => {
         <div className={s.box}>
           <p>
             Mail:{" "}
-            <Link href="mailto:philippe@layani.net">philippe@layani.net</Link>
+            <Link scroll={false} href="mailto:philippe@layani.net">
+              philippe@layani.net
+            </Link>
           </p>
           <p>
-            Phone: <Link href="tel:+491775252255">+49 177 52 52 255</Link>
+            Phone:{" "}
+            <Link scroll={false} href="tel:+491775252255">
+              +49 177 52 52 255
+            </Link>
           </p>
         </div>
       </div>

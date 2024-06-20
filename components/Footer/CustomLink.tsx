@@ -20,39 +20,21 @@ const CustomLink = ({ text, href }: { text: string; href: string }) => {
       .timeline({
         defaults: { ease: "power4" },
       })
-      .to(".inside", {
-        opacity: 0,
-        stagger: {
-          amount: 0.5,
-          from: "random",
-        },
-      })
+      .to(".inside", { opacity: 0, stagger: 0.1 })
+      .to(".outside", { opacity: 1, stagger: 0.1 }, "<")
       .to(
         ".outside",
         {
-          opacity: 1,
+          keyframes: { y: [0, 80, 0], opacity: [1, 0, 0] },
           stagger: {
-            amount: 0.5,
+            amount: 0.1,
             from: "random",
           },
+          duration: 1.5,
         },
         "<0.1"
       )
-      .to(
-        ".outside",
-        {
-          y: 100,
-          opacity: 0,
-          duration: 2,
-          stagger: {
-            amount: 0.5,
-            from: "random",
-          },
-        },
-        "<0.5"
-      )
-      .to(".inside", { opacity: 1 }, "<0.2")
-      .set(".outside", { y: 0 });
+      .to(".inside", { opacity: 1, duration: 0.2, stagger: 0.1 }, "<0.3");
   });
 
   return (

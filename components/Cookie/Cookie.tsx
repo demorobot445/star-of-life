@@ -23,7 +23,7 @@ const Cookie = () => {
     <div ref={container} className={s.main}>
       <h4>
         Ce site utilise des{" "}
-        <Link href="#">
+        <Link scroll={false} href="#">
           cookies.
           <br />
           Voir nos partenaires
