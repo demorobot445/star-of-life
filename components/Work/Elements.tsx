@@ -1,8 +1,10 @@
 import {
+  AboutPathFour,
+  AboutPathThree,
+  AboutPathTwo,
   WorkPathFive,
   WorkPathFour,
   WorkPathOne,
-  WorkPathSix,
   WorkPathThree,
   WorkPathTwo,
 } from "../Svg/Svg";
@@ -65,10 +67,10 @@ const Elements = ({ id }: { id: number }) => {
       return (
         <>
           <div className={`work-path-6 ${s.pathTwo}`}>
-            <WorkPathTwo />
+            <AboutPathTwo />
           </div>
           <div data-change className={`work-path-6 ${s.pathTwo}`}>
-            <WorkPathTwo />
+            <AboutPathTwo />
           </div>
         </>
       );
@@ -77,23 +79,23 @@ const Elements = ({ id }: { id: number }) => {
       return (
         <>
           <div className={`work-path-7 ${s.pathFour}`}>
-            <WorkPathFour />
+            <AboutPathFour />
           </div>
           <div data-change="1" className={`work-path-7 ${s.pathFour}`}>
-            <WorkPathFour />
+            <AboutPathFour />
           </div>
           <div data-change="2" className={`work-path-7 ${s.pathFour}`}>
-            <WorkPathFour />
+            <AboutPathFour />
           </div>
           <div data-change="3" className={`work-path-7 ${s.pathFour}`}>
-            <WorkPathFour />
+            <AboutPathFour />
           </div>
         </>
       );
     case 7:
       return (
         <div className={`work-path-8 ${s.pathOne}`}>
-          <WorkPathOne />
+          <AboutPathThree />
         </div>
       );
 

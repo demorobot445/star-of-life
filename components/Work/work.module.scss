@@ -115,6 +115,7 @@
   z-index: 2;
 
   &[data-change="1"] {
+    transform: rotate(180deg);
     left: 25%;
     top: 500px;
   }
@@ -124,6 +125,7 @@
     right: 36%;
   }
   &[data-change="3"] {
+    transform: rotate(180deg);
     top: auto;
     bottom: 50px;
     right: 5%;

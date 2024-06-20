@@ -6,17 +6,16 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect, useRef } from "react";
 import Layout from "@/components/Layout/Layout";
-import { useRouter } from "next/router";
+import { useScrollTo } from "react-use-window-scroll";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function App({ Component, pageProps }: AppProps) {
   const lenisRef = useRef<any>();
-  const { push } = useRouter();
+  const scrollTo = useScrollTo();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    push("/");
+    scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
