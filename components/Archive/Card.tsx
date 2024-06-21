@@ -6,7 +6,11 @@ type Props = Data & { id: number };
 const Card: React.FC<Props> = ({ imgVarient, heading, para, position, id }) => {
   return (
     <div data-varient={position} className={`archive-card-${id} ${s.card}`}>
-      <div data-varient={imgVarient} className={s.card_img}></div>
+      <div
+        style={id <= 4 ? { backgroundImage: `url(/archive/${id}.jpeg)` } : {}}
+        data-varient={imgVarient}
+        className={s.card_img}
+      ></div>
       <div className={s.card_box}>
         <div>
           {heading.map((e, i) => {
