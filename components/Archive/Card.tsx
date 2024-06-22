@@ -7,7 +7,7 @@ const Card: React.FC<Props> = ({ imgVarient, heading, para, position, id }) => {
   return (
     <div data-varient={position} className={`archive-card-${id} ${s.card}`}>
       <div
-        style={id <= 4 ? { backgroundImage: `url(/archive/${id}.jpeg)` } : {}}
+        style={id <= 4 ? { backgroundImage: `url(/archive/${id}.png)` } : {}}
         data-varient={imgVarient}
         className={s.card_img}
       ></div>
