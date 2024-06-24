@@ -53,7 +53,7 @@ const Archive = () => {
         <ArchiveHeading />
       </div>
       <div ref={grid} className={s.grid}>
-        {[...data, ...data.slice(0, 4), ...data].map((e, i) => {
+        {[...data].map((e, i) => {
           return <Card id={i} {...e} key={i} />;
         })}
       </div>
