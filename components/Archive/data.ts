@@ -2,7 +2,8 @@ export type Data = {
   heading: string[];
   para: string;
   imgVarient: "normal" | "long" | "square" | "full";
-  position: "normal" | "absolute" | "absolute-right" | "absolute-top" | "full";
+  position: "normal" | "full";
+  video?: string;
 };
 
 export const data: Data[] = [
@@ -34,7 +35,7 @@ export const data: Data[] = [
     ],
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "square",
-    position: "absolute",
+    position: "normal",
   },
   {
     heading: [
@@ -54,7 +55,7 @@ export const data: Data[] = [
     ],
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "square",
-    position: "absolute-top",
+    position: "normal",
   },
   {
     heading: [
@@ -74,7 +75,7 @@ export const data: Data[] = [
     ],
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "normal",
-    position: "absolute",
+    position: "normal",
   },
   {
     heading: [
@@ -104,7 +105,7 @@ export const data: Data[] = [
     ],
     para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "normal",
-    position: "absolute-top",
+    position: "normal",
   },
   {
     heading: [
@@ -123,8 +124,8 @@ export const data: Data[] = [
       "Date: consetetur ",
     ],
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
-    imgVarient: "long",
-    position: "absolute-top",
+    imgVarient: "normal",
+    position: "normal",
   },
   {
     heading: [
@@ -134,7 +135,7 @@ export const data: Data[] = [
     ],
     para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "square",
-    position: "absolute",
+    position: "normal",
   },
   {
     heading: [
@@ -153,9 +154,11 @@ export const data: Data[] = [
       "Projekt: dolor sit amet",
       "Date: consetetur ",
     ],
-    para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
-    imgVarient: "long",
+    para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
+    imgVarient: "normal",
     position: "normal",
+    video:
+      "https://player.vimeo.com/video/39596734?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
   },
   {
     heading: [

@@ -8,7 +8,8 @@ import Link from "next/link";
 import MenuElements from "./MenuElements";
 import RandomLetter from "../Footer/RandomLetter";
 import CustomLink from "../Footer/CustomLink";
-
+import { useLottie } from "lottie-react";
+import PL from "./PL_logo.json";
 const Header = ({
   menuBtnEnter,
   menuBtnLeave,
@@ -67,7 +68,7 @@ const Header = ({
           "<"
         )
         .to(header.current!, { opacity: 0 })
-        .from(".large", { opacity: 0, duration: 0.5 }, "<")
+        .to(".large", { opacity: 1, duration: 0.5 }, "<")
         .from(".large-text-1", { xPercent: 100, duration: 1 }, "<0.3")
         .from(".large-text-2", { xPercent: -100, duration: 1 }, "<")
         .to(".large", { rotate: -90, scale: 2, duration: 1 })
@@ -75,7 +76,7 @@ const Header = ({
         .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
         // .to(".large", { opacity: 0 }, "<1.2")
         .to(header.current!, { opacity: 1 }, "<1.2")
-        .from(".menu", { clipPath: "inset(100% 0% 0% 0%)" }, "<")
+        .to(".menu", { clipPath: "inset(0% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
         .from(".path-menu-2", { x: -500, y: 100 }, "<0.2")
         .from(".path-menu-3 path", { y: -100, stagger: 0.1, opacity: 0 }, "<")
@@ -284,6 +285,14 @@ const Header = ({
     { scope: header, dependencies: [scrollY] }
   );
 
+  const { View, play, stop } = useLottie({
+    animationData: PL,
+  });
+
+  useEffect(() => {
+    stop();
+  }, [stop]);
+
   return (
     <div ref={container}>
       <div className={`large ${s.large}`}>
@@ -300,8 +309,13 @@ const Header = ({
       </div>
       <Elements />
       <header ref={header} className={s.main}>
-        <div className={`${s.logo} logo`}>
-          <Logo />
+        <div
+          onPointerEnter={() => play()}
+          onPointerLeave={() => stop()}
+          className={`${s.logo} logo`}
+        >
+          {/* <Logo /> */}
+          {View}
         </div>
         <div className={s.menuBtn}>
           <button

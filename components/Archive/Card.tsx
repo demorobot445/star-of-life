@@ -3,14 +3,31 @@ import type { Data } from "./data";
 
 type Props = Data & { id: number };
 
-const Card: React.FC<Props> = ({ imgVarient, heading, para, position, id }) => {
+const Card: React.FC<Props> = ({
+  imgVarient,
+  heading,
+  para,
+  position,
+  id,
+  video,
+}) => {
   return (
     <div data-varient={position} className={`archive-card-${id} ${s.card}`}>
       <div
         style={{ backgroundImage: `url(/archive/${id}.png)` }}
         data-varient={imgVarient}
         className={s.card_img}
-      ></div>
+      >
+        {video && (
+          <iframe
+            src={video}
+            className={s.card_video}
+            frameBorder={0}
+            allow="autoplay; fullscreen; picture-in-picture"
+          ></iframe>
+        )}
+      </div>
+
       <div className={s.card_box}>
         <div>
           {heading.map((e, i) => {

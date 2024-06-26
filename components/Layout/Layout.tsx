@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import { useGSAP } from "@gsap/react";
 import gsap, { Power4 } from "gsap";
 import { store } from "@/store";
+import Preloader from "../Preloader/Preloader";
 
 type Props = {
   children: React.ReactNode;
@@ -621,6 +622,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div className="mouse">
         <p className="mousepara">View</p>
       </div>
+      <Preloader />
       <Header
         menuBtnEnter={handlePointerEnter}
         menuBtnLeave={handlePointerLeave}
