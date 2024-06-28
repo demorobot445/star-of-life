@@ -101,3 +101,8 @@ main {
     transform: scale(0.2);
   }
 }
+
+.about-para-word,
+.client-para-word {
+  clip-path: inset(0% 100% 0% 0%);
+}

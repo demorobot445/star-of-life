@@ -276,8 +276,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                   ease: "power4.inOut",
                 },
               })
-              .from(".client-para-word", {
-                clipPath: "inset(0% 100% 0% 0%)",
+              .to(".client-para-word", {
+                clipPath: "inset(0% 0% 0% 0%)",
                 stagger: 0.2,
               });
           } else {
@@ -316,8 +316,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                   ease: Power4.easeInOut,
                 },
               })
-              .from(".client-para-word", {
-                clipPath: "inset(0% 100% 0% 0%)",
+              .to(".client-para-word", {
+                clipPath: "inset(0% 0% 0% 0%)",
                 stagger: 0.2,
               });
           }
@@ -363,10 +363,10 @@ const Layout: React.FC<Props> = ({ children }) => {
                 ease: Power4.easeInOut,
               },
             })
-            .from(
+            .to(
               ".about-para-word",
               {
-                clipPath: "inset(0% 100% 0% 0%)",
+                clipPath: "inset(0% 0% 0% 0%)",
                 stagger: 0.2,
               },
               "<"
