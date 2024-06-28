@@ -5,7 +5,6 @@ import { useRef } from "react";
 import SplitType from "split-type";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { ClientsHeading } from "../Svg/Svg";
 import Marquee from "react-fast-marquee";
 
@@ -16,13 +15,13 @@ const Client = () => {
 
   useIsomorphicLayoutEffect(() => {
     SplitType.create(para.current!, {
-      types: "lines",
-      lineClass: "client-para-lines",
+      types: "words",
+      wordClass: "client-para-word",
     });
     SplitType.create(paraHide.current!, {
-      types: "lines",
+      types: "words",
     });
-  }, [para.current, paraHide.current]);
+  }, [para, paraHide]);
 
   const { contextSafe } = useGSAP(() => {}, { scope: container });
 

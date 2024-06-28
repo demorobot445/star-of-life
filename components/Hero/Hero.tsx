@@ -128,6 +128,7 @@ const Hero = () => {
           CreativityStop();
         })
         .to(textOne.chars, {
+          delay: 5.6,
           stagger: 0.08,
           display: "inline-block",
           ease: "none",

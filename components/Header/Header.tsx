@@ -276,6 +276,7 @@ const Header = ({
 
   useGSAP(
     () => {
+      gsap.set(".logo", { xPercent: -50, yPercent: -50 });
       if (scrollY > 100) {
         gsap.to(".logo", { scale: 0.7, ease: "power4", duration: 0.8 });
       } else {

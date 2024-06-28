@@ -17,24 +17,16 @@ const About = () => {
 
   useIsomorphicLayoutEffect(() => {
     SplitType.create(para.current!, {
-      types: "lines",
-      lineClass: "about-para-lines",
+      types: "words",
+      wordClass: "about-para-word",
     });
     SplitType.create(paraHide.current!, {
-      types: "lines",
+      types: "words",
     });
-    // SplitType.create(paraTwo.current!, {
-    //   types: "lines",
-    //   lineClass: "about-para-lines",
-    // });
-    // SplitType.create(paraTwoHide.current!, {
-    //   types: "lines",
-    // });
-  }, []);
+  }, [para, paraHide]);
 
   return (
     <section ref={container} id="about" className={s.main}>
-      {/* <h2 className={s.tag}>05 About</h2> */}
       <Elements />
       <div className={`about-heading ${s.heading}`}>
         <AboutHeading />
@@ -64,16 +56,6 @@ const About = () => {
             interior decor, travel, culture, and art, all of which inspire my
             creative process.
           </p>
-          {/* <div className={s.box}>
-            <p ref={paraTwo} className={s.content}>
-              Let’s connect and create innovative digital solutions and
-              impactful brand experiences together.
-            </p>
-            <p ref={paraTwoHide} data-hide className={s.content}>
-              Let’s connect and create innovative digital solutions and
-              impactful brand experiences together.
-            </p>
-          </div> */}
         </div>
       </div>
     </section>

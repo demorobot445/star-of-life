@@ -116,14 +116,15 @@
 }
 .pathTwo {
   position: absolute;
-  left: 10%;
+  right: -10%;
   top: -150px;
+  z-index: -1;
   @include lg {
-    top: -680px;
+    top: 0px;
   }
   svg {
-    width: 95vw;
-    height: 64vw;
+    width: 45vw;
+    height: 24vw;
   }
 }
 .pathThree {
