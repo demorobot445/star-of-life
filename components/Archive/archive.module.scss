@@ -124,11 +124,11 @@
   }
   &_video {
     position: absolute;
-    width: 68%;
+    width: 67%;
     height: 100%;
-    top: -5%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -2%;
+    left: 48.8%;
+    transform: translateX(-50%) scaleY(1.1);
     z-index: -1;
   }
   &_img {

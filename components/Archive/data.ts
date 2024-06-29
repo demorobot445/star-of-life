@@ -106,6 +106,8 @@ export const data: Data[] = [
     para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "normal",
     position: "normal",
+    video:
+      "https://player.vimeo.com/video/933779780?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
   },
   {
     heading: [
