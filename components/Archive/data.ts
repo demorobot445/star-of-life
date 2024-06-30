@@ -107,7 +107,7 @@ export const data: Data[] = [
     imgVarient: "normal",
     position: "normal",
     video:
-      "https://player.vimeo.com/video/933779780?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
+      "https://player.vimeo.com/video/933779780?h=0afc317c3c&autopause=false&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
   },
   {
     heading: [
@@ -160,7 +160,7 @@ export const data: Data[] = [
     imgVarient: "normal",
     position: "normal",
     video:
-      "https://player.vimeo.com/video/39596734?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
+      "https://player.vimeo.com/video/39596734?h=0afc317c3c&autopause=false&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0",
   },
   {
     heading: [

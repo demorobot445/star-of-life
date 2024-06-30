@@ -47,7 +47,7 @@ const Showreel = () => {
         style={{ padding: "56.25% 0 0 0", position: "relative" }}
       >
         <iframe
-          src="https://player.vimeo.com/video/933780210?h=0afc317c3c&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0"
+          src="https://player.vimeo.com/video/933780210?h=0afc317c3c&autopause=false&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0"
           style={{
             position: "absolute",
             inset: 0,
