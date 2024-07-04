@@ -85,8 +85,8 @@
     font-size: 1.5625rem;
     line-height: calc(1.5625rem * 1.5);
     @include lg {
-      font-size: 2.1875rem;
-      line-height: 2.1875rem;
+      font-size: 1.875rem;
+      line-height: calc(1.875rem * 1.1);
     }
     @include xxl {
       font-size: 2.56vw;
@@ -97,8 +97,8 @@
     font-size: 1.25rem;
     line-height: calc(1.25rem * 1.5);
     @include lg {
-      line-height: calc(1.5625rem * 1.4);
-      font-size: 1.5625rem;
+      font-size: 1.25rem;
+      line-height: calc(1.25rem * 1.5);
       max-width: 450px;
     }
     @include xxl {
@@ -174,7 +174,11 @@
     flex-direction: column;
     gap: 12px;
     @include lg {
+      padding-left: 50px;
       gap: 24px;
+    }
+    &[data-less="true"] {
+      padding-left: 30px;
     }
   }
 }
@@ -203,7 +207,6 @@
   position: absolute;
   top: 820px;
   left: 74%;
-  z-index: 2;
   svg {
     width: 48vw;
     height: 42vw;
@@ -329,7 +332,6 @@
   position: absolute;
   bottom: 1975px;
   right: 0%;
-  z-index: 2;
   @include xxl {
     bottom: 690px;
   }

@@ -82,7 +82,7 @@
 
 .pathTwo {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   top: 250px;
   left: -10%;
   transform-origin: left;
@@ -139,6 +139,7 @@
   position: absolute;
   top: -20%;
   left: -20%;
+  z-index: -1;
   svg {
     width: 80vw;
     height: 80vw;
@@ -332,6 +333,7 @@
   position: absolute;
   left: 20px;
   bottom: 20px;
+  z-index: 2;
   @include lg {
     bottom: 1.5vw;
     left: 2.5vw;

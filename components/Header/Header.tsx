@@ -71,30 +71,30 @@ const Header = ({
         .to(".large", { opacity: 1, duration: 0.5 }, "<")
         .from(".large-text-1", { xPercent: 100, duration: 1 }, "<0.3")
         .from(".large-text-2", { xPercent: -100, duration: 1 }, "<")
-        .to(".large", { rotate: -90, scale: 2, duration: 1 })
-        .to(".large-text-1", { xPercent: 80, duration: 3 }, "<0.5")
-        .to(".large-text-2", { xPercent: -80, duration: 3 }, "<")
+        .to(".large", { rotate: -90, scale: 2, duration: 1 }, "<0.6")
+        .to(".large-text-1", { xPercent: 80, duration: 2 }, "<0.5")
+        .to(".large-text-2", { xPercent: -80, duration: 2 }, "<")
         // .to(".large", { opacity: 0 }, "<1.2")
-        .to(header.current!, { opacity: 1 }, "<1.2")
+        .to(header.current!, { opacity: 1 }, "<0.6")
         .to(".menu", { clipPath: "inset(0% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
-        .from(".path-menu-2", { x: -500, y: 100 }, "<0.2")
+        .from(".path-menu-2", { x: -500, y: 100 }, "<0.1")
         .from(".path-menu-3 path", { y: -100, stagger: 0.1, opacity: 0 }, "<")
-        .from(".path-menu-4", { x: 500, y: -400, rotate: 360 }, "<0.2")
-        .from(".path-menu-6", { x: 500, y: 1000, rotate: 360 }, "<0.2")
+        .from(".path-menu-4", { x: 500, y: -400, rotate: 360 }, "<0.1")
+        .from(".path-menu-6", { x: 500, y: 1000, rotate: 360 }, "<0.1")
         .from(
           ".path-menu-7",
           { xPercent: 100, yPercent: -1000, scale: 3 },
-          "<0.2"
+          "<0.1"
         )
-        .from(".path-menu-8", { yPercent: 300, rotate: 360 }, "<0.2")
+        .from(".path-menu-8", { yPercent: 300, rotate: 360 }, "<0.1")
         .from(
           ".path-menu-5 path",
           { y: -100, x: 400, stagger: 0.1, opacity: 0, duration: 0.5 },
           "<"
         )
-        .from(".menu-link", { yPercent: 100, opacity: 0, stagger: 0.2 }, "<0.2")
-        .from(".menu-social", { yPercent: 100, opacity: 0 }, "<0.2");
+        .from(".menu-link", { yPercent: 100, opacity: 0, stagger: 0.1 }, "<0.1")
+        .from(".menu-social", { yPercent: 100, opacity: 0 }, "<0.1");
 
       tlPathOne.current = gsap
         .timeline({
@@ -202,10 +202,14 @@ const Header = ({
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
       document.body.style.overflow = "";
-      if (innerWidth > 800) document.body.style.paddingRight = "";
+      if (innerWidth > 800) {
+        document.body.style.paddingRight = "";
+      }
     } else {
       document.body.style.overflow = "hidden";
-      if (innerWidth > 800) document.body.style.paddingRight = "16px";
+      if (innerWidth > 800) {
+        document.body.style.paddingRight = "16px";
+      }
     }
 
     tl.current!.reversed(!tl.current!.reversed());
@@ -309,11 +313,12 @@ const Header = ({
         })}
       </div>
       <Elements />
-      <header ref={header} className={s.main}>
+      <header ref={header} id="unknown-header" className={s.main}>
         <div
           onPointerEnter={() => play()}
           onPointerLeave={() => stop()}
           className={`${s.logo} logo`}
+          id="unknown-logo"
         >
           {/* <Logo /> */}
           {View}

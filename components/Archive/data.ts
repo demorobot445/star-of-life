@@ -4,6 +4,7 @@ export type Data = {
   imgVarient: "normal" | "long" | "square" | "full";
   position: "normal" | "full";
   video?: string;
+  lessPad?: boolean;
 };
 
 export const data: Data[] = [
@@ -36,6 +37,7 @@ export const data: Data[] = [
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "square",
     position: "normal",
+    lessPad: true,
   },
   {
     heading: [
@@ -56,6 +58,7 @@ export const data: Data[] = [
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
     imgVarient: "square",
     position: "normal",
+    lessPad: true,
   },
   {
     heading: [
