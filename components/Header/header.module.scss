@@ -10,7 +10,8 @@
   z-index: 14;
   pointer-events: none;
   @include lg {
-    padding-inline: 120px;
+    padding-right: 120px;
+    padding-left: 120px;
     height: 154px;
   }
   @include xxl {

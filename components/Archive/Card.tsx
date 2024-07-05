@@ -29,7 +29,7 @@ const Card: React.FC<Props> = ({
         )}
       </div>
 
-      <div data-less={lessPad} className={s.card_box}>
+      <div data-varient={imgVarient} data-less={lessPad} className={s.card_box}>
         <div>
           {heading.map((e, i) => {
             return <h2 key={i}>{e}</h2>;

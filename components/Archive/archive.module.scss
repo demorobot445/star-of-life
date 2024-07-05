@@ -144,16 +144,17 @@
       height: 354px;
       width: 578px;
       &[data-varient="long"] {
-        height: 649px;
-        width: 424px;
+        height: 550px;
+        width: 350px;
       }
       &[data-varient="square"] {
         height: 470px;
         width: 424px;
       }
       &[data-varient="full"] {
-        height: 600px;
+        height: auto;
         width: 100%;
+        aspect-ratio: 16/9;
       }
     }
     @include xxl {
@@ -179,6 +180,12 @@
     }
     &[data-less="true"] {
       padding-left: 30px;
+    }
+    &[data-varient="full"] {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-left: 0px !important;
     }
   }
 }
@@ -267,7 +274,6 @@
   position: absolute;
   bottom: 575px;
   right: 0%;
-  z-index: 2;
   @include xxl {
     bottom: 690px;
   }

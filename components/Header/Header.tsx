@@ -18,6 +18,7 @@ const Header = ({
   menuBtnLeave: () => void;
 }) => {
   const header = useRef<HTMLElement>(null);
+  const logo = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
   const [color, setColor] = useState<string>();
   const [activeMenu, setActiveMenu] = useState<number>(-1);
@@ -204,11 +205,15 @@ const Header = ({
       document.body.style.overflow = "";
       if (innerWidth > 800) {
         document.body.style.paddingRight = "";
+        header.current!.style.paddingRight = "120px";
+        logo.current!.style.paddingRight = "";
       }
     } else {
       document.body.style.overflow = "hidden";
       if (innerWidth > 800) {
-        document.body.style.paddingRight = "16px";
+        document.body.style.paddingRight = "15px";
+        header.current!.style.paddingRight = "135px";
+        logo.current!.style.paddingRight = "15px";
       }
     }
 
@@ -315,6 +320,7 @@ const Header = ({
       <Elements />
       <header ref={header} id="unknown-header" className={s.main}>
         <div
+          ref={logo}
           onPointerEnter={() => play()}
           onPointerLeave={() => stop()}
           className={`${s.logo} logo`}
