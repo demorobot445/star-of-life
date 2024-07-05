@@ -528,7 +528,8 @@ const Layout: React.FC<Props> = ({ children }) => {
         scale: 0.4,
         ease: "power4",
         duration: 0.8,
-        "backdrop-filter": "invert(0%)",
+        // "backdrop-filter": "invert(0%)",
+        background: "transparent",
         paused: true,
       });
 

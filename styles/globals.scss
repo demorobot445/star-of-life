@@ -34,6 +34,9 @@ body {
   color: var(--primary-text);
   background-color: var(--bg-two);
   scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 button,
@@ -80,7 +83,6 @@ main {
   height: 180px;
   width: 180px;
   border-radius: 999px;
-  backdrop-filter: invert(100%);
   pointer-events: none;
   position: fixed;
   z-index: 9999;
@@ -90,6 +92,7 @@ main {
   overflow: hidden;
   display: none;
   transform: scale(0.1);
+  background-color: black;
   @include lg {
     display: flex;
   }

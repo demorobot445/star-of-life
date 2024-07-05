@@ -203,18 +203,18 @@ const Header = ({
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
       document.body.style.overflow = "";
-      if (innerWidth > 800) {
-        document.body.style.paddingRight = "";
-        header.current!.style.paddingRight = "120px";
-        logo.current!.style.paddingRight = "";
-      }
+      // if (innerWidth > 800) {
+      //   document.body.style.paddingRight = "";
+      //   header.current!.style.paddingRight = "120px";
+      //   logo.current!.style.paddingRight = "";
+      // }
     } else {
       document.body.style.overflow = "hidden";
-      if (innerWidth > 800) {
-        document.body.style.paddingRight = "15px";
-        header.current!.style.paddingRight = "135px";
-        logo.current!.style.paddingRight = "15px";
-      }
+      // if (innerWidth > 800) {
+      //   document.body.style.paddingRight = "15px";
+      //   header.current!.style.paddingRight = "135px";
+      //   logo.current!.style.paddingRight = "15px";
+      // }
     }
 
     tl.current!.reversed(!tl.current!.reversed());
