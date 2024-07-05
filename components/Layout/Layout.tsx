@@ -535,7 +535,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       let tl = gsap
         .timeline({ paused: true })
-        .to(".mouse", { scale: 1 })
+        .to(".mouse", { scale: 0.6 })
         .to(".mousepara", { opacity: 1 }, "<0.4");
 
       store.workHeadingPointerEnter = () => {
