@@ -17,6 +17,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.4",
+    "react-lottie-player": "^2.0.0",
     "react-use-window-scroll": "^1.1.7",
     "split-type": "^0.3.4",
     "valtio": "^1.13.2"
