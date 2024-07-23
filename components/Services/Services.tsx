@@ -13,33 +13,36 @@ const Services = () => {
     () => {
       let mm = gsap.matchMedia();
 
-      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
-        let { isDesktop } = context.conditions as { isDesktop: boolean };
+      mm.add(
+        { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: container.current!,
-              start: "top 40%",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: isDesktop,
-              preventOverlaps: isDesktop,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(".services-heading path", {
-            strokeDashoffset: 1500,
-            duration: 0.8,
-            ease: "none",
-          })
-          .to(".services-heading path", {
-            duration: 0.8,
-            fill: "black",
-            ease: "power3",
-          });
-      });
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: "top 40%",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: isDesktop,
+                preventOverlaps: isDesktop,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".services-heading path", {
+              strokeDashoffset: 1500,
+              duration: 0.8,
+              ease: "none",
+            })
+            .to(".services-heading path", {
+              duration: 0.8,
+              fill: "black",
+              ease: "power3",
+            });
+        }
+      );
       gsap
         .timeline({
           scrollTrigger: {

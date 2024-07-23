@@ -28,117 +28,120 @@ const Client = () => {
     () => {
       let mm = gsap.matchMedia();
 
-      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
-        let { isDesktop } = context.conditions as { isDesktop: boolean };
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: container.current!,
-              start: isDesktop ? "top 40%" : "top-=50 center",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(
-            ".client-heading path",
-            {
-              strokeDashoffset: 1260,
+      mm.add(
+        { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: isDesktop ? "top 40%" : "top-=50 center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(
+              ".client-heading path",
+              {
+                strokeDashoffset: 1260,
+                duration: 0.8,
+                ease: "none",
+              },
+              "<"
+            )
+            .to(".client-heading path", {
               duration: 0.8,
-              ease: "none",
-            },
-            "<"
-          )
-          .to(".client-heading path", {
-            duration: 0.8,
-            fill: "black",
-            ease: "power3",
-          });
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: container.current!,
-              start: isDesktop ? "top 40%" : "top-=50 center",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(
-            ".client-path-1 path",
-            { stagger: 0.05, x: 200, scale: 0 },
-            "<0.2"
-          )
-          .from(".client-path-2", { xPercent: 100, y: 100 }, "<0.4");
+              fill: "black",
+              ease: "power3",
+            });
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: isDesktop ? "top 40%" : "top-=50 center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(
+              ".client-path-1 path",
+              { stagger: 0.05, x: 200, scale: 0 },
+              "<0.2"
+            )
+            .from(".client-path-2", { xPercent: 100, y: 100 }, "<0.4");
 
-        if (isDesktop) {
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: ".client-grid-para",
-                start: "top center",
-                end: "bottom center",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
-                scrub: true,
-              },
-              defaults: {
-                ease: "power4.inOut",
-              },
-            })
-            .to(".client-para-word", {
-              clipPath: "inset(0% 0% 0% 0%)",
-              stagger: 0.2,
-            });
-        } else {
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: ".client-grid",
-                start: "top center",
-                end: "bottom center",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
-                scrub: true,
-              },
-              defaults: {
-                ease: "power4.inOut",
-              },
-            })
-            .from(".client-logo", {
-              clipPath: "inset(100% 0% 0% 0%)",
-              stagger: 0.1,
-            });
+          if (isDesktop) {
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".client-grid-para",
+                  start: "top center",
+                  end: "bottom center",
+                  toggleActions: "play none none reverse",
+                  fastScrollEnd: true,
+                  preventOverlaps: true,
+                  scrub: true,
+                },
+                defaults: {
+                  ease: "power4.inOut",
+                },
+              })
+              .to(".client-para-word", {
+                clipPath: "inset(0% 0% 0% 0%)",
+                stagger: 0.2,
+              });
+          } else {
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".client-grid",
+                  start: "top center",
+                  end: "bottom center",
+                  toggleActions: "play none none reverse",
+                  fastScrollEnd: true,
+                  preventOverlaps: true,
+                  scrub: true,
+                },
+                defaults: {
+                  ease: "power4.inOut",
+                },
+              })
+              .from(".client-logo", {
+                clipPath: "inset(100% 0% 0% 0%)",
+                stagger: 0.1,
+              });
 
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: ".client-grid-para",
-                start: "top center",
-                end: "bottom center",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
-                scrub: true,
-              },
-              defaults: {
-                ease: "power4.inOut",
-              },
-            })
-            .to(".client-para-word", {
-              clipPath: "inset(0% 0% 0% 0%)",
-              stagger: 0.2,
-            });
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".client-grid-para",
+                  start: "top center",
+                  end: "bottom center",
+                  toggleActions: "play none none reverse",
+                  fastScrollEnd: true,
+                  preventOverlaps: true,
+                  scrub: true,
+                },
+                defaults: {
+                  ease: "power4.inOut",
+                },
+              })
+              .to(".client-para-word", {
+                clipPath: "inset(0% 0% 0% 0%)",
+                stagger: 0.2,
+              });
+          }
         }
-      });
+      );
     },
     { scope: container }
   );

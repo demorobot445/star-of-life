@@ -15,6 +15,7 @@ const Showreel = () => {
       mm.add(
         {
           isDesktop: `(min-width: 800px)`,
+          isMobile: `(max-width: 799px)`,
         },
         (context) => {
           let { isDesktop } = context.conditions as { isDesktop: boolean };

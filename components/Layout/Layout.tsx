@@ -83,7 +83,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div className="mouse">
         <p className="mousepara">View</p>
       </div>
-      {/* <Preloader /> */}
+      <Preloader />
       <Header
         menuBtnEnter={handlePointerEnter}
         menuBtnLeave={handlePointerLeave}

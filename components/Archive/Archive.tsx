@@ -123,147 +123,150 @@ const Archive = () => {
         },
       });
 
-      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
-        let { isDesktop } = context.conditions as { isDesktop: boolean };
+      mm.add(
+        { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-        if (isDesktop) {
-          gsap.to(".archive-card-0", {
-            yPercent: -80,
+          if (isDesktop) {
+            gsap.to(".archive-card-0", {
+              yPercent: -80,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-0",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-1", {
-            yPercent: -40,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-0",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-1", {
+              yPercent: -40,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-1",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-2", {
-            yPercent: -80,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-1",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-2", {
+              yPercent: -80,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-0",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-3", {
-            yPercent: -20,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-0",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-3", {
+              yPercent: -20,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-3",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-4", {
-            yPercent: -60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-3",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-4", {
+              yPercent: -60,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-2",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-5", {
-            yPercent: -20,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-2",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-5", {
+              yPercent: -20,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-5",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-6", {
-            yPercent: -60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-5",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-6", {
+              yPercent: -60,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-5",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-7", {
-            yPercent: -40,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-5",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-7", {
+              yPercent: -40,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-5",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-8", {
-            yPercent: -20,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-5",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-8", {
+              yPercent: -20,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-8",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-9", {
-            yPercent: -60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-8",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-9", {
+              yPercent: -60,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-7",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-10", {
-            yPercent: -60,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-7",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-10", {
+              yPercent: -60,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-10",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-11", {
-            yPercent: -100,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-10",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-11", {
+              yPercent: -100,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-9",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-12", {
-            yPercent: -40,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-9",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-12", {
+              yPercent: -40,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-12",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-13", {
-            yPercent: -70,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-12",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-13", {
+              yPercent: -70,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-11",
-              scrub: true,
-            },
-          });
-          gsap.to(".archive-card-15", {
-            yPercent: -70,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-11",
+                scrub: true,
+              },
+            });
+            gsap.to(".archive-card-15", {
+              yPercent: -70,
 
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".archive-card-13",
-              scrub: true,
-            },
-          });
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".archive-card-13",
+                scrub: true,
+              },
+            });
+          }
         }
-      });
+      );
     },
     { scope: container }
   );

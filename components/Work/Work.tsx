@@ -18,69 +18,72 @@ const Work = () => {
     () => {
       let mm = gsap.matchMedia();
 
-      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
-        let { isDesktop } = context.conditions as { isDesktop: boolean };
+      mm.add(
+        { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-        gsap
-          .timeline({
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: "top 40%",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: isDesktop,
+                preventOverlaps: isDesktop,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".work-heading path", {
+              strokeDashoffset: 2340,
+              duration: 0.8,
+              ease: "none",
+            })
+            .to(".work-heading path", {
+              duration: 0.8,
+              fill: "black",
+              ease: "power3",
+            });
+
+          let tl = gsap.timeline({
             scrollTrigger: {
-              trigger: container.current!,
-              start: "top 40%",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: isDesktop,
-              preventOverlaps: isDesktop,
+              trigger: `.slider`,
+              start: isDesktop ? "top+=100 top" : "top top",
+              end: "bottom+=10000 bottom",
+              scrub: true,
+              pin: true,
+              pinSpacing: true,
             },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(".work-heading path", {
-            strokeDashoffset: 2340,
-            duration: 0.8,
-            ease: "none",
-          })
-          .to(".work-heading path", {
-            duration: 0.8,
-            fill: "black",
-            ease: "power3",
+            defaults: { ease: "none" },
           });
 
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: `.slider`,
-            start: isDesktop ? "top+=100 top" : "top top",
-            end: "bottom+=10000 bottom",
-            scrub: true,
-            pin: true,
-            pinSpacing: true,
-          },
-          defaults: { ease: "none" },
-        });
-
-        data.map((e, i) => {
-          tl.call(() => setCounter(i + 1))
-            .to(`.slide-${i - 1}`, { yPercent: -100 })
-            .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
-            .from(`.work-path-${i + 1}`, {
-              scale: 0,
-              duration: 0.8,
-              ease: "power4",
-            })
-            .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
-            .from(`.image-${i}`, {
-              left: isDesktop ? "120%" : "80%",
-              top: isDesktop ? "50%" : "100%",
-              rotate: -35,
-              duration: 5,
-            })
-            .call(() => setCounter(i + 1))
-            .to(`.work-path-${i + 1}`, {
-              scale: 0,
-              duration: 0.8,
-              ease: "power4",
-            });
-        });
-      });
+          data.map((e, i) => {
+            tl.call(() => setCounter(i + 1))
+              .to(`.slide-${i - 1}`, { yPercent: -100 })
+              .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+              .from(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
+              })
+              .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
+              .from(`.image-${i}`, {
+                left: isDesktop ? "120%" : "80%",
+                top: isDesktop ? "50%" : "100%",
+                rotate: -35,
+                duration: 5,
+              })
+              .call(() => setCounter(i + 1))
+              .to(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
+              });
+          });
+        }
+      );
     },
     { scope: container }
   );

@@ -27,79 +27,82 @@ const About = () => {
     () => {
       let mm = gsap.matchMedia();
 
-      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
-        let { isDesktop } = context.conditions as { isDesktop: boolean };
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: container.current!,
-              start: "top 40%",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(".about-heading path", {
-            strokeDashoffset: 1120,
-            duration: 0.8,
-            ease: "none",
-          })
-          .to(".about-heading path", {
-            duration: 0.8,
-            fill: "black",
-            ease: "power3",
-          })
-          .from(".about-path-2", { xPercent: 70 }, "<");
+      mm.add(
+        { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: "top 40%",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".about-heading path", {
+              strokeDashoffset: 1120,
+              duration: 0.8,
+              ease: "none",
+            })
+            .to(".about-heading path", {
+              duration: 0.8,
+              fill: "black",
+              ease: "power3",
+            })
+            .from(".about-path-2", { xPercent: 70 }, "<");
 
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: isDesktop ? "#about-grid" : ".about-para-box",
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-              scrub: true,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .to(
-            ".about-para-word",
-            {
-              clipPath: "inset(0% 0% 0% 0%)",
-              stagger: 0.2,
-            },
-            "<"
-          );
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: "#about-grid",
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play none none reverse",
-              fastScrollEnd: true,
-              preventOverlaps: true,
-            },
-            defaults: {
-              ease: "power4.inOut",
-            },
-          })
-          .from(".about-img", { clipPath: "inset(100% 0% 0% 0%)" })
-          .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 })
-          .to(
-            ".about-path-3 path",
-            { strokeDashoffset: 0, duration: 2 },
-            "<0.2"
-          )
-          .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
-      });
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: isDesktop ? "#about-grid" : ".about-para-box",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+                scrub: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .to(
+              ".about-para-word",
+              {
+                clipPath: "inset(0% 0% 0% 0%)",
+                stagger: 0.2,
+              },
+              "<"
+            );
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: "#about-grid",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".about-img", { clipPath: "inset(100% 0% 0% 0%)" })
+            .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 })
+            .to(
+              ".about-path-3 path",
+              { strokeDashoffset: 0, duration: 2 },
+              "<0.2"
+            )
+            .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
+        }
+      );
     },
     { scope: container }
   );
