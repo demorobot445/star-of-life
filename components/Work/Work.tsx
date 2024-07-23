@@ -14,53 +14,73 @@ const Work = () => {
 
   const [counter, setCounter] = useState<number>(1);
 
-  const { contextSafe } = useGSAP(
+  useGSAP(
     () => {
       let mm = gsap.matchMedia();
 
-      mm.add(
-        { isMobile: `(max-width: 599px)`, isDesktop: `(min-width: 600px)` },
-        (context) => {
-          let { isMobile } = context.conditions as { isMobile: boolean };
+      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
+        let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-          let tl = gsap.timeline({
+        gsap
+          .timeline({
             scrollTrigger: {
-              trigger: `.slider`,
-              start: isMobile ? "top top" : "top+=100 top",
-              end: "bottom+=10000 bottom",
-              scrub: true,
-              pin: true,
-              pinSpacing: true,
+              trigger: container.current!,
+              start: "top 40%",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: isDesktop,
+              preventOverlaps: isDesktop,
             },
-            defaults: { ease: "none" },
+            defaults: {
+              ease: "power4.inOut",
+            },
+          })
+          .from(".work-heading path", {
+            strokeDashoffset: 2340,
+            duration: 0.8,
+            ease: "none",
+          })
+          .to(".work-heading path", {
+            duration: 0.8,
+            fill: "black",
+            ease: "power3",
           });
 
-          data.map((e, i) => {
-            tl.call(() => setCounter(i + 1))
-              // .to(container.current!, { backgroundColor: e.color })
-              .to(`.slide-${i - 1}`, { yPercent: -100 })
-              .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
-              .from(`.work-path-${i + 1}`, {
-                scale: 0,
-                duration: 0.8,
-                ease: "power4",
-              })
-              .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
-              .from(`.image-${i}`, {
-                left: isMobile ? "80%" : "120%",
-                top: isMobile ? "100%" : "50%",
-                rotate: -35,
-                duration: 5,
-              })
-              .call(() => setCounter(i + 1))
-              .to(`.work-path-${i + 1}`, {
-                scale: 0,
-                duration: 0.8,
-                ease: "power4",
-              });
-          });
-        }
-      );
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: `.slider`,
+            start: isDesktop ? "top+=100 top" : "top top",
+            end: "bottom+=10000 bottom",
+            scrub: true,
+            pin: true,
+            pinSpacing: true,
+          },
+          defaults: { ease: "none" },
+        });
+
+        data.map((e, i) => {
+          tl.call(() => setCounter(i + 1))
+            .to(`.slide-${i - 1}`, { yPercent: -100 })
+            .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+            .from(`.work-path-${i + 1}`, {
+              scale: 0,
+              duration: 0.8,
+              ease: "power4",
+            })
+            .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
+            .from(`.image-${i}`, {
+              left: isDesktop ? "120%" : "80%",
+              top: isDesktop ? "50%" : "100%",
+              rotate: -35,
+              duration: 5,
+            })
+            .call(() => setCounter(i + 1))
+            .to(`.work-path-${i + 1}`, {
+              scale: 0,
+              duration: 0.8,
+              ease: "power4",
+            });
+        });
+      });
     },
     { scope: container }
   );
@@ -90,10 +110,7 @@ const Work = () => {
                 height={2000}
                 width={2000}
               />
-              {/* <p className={s.tags}>website</p> */}
-              {/* <p data-right className={s.tags}>
-                protfolio
-              </p> */}
+
               <div
                 onPointerEnter={workHeadingPointerEnter}
                 onPointerLeave={workHeadingPointerLeave}
@@ -103,20 +120,6 @@ const Work = () => {
                   {name}
                 </h2>
               </div>
-              {/* <div className={s.foot}>
-                <p>
-                  agency<span>spring / summer</span>
-                </p>
-                <p>
-                  role<span>lead designer / developer</span>
-                </p>
-                <p>
-                  client<span>unknown</span>
-                </p>
-                <p>
-                  year<span>2023</span>
-                </p>
-              </div> */}
             </div>
           );
         })}

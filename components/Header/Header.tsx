@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Logo, MenuLine } from "../Svg/Svg";
+import { MenuLine } from "../Svg/Svg";
 import s from "./header.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap, { Power4 } from "gsap";
@@ -75,7 +75,6 @@ const Header = ({
         .to(".large", { rotate: -90, scale: 2, duration: 1 }, "<0.6")
         .to(".large-text-1", { xPercent: 80, duration: 2 }, "<0.5")
         .to(".large-text-2", { xPercent: -80, duration: 2 }, "<")
-        // .to(".large", { opacity: 0 }, "<1.2")
         .to(header.current!, { opacity: 1 }, "<0.6")
         .to(".menu", { clipPath: "inset(0% 0% 0% 0%)" }, "<")
         .from(".path-menu-1", { x: -400, y: -100 }, "<0.2")
@@ -203,33 +202,15 @@ const Header = ({
   const handleClick = contextSafe(() => {
     if (!tl.current!.reversed()) {
       document.body.style.overflow = "";
-      // if (innerWidth > 800) {
-      //   document.body.style.paddingRight = "";
-      //   header.current!.style.paddingRight = "120px";
-      //   logo.current!.style.paddingRight = "";
-      // }
     } else {
       document.body.style.overflow = "hidden";
-      // if (innerWidth > 800) {
-      //   document.body.style.paddingRight = "15px";
-      //   header.current!.style.paddingRight = "135px";
-      //   logo.current!.style.paddingRight = "15px";
-      // }
     }
 
     tl.current!.reversed(!tl.current!.reversed());
     setActiveMenu(-1);
   });
 
-  // useGSAP(
-  //   () => {
-  //     gsap.to(".menu", { backgroundColor: color });
-  //   },
-  //   { dependencies: [color], scope: container }
-  // );
-
   const handlePointerEnter = (color: string, key: number) => {
-    // setColor(color);
     switch (key) {
       case 0:
         tlPathOne.current?.play();

@@ -8,18 +8,75 @@ import gsap from "gsap";
 
 const Contact = () => {
   const container = useRef<HTMLDivElement>(null);
-  const { contextSafe } = useGSAP(() => {}, { scope: container });
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top 40%",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".contact-heading path", {
+          strokeDashoffset: 1290,
+          duration: 0.8,
+          ease: "none",
+        })
+        .to(".contact-heading path", {
+          duration: 0.8,
+          fill: "black",
+          ease: "power3",
+        });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top 40%",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".contact-path-2", { xPercent: 70 }, "<0.6")
+        .to(
+          ".contact-path-3 path",
+          { strokeDashoffset: 0, duration: 2 },
+          "<0.2"
+        );
 
-  const pointerEnter = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1.4, duration: 0.4, ease: "power3" });
-  });
-  const pointerLeave = contextSafe((e: React.MouseEvent) => {
-    gsap.to(e.target, { scaleY: 1, duration: 0.4, ease: "power3" });
-  });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".contact-grid",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".contact-grid p", {
+          clipPath: "inset(100% 0% 0% 0%)",
+          stagger: 0.2,
+        })
+        .from(".contact-path-1", { scale: 0 });
+    },
+    { scope: container }
+  );
 
   return (
     <section ref={container} id="contact" className={s.main}>
-      {/* <h2 className={s.tag}>06 Contact</h2> */}
       <Elements />
       <div className={`contact-heading ${s.heading}`}>
         <ContactHeading />

@@ -7,6 +7,7 @@ import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import { useGSAP } from "@gsap/react";
 import { ClientsHeading } from "../Svg/Svg";
 import Marquee from "react-fast-marquee";
+import gsap from "gsap";
 
 const Client = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -23,11 +24,127 @@ const Client = () => {
     });
   }, [para, paraHide]);
 
-  const { contextSafe } = useGSAP(() => {}, { scope: container });
+  useGSAP(
+    () => {
+      let mm = gsap.matchMedia();
+
+      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
+        let { isDesktop } = context.conditions as { isDesktop: boolean };
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: container.current!,
+              start: isDesktop ? "top 40%" : "top-=50 center",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: true,
+              preventOverlaps: true,
+            },
+            defaults: {
+              ease: "power4.inOut",
+            },
+          })
+          .from(
+            ".client-heading path",
+            {
+              strokeDashoffset: 1260,
+              duration: 0.8,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(".client-heading path", {
+            duration: 0.8,
+            fill: "black",
+            ease: "power3",
+          });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: container.current!,
+              start: isDesktop ? "top 40%" : "top-=50 center",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: true,
+              preventOverlaps: true,
+            },
+            defaults: {
+              ease: "power4.inOut",
+            },
+          })
+          .from(
+            ".client-path-1 path",
+            { stagger: 0.05, x: 200, scale: 0 },
+            "<0.2"
+          )
+          .from(".client-path-2", { xPercent: 100, y: 100 }, "<0.4");
+
+        if (isDesktop) {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".client-grid-para",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+                scrub: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .to(".client-para-word", {
+              clipPath: "inset(0% 0% 0% 0%)",
+              stagger: 0.2,
+            });
+        } else {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".client-grid",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+                scrub: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".client-logo", {
+              clipPath: "inset(100% 0% 0% 0%)",
+              stagger: 0.1,
+            });
+
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".client-grid-para",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: true,
+                preventOverlaps: true,
+                scrub: true,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .to(".client-para-word", {
+              clipPath: "inset(0% 0% 0% 0%)",
+              stagger: 0.2,
+            });
+        }
+      });
+    },
+    { scope: container }
+  );
 
   return (
     <section ref={container} id="clients" className={s.main}>
-      {/* <h2 className={s.tag}>03 Clients</h2> */}
       <Elements />
       <div className={`client-heading ${s.heading}`}>
         <ClientsHeading />

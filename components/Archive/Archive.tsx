@@ -11,160 +11,259 @@ const Archive = () => {
   const container = useRef<HTMLElement>(null);
   const grid = useRef<HTMLDivElement>(null);
 
-  const { contextSafe } = useGSAP(
+  useGSAP(
     () => {
-      let mm = gsap.matchMedia(),
-        breakPoint = 800;
+      let mm = gsap.matchMedia();
 
-      mm.add(
-        {
-          isDesktop: `(min-width: ${breakPoint}px)`,
-          isMobile: `(max-width: ${breakPoint - 1}px)`,
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current!,
+            start: "top 40%",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".archive-heading path", {
+          strokeDashoffset: 1360,
+          duration: 0.8,
+          ease: "none",
+        })
+        .to(".archive-heading path", {
+          duration: 0.8,
+          fill: "black",
+          ease: "power3",
+        });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current!,
+            start: "top 40%",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".archive-path-1", {
+          clipPath: "inset(0% 0% 0% 100%)",
+          duration: 1,
+          delay: 0.4,
+        })
+        .from(".archive-path-2", { x: 500 }, "<0.2");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-3",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".archive-path-3", { xPercent: 50 })
+        .to(".archive-path-3", { rotate: -35 }, "<0.2")
+        .to(".archive-path-3", { rotate: 0 }, "<0.5")
+        .from(".archive-path-4", { xPercent: -50, scale: 0 }, "<0.2");
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-6",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".archive-path-6", { xPercent: -50, scale: 0 })
+        .from(".archive-path-7", { xPercent: -80, y: 100, rotate: 360 }, "<0.2")
+        .from(".archive-path-5", { xPercent: 80 }, "<0.2");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".archive-path-8",
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".archive-path-10", { xPercent: -500 })
+        .from(".archive-path-9", { xPercent: -500 }, "<")
+        .from(".archive-path-8", { scale: 0, rotate: 180 }, "<0.2");
+
+      gsap.from(".archive-path-11 path", {
+        ease: "power4.inOut",
+        stagger: 0.1,
+        scale: 0,
+        scrollTrigger: {
+          trigger: ".archive-path-11",
+          start: "top center",
+          toggleActions: "play none none reverse",
+          fastScrollEnd: true,
+          preventOverlaps: true,
         },
-        (context) => {
-          let { isDesktop, isMobile } = context.conditions as {
-            isDesktop: boolean;
-            isMobile: boolean;
-          };
-          if (isDesktop) {
-            gsap.to(".archive-card-0", {
-              yPercent: -80,
+      });
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-0",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-1", {
-              yPercent: -40,
+      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
+        let { isDesktop } = context.conditions as { isDesktop: boolean };
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-1",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-2", {
-              yPercent: -80,
+        if (isDesktop) {
+          gsap.to(".archive-card-0", {
+            yPercent: -80,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-0",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-3", {
-              yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-0",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-1", {
+            yPercent: -40,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-3",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-4", {
-              yPercent: -60,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-1",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-2", {
+            yPercent: -80,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-2",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-5", {
-              yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-0",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-3", {
+            yPercent: -20,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-5",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-6", {
-              yPercent: -60,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-3",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-4", {
+            yPercent: -60,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-5",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-7", {
-              yPercent: -40,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-2",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-5", {
+            yPercent: -20,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-5",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-8", {
-              yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-5",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-6", {
+            yPercent: -60,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-8",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-9", {
-              yPercent: -60,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-5",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-7", {
+            yPercent: -40,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-7",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-10", {
-              yPercent: -60,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-5",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-8", {
+            yPercent: -20,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-10",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-11", {
-              yPercent: -100,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-8",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-9", {
+            yPercent: -60,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-9",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-12", {
-              yPercent: -40,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-7",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-10", {
+            yPercent: -60,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-12",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-13", {
-              yPercent: -70,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-10",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-11", {
+            yPercent: -100,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-11",
-                scrub: true,
-              },
-            });
-            gsap.to(".archive-card-15", {
-              yPercent: -70,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-9",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-12", {
+            yPercent: -40,
 
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".archive-card-13",
-                scrub: true,
-              },
-            });
-          }
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-12",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-13", {
+            yPercent: -70,
+
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-11",
+              scrub: true,
+            },
+          });
+          gsap.to(".archive-card-15", {
+            yPercent: -70,
+
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".archive-card-13",
+              scrub: true,
+            },
+          });
         }
-      );
+      });
     },
     { scope: container }
   );

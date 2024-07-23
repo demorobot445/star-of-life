@@ -9,15 +9,15 @@
   position: relative;
   padding-inline: 20px;
   height: 100vh;
-  // margin-top: 80px;
+  margin-top: 40px;
   @include lg {
-    margin-top: 154px;
-    height: calc(100vh - 154px);
+    margin-top: 0;
+    height: 100vh;
     padding-inline: 0px;
   }
-  @include xxl {
-    height: calc(100vh - 254px);
-  }
+  // @include xxl {
+  //   height: calc(100vh - 254px);
+  // }
   h3 {
     font-size: 1.5rem;
     line-height: calc(1.5rem * 1.5);
@@ -47,11 +47,12 @@
 }
 
 .lottie {
-  display: inline-flex;
-  min-width: 100px;
-  width: 100px;
-  min-height: 100px;
-  height: 100px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top: 50%;
 }
 
 .heading {
@@ -193,8 +194,11 @@
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
-  bottom: 5px;
+  bottom: 50px;
   height: 60px;
   width: 60px;
   z-index: 2;
+  @include lg {
+    bottom: 5px;
+  }
 }

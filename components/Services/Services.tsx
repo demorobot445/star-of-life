@@ -11,6 +11,35 @@ const Services = () => {
 
   useGSAP(
     () => {
+      let mm = gsap.matchMedia();
+
+      mm.add({ isDesktop: `(min-width: 800px)` }, (context) => {
+        let { isDesktop } = context.conditions as { isDesktop: boolean };
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: container.current!,
+              start: "top 40%",
+              toggleActions: "play none none reverse",
+              fastScrollEnd: isDesktop,
+              preventOverlaps: isDesktop,
+            },
+            defaults: {
+              ease: "power4.inOut",
+            },
+          })
+          .from(".services-heading path", {
+            strokeDashoffset: 1500,
+            duration: 0.8,
+            ease: "none",
+          })
+          .to(".services-heading path", {
+            duration: 0.8,
+            fill: "black",
+            ease: "power3",
+          });
+      });
       gsap
         .timeline({
           scrollTrigger: {
@@ -20,7 +49,6 @@ const Services = () => {
             scrub: true,
             pin: true,
             pinSpacing: true,
-            // markers: true,
           },
           defaults: { ease: "none" },
         })
@@ -72,57 +100,12 @@ const Services = () => {
         .to(".menu svg", { rotate: 100 })
         .to(`.slide-7`, { clipPath: "circle(100% at 50% 50%)" }, "<0.3")
         .from(".service-path-14", { xPercent: -100, yPercent: -100 }, "<0.2");
-
-      // gsap
-      //   .timeline({
-      //     scrollTrigger: {
-      //       trigger: container.current,
-      //       scrub: true,
-      //       end: "bottom top",
-      //     },
-      //     defaults: { ease: "none" },
-      //   })
-      //   .to(".service-path-2", { top: -500 })
-      //   .to(".service-path-5", { top: -450 }, "<")
-      //   .to(".service-path-4", { top: -1000 }, "<")
-      //   .to(".service-path-3", { top: 200 }, "<");
-      // let tl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "#service-grid",
-      //     scrub: true,
-      //     pin: true,
-      //     pinSpacing: true,
-      //     // markers: true,
-      //     end: "+=6000",
-      //   },
-      //   defaults: {
-      //     ease: "none",
-      //   },
-      // });
-      // data.map((e: any, i) => {
-      //   gsap.set(`.service-para-${i}`, { color: "rgba(0, 0, 0, 0)" });
-      //   gsap.set(`.imgCover-${i}`, { scale: 0 });
-      //   //
-      //   tl.to(".service-content-grid", { x: `-${50 * i}vw` })
-      //     .to(
-      //       `.service-subheading-${i - 1}`,
-      //       { webkitTextFillColor: "transparent" },
-      //       "<"
-      //     )
-      //     .to(`.service-subheading-${i}`, { webkitTextFillColor: "black" }, "<")
-      //     .to(`.service-para-${i}`, { color: "rgba(0, 0, 0, 1)" }, "<")
-      //     .to(`.imgCover-${i}`, { scale: 1 }, "<")
-      //     .to(".service-image-grid", { y: `-${100 * i}vh` }, "<")
-      //     .to(`.imgCover-${i - 1}`, { scale: 0 }, "<")
-      //     .to(`.service-para-${i - 1}`, { color: "rgba(0, 0, 0, 0)" }, "<");
-      // });
     },
     { scope: container }
   );
 
   return (
     <section id="services" ref={container} className={s.main}>
-      {/* <h2 className={s.tag}>04 Services</h2> */}
       <div className={`services-heading ${s.heading}`}>
         <ServicesHeading />
       </div>

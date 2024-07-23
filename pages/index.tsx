@@ -1,15 +1,13 @@
 import About from "@/components/About/About";
-import AnimeStar from "@/components/AnimeStar/AnimeStar";
 import Archive from "@/components/Archive/Archive";
 import Client from "@/components/Client/Client";
 import Contact from "@/components/Contact/Contact";
 import Cookie from "@/components/Cookie/Cookie";
 import Footer from "@/components/Footer/Footer";
-import Hero from "@/components/Hero/Hero";
-import TestHero from "@/components/Hero/TestHero";
 import Services from "@/components/Services/Services";
 import Showreel from "@/components/Showreel/Showreel";
 import Work from "@/components/Work/Work";
+import Hero from "@/components/Hero/Hero";
 import Head from "next/head";
 
 export default function Home() {
@@ -21,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TestHero />
+      <Hero />
       <Showreel />
       <Work />
       <Archive />

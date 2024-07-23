@@ -7,9 +7,12 @@ const Preloader = () => {
   const [state, setState] = useState<boolean>(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setState(true);
     }, 2800);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (

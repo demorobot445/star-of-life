@@ -1,26 +1,48 @@
-import Link from "next/link";
-import { Logo, Star } from "../Svg/Svg";
+import { Star } from "../Svg/Svg";
 import s from "./footer.module.scss";
 import Elements from "./Elements";
 import CustomLink from "./CustomLink";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Footer = () => {
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top center",
+            toggleActions: "play none none reverse",
+            fastScrollEnd: true,
+            preventOverlaps: true,
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        })
+        .from(".footer-star-2", { scale: 0, rotate: 360 })
+        .from(".footer-path-1 path", { xPercent: 100, stagger: 0.1 }, "<0.2")
+        .from(".footer-path-5 ", { yPercent: 100 }, "<0.2")
+        .from(
+          ".footer-nav-1 a",
+          { clipPath: "inset(100% 0% 0% 0%)", stagger: 0.1 },
+          "<0.2"
+        )
+        .from(".footer-nav-2 a", {
+          clipPath: "inset(100% 0% 0% 0%)",
+          stagger: 0.1,
+        });
+    },
+    { scope: container }
+  );
+
   return (
-    <footer id="footer" className={s.main}>
+    <footer ref={container} id="footer" className={s.main}>
       <Elements />
-      {/* <div className={`footer-star-1 ${s.star}`}>
-        <Star />
-      </div>
-      <div className={s.logo}>
-        <Logo />
-      </div> */}
-      {/* <div className={`call ${s.call}`}>
-        <h2>Join us Newsletter</h2>
-        <div>
-          <input placeholder="Enter Your Email" type="text" />
-          <button>submit</button>
-        </div>
-      </div> */}
       <div className={`footer-star-2 ${s.star}`}>
         <Star />
       </div>

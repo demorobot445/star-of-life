@@ -8,8 +8,61 @@ import { ShowreelHeading } from "../Svg/Svg";
 const Showreel = () => {
   const container = useRef<HTMLElement>(null);
 
-  const { contextSafe } = useGSAP(
+  useGSAP(
     () => {
+      let mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          isDesktop: `(min-width: 800px)`,
+        },
+        (context) => {
+          let { isDesktop } = context.conditions as { isDesktop: boolean };
+
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current,
+                start: "top 40%",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: isDesktop,
+                preventOverlaps: isDesktop,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".showreel-heading path", {
+              strokeDashoffset: 1740,
+              duration: 0.8,
+              ease: "none",
+            })
+            .to(".showreel-heading path", {
+              duration: 0.8,
+              fill: "black",
+              ease: "power3",
+            });
+
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".showreel-video",
+                start: "top bottom",
+                toggleActions: "play none none reverse",
+                fastScrollEnd: isDesktop,
+                preventOverlaps: isDesktop,
+              },
+              defaults: {
+                ease: "power4.inOut",
+              },
+            })
+            .from(".showreel-video", {
+              clipPath: "inset(100% 25% 0% 25%)",
+              duration: 2,
+            });
+        }
+      );
+
       gsap.from(".path-6 path", {
         scrollTrigger: {
           trigger: ".path-6",
@@ -47,7 +100,7 @@ const Showreel = () => {
         style={{ padding: "56.25% 0 0 0", position: "relative" }}
       >
         <iframe
-          src="https://player.vimeo.com/video/933780210?h=0afc317c3c&autopause=false&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0"
+          src="https://player.vimeo.com/video/985974400?h=0afc317c3c&autopause=false&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&controls=0"
           style={{
             position: "absolute",
             inset: 0,
@@ -59,14 +112,6 @@ const Showreel = () => {
           allow="autoplay; fullscreen; picture-in-picture"
         ></iframe>
       </div>
-      {/* <video
-        className={`showreel-video ${s.video}`}
-        src="/demo-video.mp4"
-        muted
-        autoPlay
-        playsInline
-        loop
-      /> */}
     </section>
   );
 };
