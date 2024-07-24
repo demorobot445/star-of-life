@@ -1,3 +1,4 @@
+import { Player } from "@lottiefiles/react-lottie-player";
 import s from "./hero.module.scss";
 import { HeroArrowDown, PathFive } from "../Svg/Svg";
 import DataM from "./lottie/data-m.json";
@@ -26,30 +27,12 @@ const Hero = () => {
       <div className={s.lottie}>
         {size.width! > 640 ? (
           size.width! > 840 ? (
-            <Lottie
-              options={{
-                loop: false,
-                autoplay: true,
-                animationData: Data,
-              }}
-            />
+            <Player autoplay loop={false} src={Data} />
           ) : (
-            <Lottie
-              options={{
-                loop: false,
-                autoplay: true,
-                animationData: DataT,
-              }}
-            />
+            <Player autoplay loop={false} src={DataT} />
           )
         ) : (
-          <Lottie
-            options={{
-              loop: false,
-              autoplay: true,
-              animationData: DataM,
-            }}
-          />
+          <Player autoplay loop={false} src={DataM} />
         )}
       </div>
     </section>
