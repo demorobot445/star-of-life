@@ -140,7 +140,7 @@
     justify-items: center;
     max-width: 1540px;
     margin-inline: auto;
-    gap: 30px;
+    gap: 40px;
     grid-template-columns: repeat(1, 1fr);
     padding-top: 60px;
     @include lg {
@@ -426,7 +426,13 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: scale(1.4);
+    transform: scale(2.7);
+    @include lg {
+      transform: scale(1.4);
+    }
+    @include xxl {
+      transform: scale(1.7);
+    }
     path {
       transition: 0.5s all var(--power4);
       transition-delay: 0.2s;

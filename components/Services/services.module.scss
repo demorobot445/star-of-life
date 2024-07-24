@@ -13,7 +13,7 @@
   }
   h1 {
     position: relative;
-    z-index: 2;
+
     text-align: center;
     width: 100%;
     font-weight: 400;
@@ -84,7 +84,6 @@
   position: absolute;
   top: 590px;
   right: -1%;
-  z-index: 2;
   svg {
     width: 26vw;
     height: 23vw;
@@ -223,6 +222,8 @@
   justify-content: center;
   clip-path: circle(0% at 50% 50%);
   h3 {
+    position: relative;
+    z-index: 4;
     font-family: SaolDisplay;
     text-align: center;
     color: black;
@@ -260,7 +261,6 @@
 
 .tag {
   position: absolute;
-  z-index: 2;
   transform: translateY(-50%) rotate(270deg);
   top: 50%;
   left: -55px;

@@ -13,7 +13,6 @@
   }
   h1 {
     position: relative;
-    z-index: 2;
     text-align: center;
     width: 100%;
     font-weight: 400;
@@ -45,6 +44,7 @@
 
 .heading {
   margin-inline: auto;
+  z-index: 2;
   @include lg {
     margin-bottom: 100px;
   }
@@ -94,16 +94,16 @@
     }
   }
   p {
-    font-size: 1.25rem;
-    line-height: calc(1.25rem * 1.5);
+    font-size: 1rem;
+    line-height: calc(1rem * 1.5);
     @include lg {
-      font-size: 1.25rem;
-      line-height: calc(1.25rem * 1.5);
+      font-size: 1rem;
+      line-height: calc(1rem * 1.5);
       max-width: 450px;
     }
     @include xxl {
-      font-size: 1.8vw;
-      line-height: calc(1.8vw * 1.4);
+      font-size: 1.4vw;
+      line-height: calc(1.4vw * 1.4);
       max-width: 32vw;
     }
   }
@@ -124,7 +124,7 @@
   }
   &_video {
     position: absolute;
-    width: 67%;
+    width: 65%;
     height: 100%;
     top: -2%;
     left: 48.8%;
@@ -155,6 +155,7 @@
         height: auto;
         width: 100%;
         aspect-ratio: 16/9;
+        transform: scale(0.8);
       }
     }
     @include xxl {
@@ -182,10 +183,11 @@
       padding-left: 30px;
     }
     &[data-varient="full"] {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding-left: 0px !important;
+      transform: translateY(-100px);
+      // align-items: center;
+      // justify-content: center;
+      // text-align: center;
+      // padding-left: 0px !important;
     }
   }
 }
