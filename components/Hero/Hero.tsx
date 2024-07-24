@@ -6,7 +6,6 @@ import DataT from "./lottie/data-t.json";
 import Data from "./lottie/data.json";
 import { useScrollTo } from "react-use-window-scroll";
 import useWindowSize from "@/hooks/useWindowSize";
-import Lottie from "react-lottie";
 
 const Hero = () => {
   const scrollTo = useScrollTo();
