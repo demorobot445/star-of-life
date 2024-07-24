@@ -37,9 +37,9 @@ const Elements = () => {
       <div className={`archive-path-7 ${s.pathSeven}`}>
         <ArchivePathSeven />
       </div>
-      <div className={`archive-path-8 ${s.pathEight}`}>
+      {/* <div className={`archive-path-8 ${s.pathEight}`}>
         <ArchivePathEight />
-      </div>
+      </div> */}
       <div className={`archive-path-9 ${s.pathNine}`}>
         <ArchivePathNine />
       </div>

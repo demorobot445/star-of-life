@@ -96,7 +96,7 @@ const Archive = () => {
       gsap
         .timeline({
           scrollTrigger: {
-            trigger: ".archive-path-8",
+            trigger: ".archive-path-9",
             start: "top center",
             toggleActions: "play none none reverse",
             fastScrollEnd: true,
@@ -107,8 +107,8 @@ const Archive = () => {
           },
         })
         .from(".archive-path-10", { xPercent: -500 })
-        .from(".archive-path-9", { xPercent: -500 }, "<")
-        .from(".archive-path-8", { scale: 0, rotate: 180 }, "<0.2");
+        .from(".archive-path-9", { xPercent: -500 }, "<");
+      // .from(".archive-path-8", { scale: 0, rotate: 180 }, "<0.2");
 
       gsap.from(".archive-path-11 path", {
         ease: "power4.inOut",

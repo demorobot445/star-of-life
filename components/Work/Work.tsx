@@ -51,7 +51,7 @@ const Work = () => {
             scrollTrigger: {
               trigger: `.slider`,
               start: isDesktop ? "top+=100 top" : "top top",
-              end: "bottom+=10000 bottom",
+              end: "bottom+=8000 bottom",
               scrub: true,
               pin: true,
               pinSpacing: true,

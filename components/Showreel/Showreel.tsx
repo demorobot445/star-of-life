@@ -83,8 +83,8 @@ const Showreel = () => {
           },
           defaults: { ease: "none" },
         })
-        .to(".path-3", { bottom: "-25%" })
-        .to(".path-4", { bottom: "-5%" }, "<")
+        .to(".path-3", { bottom: "-35%" })
+        .to(".path-4", { bottom: "-10%" }, "<")
         .to(".path-8", { bottom: "-20%" }, "<");
     },
     { scope: container }

@@ -153,7 +153,8 @@
       }
       &[data-varient="full"] {
         height: auto;
-        width: 100%;
+        margin: auto;
+        width: 70%;
         aspect-ratio: 16/9;
         transform: scale(0.8);
       }
