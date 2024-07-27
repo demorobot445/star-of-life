@@ -43,9 +43,16 @@ const Hero = () => {
             />
           )
         ) : (
-          <figure>
-            <img className={s.gif} src="/data-m.gif" alt="gif" />
-          </figure>
+          <Lottie
+            options={{
+              loop: false,
+              autoplay: true,
+              animationData: DataM,
+            }}
+          />
+          // <figure>
+          //   <img className={s.gif} src="/data-m.gif" alt="gif" />
+          // </figure>
         )}
       </div>
     </section>
