@@ -123,20 +123,20 @@ const About = () => {
         />
         <div className={`about-para-box ${s.box}`}>
           <p ref={para} className={s.content}>
-            Hello! I&apso;m Philippe, a passionate digital designer with a focus
-            on aesthetics and innovation. I&apso;m also dedicated to using
-            design and technology for positive social change. Outside of work, I
-            enjoy spending time with my two kids, as well as indulging in
-            design, interior decor, travel, culture, and art, all of which
-            inspire my creative process.
+            {`Hello! I'm Philippe, a passionate digital designer with a focus on
+            aesthetics and innovation. I'm also dedicated to using design and
+            technology for positive social change. Outside of work, I enjoy
+            spending time with my two kids, as well as indulging in design,
+            interior decor, travel, culture, and art, all of which inspire my
+            creative process.`}
           </p>
           <p ref={paraHide} data-hide className={s.content}>
-            Hello! I&apso;m Philippe, a passionate digital designer with a focus
-            on aesthetics and innovation. I&apso;m also dedicated to using
-            design and technology for positive social change. Outside of work, I
-            enjoy spending time with my two kids, as well as indulging in
-            design, interior decor, travel, culture, and art, all of which
-            inspire my creative process.
+            {`Hello! I'm Philippe, a passionate digital designer with a focus on
+            aesthetics and innovation. I'm also dedicated to using design and
+            technology for positive social change. Outside of work, I enjoy
+            spending time with my two kids, as well as indulging in design,
+            interior decor, travel, culture, and art, all of which inspire my
+            creative process.`}
           </p>
         </div>
       </div>

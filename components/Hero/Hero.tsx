@@ -6,6 +6,7 @@ import Data from "./lottie/data.json";
 import { useScrollTo } from "react-use-window-scroll";
 import useWindowSize from "@/hooks/useWindowSize";
 import Lottie from "react-lottie";
+import Image from "next/image";
 
 const Hero = () => {
   const scrollTo = useScrollTo();
@@ -43,13 +44,22 @@ const Hero = () => {
             />
           )
         ) : (
-          <Lottie
-            options={{
-              loop: false,
-              autoplay: true,
-              animationData: DataM,
-            }}
+          <Image
+            className={s.gif}
+            src="/data-m.gif"
+            alt="gif"
+            priority
+            unoptimized
+            height={1000}
+            width={1000}
           />
+          // <Lottie
+          //   options={{
+          //     loop: false,
+          //     autoplay: true,
+          //     animationData: DataM,
+          //   }}
+          // />
           // <figure>
           //   <img className={s.gif} src="/data-m.gif" alt="gif" />
           // </figure>
