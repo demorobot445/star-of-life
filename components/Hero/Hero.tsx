@@ -44,25 +44,22 @@ const Hero = () => {
             />
           )
         ) : (
-          <Image
-            className={s.gif}
-            src="/data-m.gif"
-            alt="gif"
-            priority
-            unoptimized
-            height={1000}
-            width={1000}
-          />
-          // <Lottie
-          //   options={{
-          //     loop: false,
-          //     autoplay: true,
-          //     animationData: DataM,
-          //   }}
+          // <Image
+          //   className={s.gif}
+          //   src="/data-m.gif"
+          //   alt="gif"
+          //   priority
+          //   unoptimized
+          //   height={1000}
+          //   width={1000}
           // />
-          // <figure>
-          //   <img className={s.gif} src="/data-m.gif" alt="gif" />
-          // </figure>
+          <Lottie
+            options={{
+              loop: false,
+              autoplay: true,
+              animationData: DataM,
+            }}
+          />
         )}
       </div>
     </section>
