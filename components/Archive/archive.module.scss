@@ -359,3 +359,17 @@
   font-size: 2.5rem;
   line-height: calc(2.5rem * 1.2);
 }
+
+.shapeBox {
+  position: absolute;
+  // background-color: red;
+  height: 100vh;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+  div {
+    position: absolute;
+    bottom: 0%;
+    transform: scale(0);
+  }
+}

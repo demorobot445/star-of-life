@@ -87,8 +87,8 @@ export const data: Data[] = [
       "Date: consetetur ",
     ],
     para: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus vero quaerat a, neque nostrum in assumenda facilis ipsam modi illo at vitae nobis blanditiis veritatis.",
-    imgVarient: "full",
-    position: "full",
+    imgVarient: "normal",
+    position: "normal",
   },
   {
     heading: [

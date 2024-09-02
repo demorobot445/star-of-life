@@ -52,7 +52,7 @@ const Work = () => {
               trigger: `.slider`,
               start: isDesktop ? "top+=100 top" : "top top",
               end: "bottom+=8000 bottom",
-              scrub: true,
+              scrub: 3,
               pin: true,
               pinSpacing: true,
             },
@@ -68,7 +68,7 @@ const Work = () => {
                 duration: 0.8,
                 ease: "power4",
               })
-              .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
+              .from(`.heading-${i}`, { scale: 1.6 })
               .from(`.image-${i}`, {
                 left: isDesktop ? "120%" : "80%",
                 top: isDesktop ? "50%" : "100%",

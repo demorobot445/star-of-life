@@ -6,6 +6,7 @@ import { data } from "./data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArchiveHeading } from "../Svg/Svg";
+import Shape from "./Shape";
 
 const Archive = () => {
   const container = useRef<HTMLElement>(null);
@@ -39,90 +40,6 @@ const Archive = () => {
           ease: "power3",
         });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: container.current!,
-            start: "top 40%",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          },
-          defaults: {
-            ease: "power4.inOut",
-          },
-        })
-        .from(".archive-path-1", {
-          clipPath: "inset(0% 0% 0% 100%)",
-          duration: 1,
-          delay: 0.4,
-        })
-        .from(".archive-path-2", { x: 500 }, "<0.2");
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".archive-path-3",
-            start: "top center",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          },
-          defaults: {
-            ease: "power4.inOut",
-          },
-        })
-        .from(".archive-path-3", { xPercent: 50 })
-        .to(".archive-path-3", { rotate: -35 }, "<0.2")
-        .to(".archive-path-3", { rotate: 0 }, "<0.5")
-        .from(".archive-path-4", { xPercent: -50, scale: 0 }, "<0.2");
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".archive-path-6",
-            start: "top center",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          },
-          defaults: {
-            ease: "power4.inOut",
-          },
-        })
-        .from(".archive-path-6", { xPercent: -50, scale: 0 })
-        .from(".archive-path-7", { xPercent: -80, y: 100, rotate: 360 }, "<0.2")
-        .from(".archive-path-5", { xPercent: 80 }, "<0.2");
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".archive-path-9",
-            start: "top center",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          },
-          defaults: {
-            ease: "power4.inOut",
-          },
-        })
-        .from(".archive-path-10", { xPercent: -500 })
-        .from(".archive-path-9", { xPercent: -500 }, "<");
-      // .from(".archive-path-8", { scale: 0, rotate: 180 }, "<0.2");
-
-      gsap.from(".archive-path-11 path", {
-        ease: "power4.inOut",
-        stagger: 0.1,
-        scale: 0,
-        scrollTrigger: {
-          trigger: ".archive-path-11",
-          start: "top center",
-          toggleActions: "play none none reverse",
-          fastScrollEnd: true,
-          preventOverlaps: true,
-        },
-      });
-
       mm.add(
         { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
         (context) => {
@@ -135,7 +52,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-0",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-1", {
@@ -144,7 +61,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-1",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-2", {
@@ -153,7 +70,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-0",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-3", {
@@ -162,7 +79,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-3",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-4", {
@@ -171,7 +88,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-2",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-5", {
@@ -180,25 +97,23 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-5",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-6", {
               yPercent: -60,
-
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-5",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-7", {
-              yPercent: -40,
-
+              yPercent: -20,
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-5",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-8", {
@@ -207,16 +122,16 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-8",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-9", {
-              yPercent: -60,
+              yPercent: -20,
 
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-7",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-10", {
@@ -225,7 +140,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-10",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-11", {
@@ -234,7 +149,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-9",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-12", {
@@ -243,7 +158,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-12",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-13", {
@@ -252,7 +167,7 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-11",
-                scrub: true,
+                scrub: 1,
               },
             });
             gsap.to(".archive-card-15", {
@@ -261,19 +176,38 @@ const Archive = () => {
               ease: "none",
               scrollTrigger: {
                 trigger: ".archive-card-13",
-                scrub: true,
+                scrub: 1,
               },
             });
           }
         }
       );
+
+      gsap.set(".shapebox-shape", { x: 500 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current!,
+            start: "top top",
+            pin: ".shapebox",
+            scrub: 3,
+          },
+        })
+        .to(".shapebox-shape", { scale: 1, stagger: 0.07 })
+        .to(".shapebox-shape", { x: 1500, y: -200, stagger: 0.08 }, "<0.1")
+        .to(".shapebox-shape", { x: -1000, y: -800, stagger: 0.06 })
+        .to(".shapebox-shape", { x: 600, stagger: 0.06 })
+        .to(".shapebox-shape", { y: 0, stagger: 0.06 }, "<0.2")
+        .to(".shapebox-shape", { scale: 0, stagger: 0.06 }, "<0.2");
     },
     { scope: container }
   );
 
   return (
     <section id="archive" ref={container} className={s.main}>
-      <Elements />
+      {/*<Elements />*/}
+      <Shape />
       <div className={`archive-heading ${s.heading}`}>
         <ArchiveHeading />
       </div>
