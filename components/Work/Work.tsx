@@ -47,46 +47,40 @@ const Work = () => {
               ease: "power3",
             });
 
-          gsap.to(".counter", {
+          let tl = gsap.timeline({
             scrollTrigger: {
-              trigger: ".counter",
-              // markers: true,
+              trigger: `.slider`,
+              start: isDesktop ? "top+=100 top" : "top top",
+              end: "bottom+=8000 bottom",
+              scrub: true,
               pin: true,
-              start: "-10% top",
-              end: "bottom bottom",
+              pinSpacing: true,
             },
+            defaults: { ease: "none" },
           });
 
           data.map((e, i) => {
-            gsap
-              .timeline({
-                scrollTrigger: {
-                  trigger: `.slide-${i}`,
-                  start: "-35% bottom",
-                  scrub: true,
-                  pinSpacing: true,
-                  // markers: true,
-                },
-                onStart: () => setCounter(i + 1),
-                onReverseComplete: () => setCounter(i - 1),
-                defaults: { ease: "none" },
+            tl.call(() => setCounter(i + 1))
+              .to(`.slide-${i - 1}`, { yPercent: -100 })
+              .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
+              .from(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
               })
+              .from(`.heading-${i}`, { scale: innerWidth < 1600 ? 0.6 : 0.6 })
               .from(`.image-${i}`, {
                 left: isDesktop ? "120%" : "80%",
                 top: isDesktop ? "50%" : "100%",
                 rotate: -35,
                 duration: 5,
               })
-              .from(`.heading-${i}`, { scale: 2 }, "<2")
-              .from(
-                `.work-path-${i + 1}`,
-                {
-                  scale: 0,
-                  duration: 0.8,
-                  ease: "power4",
-                },
-                "<0.6"
-              );
+              .call(() => setCounter(i + 1))
+              .to(`.work-path-${i + 1}`, {
+                scale: 0,
+                duration: 0.8,
+                ease: "power4",
+              });
           });
         }
       );
@@ -104,7 +98,7 @@ const Work = () => {
       </div>
 
       <div className={`slider ${s.slider}`}>
-        <div className={`counter ${s.counter}`}>
+        <div className={s.counter}>
           <h2>0{counter}/08</h2>
         </div>
 
