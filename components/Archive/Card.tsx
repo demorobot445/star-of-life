@@ -13,7 +13,11 @@ const Card: React.FC<Props> = ({
   lessPad,
 }) => {
   return (
-    <div data-varient={position} className={`archive-card-${id} ${s.card}`}>
+    <div
+      data-varient={position}
+      data-unknown={imgVarient}
+      className={`archive-card-${id} ${s.card}`}
+    >
       <div
         style={{ backgroundImage: `url(/archive/${id}.png)` }}
         data-varient={imgVarient}

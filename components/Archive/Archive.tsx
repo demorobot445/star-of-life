@@ -183,7 +183,7 @@ const Archive = () => {
         }
       );
 
-      gsap.set(".shapebox-shape", { x: 500 });
+      gsap.set(".shapebox-shape", { x: "40vw" });
 
       gsap
         .timeline({
@@ -195,9 +195,9 @@ const Archive = () => {
           },
         })
         .to(".shapebox-shape", { scale: 1, stagger: 0.07 })
-        .to(".shapebox-shape", { x: 1500, y: -200, stagger: 0.08 }, "<0.1")
-        .to(".shapebox-shape", { x: -1000, y: -800, stagger: 0.06 })
-        .to(".shapebox-shape", { x: 600, stagger: 0.06 })
+        .to(".shapebox-shape", { x: "100vw", y: -200, stagger: 0.08 }, "<0.1")
+        .to(".shapebox-shape", { x: "-100vw", y: -800, stagger: 0.06 })
+        .to(".shapebox-shape", { x: "50vw", stagger: 0.06 })
         .to(".shapebox-shape", { y: 0, stagger: 0.06 }, "<0.2")
         .to(".shapebox-shape", { scale: 0, stagger: 0.06 }, "<0.2");
     },

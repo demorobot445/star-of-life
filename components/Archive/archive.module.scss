@@ -108,6 +108,9 @@
     }
   }
   @include lg {
+    &[data-unknown="long"] {
+      margin-left: auto;
+    }
     &[data-varient="absolute"] {
       top: -295px;
       left: 154px;

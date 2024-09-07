@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { ClientsHeading } from "../Svg/Svg";
 import Marquee from "react-fast-marquee";
 import gsap from "gsap";
+import Shape from "./Shape";
 
 const Client = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -32,6 +33,18 @@ const Client = () => {
         { isDesktop: `(min-width: 800px)`, isMobile: `(max-width: 799px)` },
         (context) => {
           let { isDesktop } = context.conditions as { isDesktop: boolean };
+
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current!,
+                start: "top top",
+                pin: ".shapebox",
+                scrub: 3,
+              },
+            })
+            .to(".shapebox-shape", { x: "100vw", y: -500, stagger: 0.08 });
+
           gsap
             .timeline({
               scrollTrigger: {
@@ -59,25 +72,6 @@ const Client = () => {
               fill: "black",
               ease: "power3",
             });
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: container.current!,
-                start: isDesktop ? "top 40%" : "top-=50 center",
-                toggleActions: "play none none reverse",
-                fastScrollEnd: true,
-                preventOverlaps: true,
-              },
-              defaults: {
-                ease: "power4.inOut",
-              },
-            })
-            .from(
-              ".client-path-1 path",
-              { stagger: 0.05, x: 200, scale: 0 },
-              "<0.2"
-            )
-            .from(".client-path-2", { xPercent: 100, y: 100 }, "<0.4");
 
           if (isDesktop) {
             gsap
@@ -148,7 +142,8 @@ const Client = () => {
 
   return (
     <section ref={container} id="clients" className={s.main}>
-      <Elements />
+      {/* <Elements /> */}
+      <Shape />
       <div className={`client-heading ${s.heading}`}>
         <ClientsHeading />
       </div>
