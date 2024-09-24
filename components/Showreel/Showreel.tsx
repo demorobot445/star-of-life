@@ -4,6 +4,7 @@ import s from "./showreel.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ShowreelHeading } from "../Svg/Svg";
+import Shape from "./Shape";
 
 const Showreel = () => {
   const container = useRef<HTMLElement>(null);
@@ -64,15 +65,15 @@ const Showreel = () => {
         }
       );
 
-      gsap.from(".path-6 path", {
-        scrollTrigger: {
-          trigger: ".path-6",
-          scrub: true,
-          end: "bottom 20%",
-        },
-        strokeDashoffset: 2600,
-        ease: "none",
-      });
+      // gsap.from(".path-6 path", {
+      //   scrollTrigger: {
+      //     trigger: ".path-6",
+      //     scrub: true,
+      //     end: "bottom 20%",
+      //   },
+      //   strokeDashoffset: 2600,
+      //   ease: "none",
+      // });
 
       gsap
         .timeline({
@@ -86,13 +87,26 @@ const Showreel = () => {
         .to(".path-3", { bottom: "-35%" })
         .to(".path-4", { bottom: "-10%" }, "<")
         .to(".path-8", { bottom: "-20%" }, "<");
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current!,
+            start: "top-=500 center",
+            pin: ".shapebox",
+            scrub: 3,
+          },
+        })
+        .to(".shapebox-shape", { x: "-120vw", stagger: 0.08 })
+        .to(".shapebox-shape", { scale: 0.4, yPercent: -200 }, "<0.3");
     },
     { scope: container }
   );
 
   return (
     <section ref={container} id="showreel" className={s.main}>
-      <Elements />
+      {/* <Elements /> */}
+      <Shape />
       <div className={`showreel-heading ${s.heading}`}>
         <ShowreelHeading />
       </div>

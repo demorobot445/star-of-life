@@ -7,6 +7,7 @@ import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { AboutHeading } from "../Svg/Svg";
+import Shape from "./Shape";
 
 const About = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -103,6 +104,23 @@ const About = () => {
             .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
         }
       );
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: container.current!,
+            start: "top bottom",
+            end: "bottom+=140% bottom",
+            pin: ".shapebox",
+            scrub: 3,
+          },
+        })
+        .to(".shapebox-shape", { x: "-80vw", y: 0, stagger: 0.08 })
+        .to(
+          ".shapebox-shape",
+          { x: "30vw", yPercent: -200, stagger: 0.08 },
+          "<0.6"
+        );
     },
     { scope: container }
   );
@@ -110,6 +128,7 @@ const About = () => {
   return (
     <section ref={container} id="about" className={s.main}>
       <Elements />
+      <Shape />
       <div className={`about-heading ${s.heading}`}>
         <AboutHeading />
       </div>
