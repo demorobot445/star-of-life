@@ -3,7 +3,6 @@ import { MenuLine } from "../Svg/Svg";
 import s from "./header.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap, { Power4 } from "gsap";
-import Elements from "./Elements";
 import Link from "next/link";
 import MenuElements from "./MenuElements";
 import RandomLetter from "../Footer/RandomLetter";
@@ -32,30 +31,6 @@ const Header = ({
 
   const { contextSafe } = useGSAP(
     () => {
-      //hero elements
-      gsap
-        .timeline({
-          defaults: { ease: Power4.easeInOut, duration: 2 },
-          onComplete: () => {
-            gsap.to(".path-1", {
-              keyframes: [{ y: 20 }, { y: -20 }, { y: 0 }],
-              duration: 5,
-              repeat: -1,
-            });
-            gsap.to(".path-2", {
-              keyframes: [
-                { rotate: 120, scale: 0.9 },
-                { rotate: 180, scale: 1.1 },
-                { rotate: 360, scale: 1 },
-              ],
-              duration: 10,
-              repeat: -1,
-            });
-          },
-        })
-        .from(".path-1", { y: -200 })
-        .from(".path-2", { y: -200, scale: 0 }, "<0.4");
-
       //menu animation
       tl.current = gsap
         .timeline({
@@ -298,7 +273,6 @@ const Header = ({
           );
         })}
       </div>
-      <Elements />
       <header ref={header} id="unknown-header" className={s.main}>
         <div
           ref={logo}

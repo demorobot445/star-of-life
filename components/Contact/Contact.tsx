@@ -1,6 +1,5 @@
 import Link from "next/link";
 import s from "./contact.module.scss";
-import Elements from "./Elements";
 import { ContactHeading, ContactPathOne } from "../Svg/Svg";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -33,25 +32,6 @@ const Contact = () => {
           fill: "black",
           ease: "power3",
         });
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top 40%",
-            toggleActions: "play none none reverse",
-            fastScrollEnd: true,
-            preventOverlaps: true,
-          },
-          defaults: {
-            ease: "power4.inOut",
-          },
-        })
-        .from(".contact-path-2", { xPercent: 70 }, "<0.6")
-        .to(
-          ".contact-path-3 path",
-          { strokeDashoffset: 0, duration: 2 },
-          "<0.2"
-        );
 
       gsap
         .timeline({
@@ -69,15 +49,13 @@ const Contact = () => {
         .from(".contact-grid p", {
           clipPath: "inset(100% 0% 0% 0%)",
           stagger: 0.2,
-        })
-        .from(".contact-path-1", { scale: 0 });
+        });
     },
     { scope: container }
   );
 
   return (
     <section ref={container} id="contact" className={s.main}>
-      <Elements />
       <div className={`contact-heading ${s.heading}`}>
         <ContactHeading />
       </div>

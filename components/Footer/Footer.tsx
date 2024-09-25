@@ -1,6 +1,5 @@
 import { Star } from "../Svg/Svg";
 import s from "./footer.module.scss";
-import Elements from "./Elements";
 import CustomLink from "./CustomLink";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -25,8 +24,6 @@ const Footer = () => {
           },
         })
         .from(".footer-star-2", { scale: 0, rotate: 360 })
-        .from(".footer-path-1 path", { xPercent: 100, stagger: 0.1 }, "<0.2")
-        .from(".footer-path-5 ", { yPercent: 100 }, "<0.2")
         .from(
           ".footer-nav-1 a",
           { clipPath: "inset(100% 0% 0% 0%)", stagger: 0.1 },
@@ -42,7 +39,6 @@ const Footer = () => {
 
   return (
     <footer ref={container} id="footer" className={s.main}>
-      <Elements />
       <div className={`footer-star-2 ${s.star}`}>
         <Star />
       </div>

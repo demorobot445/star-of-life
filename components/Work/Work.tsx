@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import Elements from "./Elements";
 import s from "./work.module.scss";
 import { data } from "./data";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +7,7 @@ import { WorkHeading } from "../Svg/Svg";
 import Image from "next/image";
 import { useSnapshot } from "valtio";
 import { store } from "@/store";
+import Shape from "./Shape";
 
 const Work = () => {
   const container = useRef<HTMLElement>(null);
@@ -62,25 +62,25 @@ const Work = () => {
           data.map((e, i) => {
             tl.call(() => setCounter(i + 1))
               .to(`.slide-${i - 1}`, { yPercent: -100 })
+              .to(
+                `.shapebox-shape-${i}`,
+                {
+                  x: i % 2 === 0 ? "100vw" : "-100vw",
+                  yPercent: 70,
+                  stagger: 0.8,
+                  duration: 4,
+                },
+                "<"
+              )
               .from(`.slide-${i}`, { yPercent: i === 0 ? 0 : 100 }, "<")
-              .from(`.work-path-${i + 1}`, {
-                scale: 0,
-                duration: 0.8,
-                ease: "power4",
-              })
-              .from(`.heading-${i}`, { scale: 1.6 })
+              .from(`.heading-${i}`, { scale: 1.6 }, "<0.7")
               .from(`.image-${i}`, {
                 left: isDesktop ? "120%" : "80%",
                 top: isDesktop ? "50%" : "100%",
                 rotate: -35,
                 duration: 5,
               })
-              .call(() => setCounter(i + 1))
-              .to(`.work-path-${i + 1}`, {
-                scale: 0,
-                duration: 0.8,
-                ease: "power4",
-              });
+              .call(() => setCounter(i + 1));
           });
         }
       );
@@ -105,7 +105,7 @@ const Work = () => {
         {data.map(({ name }, i) => {
           return (
             <div key={i} className={`slide-${i} ${s.slide}`}>
-              <Elements id={i} />
+              <Shape id={i} />
               <Image
                 className={`image-${i} ${s.image}`}
                 src={`/work/${i}.webp`}

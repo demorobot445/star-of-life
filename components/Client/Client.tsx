@@ -1,6 +1,5 @@
 import Image from "next/image";
 import s from "./client.module.scss";
-import Elements from "./Elements";
 import { useRef } from "react";
 import SplitType from "split-type";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";

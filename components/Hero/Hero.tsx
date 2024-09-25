@@ -1,5 +1,5 @@
 import s from "./hero.module.scss";
-import { HeroArrowDown, PathFive } from "../Svg/Svg";
+import { HeroArrowDown } from "../Svg/Svg";
 import DataM from "./lottie/data-m.json";
 import DataT from "./lottie/data-t.json";
 import Data from "./lottie/data.json";
@@ -21,9 +21,7 @@ const Hero = () => {
       >
         <HeroArrowDown />
       </div>
-      <div className={s.pathFive}>
-        <PathFive />
-      </div>
+
       <div className={s.lottie}>
         {size.width! > 640 ? (
           size.width! > 840 ? (

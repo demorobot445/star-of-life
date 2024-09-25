@@ -54,8 +54,7 @@ const About = () => {
               duration: 0.8,
               fill: "black",
               ease: "power3",
-            })
-            .from(".about-path-2", { xPercent: 70 }, "<");
+            });
 
           gsap
             .timeline({
@@ -95,13 +94,7 @@ const About = () => {
               },
             })
             .from(".about-img", { clipPath: "inset(100% 0% 0% 0%)" })
-            .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 })
-            .to(
-              ".about-path-3 path",
-              { strokeDashoffset: 0, duration: 2 },
-              "<0.2"
-            )
-            .from(".about-path-4", { yPercent: 100, scale: 0 }, "<0.2");
+            .from(".about-path-1", { xPercent: -50, y: -400, scale: 0 });
         }
       );
 
