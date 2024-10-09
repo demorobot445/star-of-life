@@ -1,8 +1,7 @@
 import s from "./hero.module.scss";
 import { HeroArrowDown } from "../Svg/Svg";
-import DataM from "./lottie/data-m.json";
 import DataT from "./lottie/data-t.json";
-import Data from "./lottie/data.json";
+import Data from "./lottie/desktop.json";
 import { useScrollTo } from "react-use-window-scroll";
 import useWindowSize from "@/hooks/useWindowSize";
 import Lottie from "react-lottie";
@@ -42,22 +41,22 @@ const Hero = () => {
             />
           )
         ) : (
-          // <Image
-          //   className={s.gif}
-          //   src="/data-m.gif"
-          //   alt="gif"
-          //   priority
-          //   unoptimized
-          //   height={1000}
-          //   width={1000}
-          // />
-          <Lottie
-            options={{
-              loop: false,
-              autoplay: true,
-              animationData: DataM,
-            }}
+          <Image
+            className={s.gif}
+            src="/data.svg"
+            alt="gif"
+            priority
+            unoptimized
+            height={1000}
+            width={1000}
           />
+          // <Lottie
+          //   options={{
+          //     loop: false,
+          //     autoplay: true,
+          //     animationData: DataM,
+          //   }}
+          // />
         )}
       </div>
     </section>
